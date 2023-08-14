@@ -52,8 +52,8 @@ logon to your cluster Desktop/Console URL and check for the cluster informations
 Set the data according to the Techzone Welcome Mail:
 ```
 export SNO_API_URL=https://api.64d9cc7d49d91f0017b60a02.cloud.techzone.ibm.com:6443
-export SNO_CLUSTER_ADMIN_PWD=XXXXX-wtYp5-2dp6s-X9N95
-export SNO_IBM_ENTITLEMENT_KEY=QiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+export SNO_CLUSTER_ADMIN_PWD=jYaM7-YTSvR-cFY9P-LofjF
+export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 ```
 
 #### Update the hosts for to the AP connection string
@@ -73,46 +73,64 @@ mkdir /root/ibm-lh-manage
 cd /root/ibm-lh-manage/
 ```
 ```
-vi ibm-lh-manage.env
-```
-```
-export SNO_API_URL=https://api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com:6443
-export SNO_CLUSTER_ADMIN_PWD=JPyfX-wtYp5-2dp6s-X9N95
-export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
-
+tee ibm-lh-manage.env <<EOF 
+# ------------------------------------------------------------------------------
+# Watsonx.data  version
+# ------------------------------------------------------------------------------
 export LH_IMAGE_TAG=latest
+
+# ------------------------------------------------------------------------------
+# Watsonx.data settings
+# ------------------------------------------------------------------------------
 export DOCKER_EXE=podman
 export UTILS_IMG=icr.io/cpopen/watsonx-data/ibm-lakehouse-manage-utils:$LH_IMAGE_TAG
 export IBM_LH_TOOLBOX=icr.io/cpopen/watsonx-data/ibm-lakehouse-toolbox:$LH_IMAGE_TAG
 export WORK_DIR=/root/ibm-lh-manage/.ibm-lh-manage-utils
-export OCP_URL=https://api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com:6443
-export OPENSHIFT_TYPE=self-managed
 export IMAGE_ARCH=x86-64
-export PROJECT_CPD_OPS=cpd-operator
-export PROJECT_CPD_INSTANCE=cpd-instance
-export STG_CLASS_BLOCK=nfs-storage-provisioner
-export STG_CLASS_FILE=nfs-storage-provisioner
 export PROD_REGISTRY=cp.icr.io
 export PROD_USER=cp
-export IBM_ENTITLEMENT_KEY=eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+# ------------------------------------------------------------------------------
+# Projects
+# ------------------------------------------------------------------------------
+export PROJECT_CPD_OPS=watsonxdata1-operator
+export PROJECT_CPD_INSTANCE=watsonxdata1-instance
 
+# ------------------------------------------------------------------------------
+# IBM Entitled Registry
+# ------------------------------------------------------------------------------
+export IBM_ENTITLEMENT_KEY=$SNO_IBM_ENTITLEMENT_KEY
+
+# ------------------------------------------------------------------------------
+# Cluster
+# ------------------------------------------------------------------------------
 export OCP_USERNAME="kubeadmin"
-export OCP_PASSWORD="$SNO_CLUSTER_ADMIN_PWD"
+export OCP_PASSWORD=$SNO_CLUSTER_ADMIN_PWD
 export OCP_TOKEN="$(oc whoami -t)"
+export OCP_URL=$SNO_API_URL
+export OPENSHIFT_TYPE=self-managed
 
+
+# ------------------------------------------------------------------------------
+# NFS Storage
+# ------------------------------------------------------------------------------
 export NFS_SERVER_LOCATION=192.168.252.2
 export NFS_PATH=/export
 export PROJECT_NFS_PROVISIONER=nfs-provisioner
 export NFS_STORAGE_CLASS=nfs-storage-provisioner
 export NFS_IMAGE=k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+export STG_CLASS_BLOCK=nfs-storage-provisioner
+export STG_CLASS_FILE=nfs-storage-provisioner
+EOF
 ```
 
 
-
+#### Enable the settings 
 ```
 source /root/ibm-lh-manage/ibm-lh-manage.env
+echo "source /root/ibm-lh-manage/ibm-lh-manage.env" >> ~/.bashrc
 ```
 
+#### Pull the watsonx.data ibm-lakehouse-toolbox image.
 ```
 $DOCKER_EXE pull $IBM_LH_TOOLBOX
 id=$($DOCKER_EXE create $IBM_LH_TOOLBOX)
@@ -121,6 +139,7 @@ $DOCKER_EXE rm $id
 unset id
 ```
 
+#### Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
 ```
 tar -xf /tmp/pkg.tar -C /tmp
 cat /tmp/opt/bom.txt
@@ -131,15 +150,17 @@ cp /tmp/opt/standalone/ibm-lakehouse-manage /root/ibm-lh-manage
 cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
 ```
 
+#### Run the following command to initialize the ibm-lh-manage-utils container.
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage initialize
 ```
 
-validate pod (optional): 
+###### validate pod (optional): 
 ```
 podman exec -ti ibm-lakehouse-manage-utils bash  
 ```
 
+###### validate the login: 
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --token=${OCP_TOKEN} \
