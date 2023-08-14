@@ -25,7 +25,7 @@ screen -S installwatsonxdata
 /root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
 ```
 
-#### Run the following command to accept the license agreement:
+#### Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
 ```
