@@ -167,6 +167,7 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --server=${OCP_URL}
 ```
 
+## Install NFS Provisioner and create a storage class for Watsonx.data
 ```
 ./ibm-lakehouse-manage setup-nfs-provisioner \
 --nfs_server=${NFS_SERVER_LOCATION} \
@@ -176,6 +177,7 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --nfs_provisioner_image=${NFS_IMAGE}
 ```
 
+#### Add the pull secret to the artifactory that contains watsonx.data images.
 ```
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
@@ -185,6 +187,7 @@ oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worke
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
 
+When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 ```
 watch oc get mcp
 Every 2.0s: oc get mcp                                                                                                                                                                                               bastion-gym-lan: Mon Aug 14 05:08:17 2023
@@ -192,7 +195,7 @@ Every 2.0s: oc get mcp                                                          
 NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
 master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
 worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
-
+```
 
 ```
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
