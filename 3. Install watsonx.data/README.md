@@ -1,4 +1,13 @@
 #### Prepare the installation
+start screen command, to execute the running steps in background, to avoid connectivity errors
+  screen -S <name> creates a new shell
+with 
+  screen -r <name> you can always attach to the shell if you lost the shell
+  using screen -list you can check for open shells
+```
+screen -S installwatsonxdata
+
+
 Set up the topology. Run the following commands:
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
