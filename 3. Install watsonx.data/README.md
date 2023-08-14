@@ -6,9 +6,17 @@ with
   using screen -list you can check for open shells
 ```
 screen -S installwatsonxdata
+```
 
+#### login to the cluster
+```
+/root/ibm-lh-manage/ibm-lakehouse-manage/ibm-lakehouse-manage login-to-ocp \
+--user=${OCP_USERNAME} \
+--password=${OCP_PASSWORD} \
+--server=${OCP_URL}
 
-Set up the topology. Run the following commands:
+  
+#### Set up the topology. Run the following commands:
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
 ```
