@@ -34,8 +34,8 @@ https://github.com/IBM/cpd-cli/releases
 ```
 wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
 tar -xzvf cpd-cli-linux-EE-13.0.1.tgz
-mv cpd-cli-linux-EE-13.0.0-9/* .
-rm -rf cpd-cli-linux-EE-13.0.0-9
+mv cpd-cli-linux-EE-13.0.1-26/* .
+rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
