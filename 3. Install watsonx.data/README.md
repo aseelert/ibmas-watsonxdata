@@ -10,7 +10,7 @@ screen -S installwatsonxdata
 
 #### login to the cluster
 ```
-/root/ibm-lh-manage/ibm-lakehouse-manage/ibm-lakehouse-manage login-to-ocp \
+/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --user=${OCP_USERNAME} \
 --password=${OCP_PASSWORD} \
 --server=${OCP_URL}
@@ -38,7 +38,7 @@ oc get csv -n ${PROJECT_CPD_OPS}
 #### Verify the CR status. Run the following command:
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
-
+```
 
 ```
 oc get $(oc get Wxdaddon -o name -n ${PROJECT_CPD_INSTANCE}) -o custom-columns='VERSION:status.version,STATUS:status.wxdStatus,BUILD:.status.wxdBuildNumber' -n ${PROJECT_CPD_INSTANCE}
@@ -58,7 +58,8 @@ CPD Password: dAThquPvKNc7
 ```
 oc get routes -A | grep cpd | awk '{print "https://" $3}'
 ```
+```
 oc get nodes | grep -e "cpu  " -e "memory  "
-
+```
 
 https://cpd-cpd-instance.apps.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com/watsonx-data/#/?instanceId=1691681073886232&serviceInstanceNamespace=cpd-instance&serviceInstanceDisplayName=lakehouse
