@@ -186,6 +186,15 @@ oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worke
 ```
 
 ```
+watch oc get mcp
+Every 2.0s: oc get mcp                                                                                                                                                                                               bastion-gym-lan: Mon Aug 14 05:08:17 2023
+
+NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
+master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
+worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
+
+
+```
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
 ```
