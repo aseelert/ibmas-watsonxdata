@@ -1,8 +1,8 @@
 # Prepare the Bastion node for the installer
 
-https://console-openshift-console.apps.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com
+https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
 kubeadmin
-JPyfX-wtYp5-2dp6s-X9N95
+zR6vy-FvZXh-IzfCn-SIG4x
 
 ### Get the IBM API
 Getting an api key to download the installation images.
@@ -11,7 +11,8 @@ https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECC
 ### Logon to the bastion node
 Prepare the bastion node via SSH (details in the techzone reservation)
 ```
-ssh admin@api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com -p 40222
+ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
+yDVe43J8
 ```
 
 ```
