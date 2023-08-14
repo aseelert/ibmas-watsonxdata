@@ -1,10 +1,27 @@
+#### Prepare the installation
+Set up the topology. Run the following commands:
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
+```
+```
 /root/ibm-lh-manage/ibm-lakehouse-manage authorize-instance-topology
 /root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
-/root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
-/root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
 ```
+
+#### Run the following command to accept the license agreement:
+```
+/root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
+```
+#### Run the following command to verify whether the catalog source is created.
+```
+oc get catalogsource -n ${PROJECT_CPD_OPS}
+oc get csv -n ${PROJECT_CPD_OPS}
+```
+
+#### Verify the CR status. Run the following command:
+```
+/root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
+
 
 ```
 oc get $(oc get Wxdaddon -o name -n ${PROJECT_CPD_INSTANCE}) -o custom-columns='VERSION:status.version,STATUS:status.wxdStatus,BUILD:.status.wxdBuildNumber' -n ${PROJECT_CPD_INSTANCE}
