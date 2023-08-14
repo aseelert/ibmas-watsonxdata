@@ -45,8 +45,8 @@ rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
 ## Get the Redhat https API connection string
-logon to your cluster Desktop/Console URL and check for the cluster informations
 <img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
+logon to your cluster Desktop/Console URL and check for the cluster informations
 
 
 Set the data according to the Techzone Welcome Mail:
