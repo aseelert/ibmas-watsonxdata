@@ -83,8 +83,8 @@ export LH_IMAGE_TAG=latest
 # Watsonx.data settings
 # ------------------------------------------------------------------------------
 export DOCKER_EXE=podman
-export UTILS_IMG=icr.io/cpopen/watsonx-data/ibm-lakehouse-manage-utils:$LH_IMAGE_TAG
-export IBM_LH_TOOLBOX=icr.io/cpopen/watsonx-data/ibm-lakehouse-toolbox:$LH_IMAGE_TAG
+export UTILS_IMG=icr.io/cpopen/watsonx-data/ibm-lakehouse-manage-utils:\$LH_IMAGE_TAG
+export IBM_LH_TOOLBOX=icr.io/cpopen/watsonx-data/ibm-lakehouse-toolbox:\$LH_IMAGE_TAG
 export WORK_DIR=/root/ibm-lh-manage/.ibm-lh-manage-utils
 export IMAGE_ARCH=x86-64
 export PROD_REGISTRY=cp.icr.io
