@@ -52,8 +52,8 @@ logon to your cluster Desktop/Console URL and check for the cluster informations
 
 Set the data according to the Techzone Welcome Mail:
 ```
-export SNO_API_URL=https://api.64d9cc7d49d91f0017b60a02.cloud.techzone.ibm.com:6443
-export SNO_CLUSTER_ADMIN_PWD=jYaM7-YTSvR-cFY9P-LofjF
+export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
+export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
 export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 ```
 
