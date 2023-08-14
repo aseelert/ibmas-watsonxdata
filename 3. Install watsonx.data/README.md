@@ -14,7 +14,7 @@ screen -S installwatsonxdata
 --user=${OCP_USERNAME} \
 --password=${OCP_PASSWORD} \
 --server=${OCP_URL}
-
+```
   
 #### Set up the topology. Run the following commands:
 ```
