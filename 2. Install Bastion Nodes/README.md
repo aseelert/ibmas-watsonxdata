@@ -1,20 +1,24 @@
-
+# Prepare the Bastion node for the installer
 
 https://console-openshift-console.apps.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com
 kubeadmin
 JPyfX-wtYp5-2dp6s-X9N95
 
+### Get the IBM API
+Getting an api key to download the installation images.
+https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA.
 
-
-Prepare the bastion node
+### Logon to the bastion node
+Prepare the bastion node via SSH (details in the techzone reservation)
+```
 ssh admin@api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com -p 40222
-jPQoDybh
+```
 
 ```
 sudo su -
 ```
-
-Bastion Node:
+### Install required Redhat base software
+install NFS and the screen software to provide NFS storage for Watsonx.data and allow access using the firewall service. The installation can be done with screen, as this is a kind of background service/terminal, no need to run commands with & and/or nohup
 ```
 yum -y install nfs-utils screen
 systemctl enable --now nfs-server rpcbind
@@ -29,6 +33,7 @@ systemctl restart nfs-server
 systemctl status nfs-server
 ```
 
+### Install the Cloudpak Installer CLI package
 Check the latest version for the IBM Installer
 https://github.com/IBM/cpd-cli/releases
 ```
@@ -39,29 +44,37 @@ rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
+## Get the Redhat https API connection string
+logon to your cluster Desktop/Console URL and check for the cluster informations
+<img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
+
+
 Set the data according to the Techzone Welcome Mail:
 ```
-export SNO_API_URL=https://api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com:6443
-export SNO_CLUSTER_ADMIN_PWD=JPyfX-wtYp5-2dp6s-X9N95
-export SNO_IBM_ENTITLEMENT_KEY=\
-eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+export SNO_API_URL=https://api.64d9cc7d49d91f0017b60a02.cloud.techzone.ibm.com:6443
+export SNO_CLUSTER_ADMIN_PWD=XXXXX-wtYp5-2dp6s-X9N95
+export SNO_IBM_ENTITLEMENT_KEY=QiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 ```
 
+#### Update the hosts for to the AP connection string
 ```
 export SNO_API_HOST=$(echo $SNO_API_URL | sed 's/https:\/\///g' | sed 's/:6443//g')
 echo "192.168.252.1 $SNO_API_HOST" >> /etc/hosts
 ```
 
+#### verify the openshif cluster login
 ```
 oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
 ```
 
+## Start using the Environment Setup
 ```
 mkdir /root/ibm-lh-manage
 cd /root/ibm-lh-manage/
 ```
-
+```
 vi ibm-lh-manage.env
+```
 ```
 export SNO_API_URL=https://api.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com:6443
 export SNO_CLUSTER_ADMIN_PWD=JPyfX-wtYp5-2dp6s-X9N95
@@ -81,7 +94,7 @@ export STG_CLASS_BLOCK=nfs-storage-provisioner
 export STG_CLASS_FILE=nfs-storage-provisioner
 export PROD_REGISTRY=cp.icr.io
 export PROD_USER=cp
-export IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+export IBM_ENTITLEMENT_KEY=eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 
 export OCP_USERNAME="kubeadmin"
 export OCP_PASSWORD="$SNO_CLUSTER_ADMIN_PWD"
