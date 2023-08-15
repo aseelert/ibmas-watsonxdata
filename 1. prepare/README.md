@@ -1,4 +1,9 @@
-To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
+
+### Important: 
+- request a 32Core x 128GB Memory
+- do not select FIPS (must be disabled)
+
+### To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
 
 - Go to https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa
 - Click Reserve now
@@ -8,11 +13,15 @@ To start with the Installation you need to request a Single Node Cluster Instanc
 - Enter a description for the Purpose
 - Choose the geography DAL12 (other geographies are WDC04, LON02, LON06, FRA04 and TOK02)
 - Leave the defaults for "End date time", "OCP/Kubernetes Cluster Network" and "Enable FIPS Security"
-- Choose the master single node flavor. Choose the 64x256 flavor
+- Choose the master single node flavor. Choose at least the 32x256 flavor
 - Choose the OpenShift version 4.12
 - Leave the defaults for "OCP/Kubernetes Service Network"
 - Eventually add notes
 - Click Submit
+
+
+<img width="1071" alt="image" src="https://media.github.ibm.com/user/50903/files/ccd0fbbb-893a-44c6-858a-83e5bae8ff4b">
+
 
 Main installation documenation:
 watson x.data https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started
