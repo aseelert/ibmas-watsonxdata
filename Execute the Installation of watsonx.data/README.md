@@ -2,13 +2,7 @@
 
 In this chapter, we'll guide you through the installation of the IBM WatsonX Data application on your Red Hat Single Node Cluster (SNO).
 
-To install watsonx.data, follow these steps:
-
-1. [Step 1: ...](./3.%20Install%20watsonx.data/step1.md)
-2. [Step 2: ...](./3.%20Install%20watsonx.data/step2.md)
-3. [Step 3: ...](./3.%20Install%20watsonx.data/step3.md)
-
-Go back to the [Previous Chapter](./2.%20Install%20Bastion%20Nodes/README.md) or return to the [Introduction](../README.md).
+Go back to the [Previous Chapter](../Prepare%20the%20Installation) or return to the [Introduction](../README.md).
 
 
 #### Prepare the installation
