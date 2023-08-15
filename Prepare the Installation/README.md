@@ -124,6 +124,8 @@ oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls
 ```
 
 ## 6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
+The current version of IBM Lakehouse (watsonx.data) is 1.0.1 this can be change from LH_IMAGE_TAG=latest to LH_IMAGE_TAG=1.0.1. 
+All operators are installed in **watsonxdata1-operator** namespace and the instance itself in **watsonxdata1-instance**. Nothing else needs to be replaced for this demo.
 ```
 mkdir /root/ibm-lh-manage
 cd /root/ibm-lh-manage/
