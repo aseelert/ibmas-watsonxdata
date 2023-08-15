@@ -1,3 +1,9 @@
+# Chapter 1 - Install the Bastion Node
+
+In this chapter, we'll walk you through the installation of the Bastion Node for your Red Hat Single Node Cluster (SNO).
+
+Continue to the [Next Chapter](./3.%20Install%20watsonx.data/README.md) or go back to the [Previous Chapter](./1.%20prepare/README.md).
+
 # Prepare the Bastion node for the installer
 
 https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
