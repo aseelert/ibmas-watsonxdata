@@ -6,6 +6,22 @@ In this section, we will cover essential aspects such as provisioning a Red Hat 
 
 Let's begin by exploring the steps involved in meeting these prerequisites and preparing your environment for the installation of watsonx.data.
 
+## Summary for prerequisites
+
+Before you begin the installation process, make sure you have the following prerequisites in place:
+
+1. **IBMid Credentials:** Have your IBMid credentials ready to log in and access the necessary content on TechZone.
+
+2. **TechZone Access:** Ensure access to [techzone.ibm.com](https://techzone.ibm.com), where you'll find essential information and resources related to the installation.
+
+3. **IBM Entitlement Key:** Keep your IBM Entitlement Key handy, as it will be required during the installation for accessing IBM resources.
+
+4. **Terminal or Putty:** Have a terminal session or Putty installed to execute commands and manage the installation.
+
+5. **Chrome Browser:** Use Chrome as your preferred browser (avoid Safari on Mac) for optimal compatibility with the installation process.
+
+With these prerequisites fulfilled, you'll be well-equipped to navigate through the installation process smoothly and efficiently.
+
 
 ## Useful Links
 
