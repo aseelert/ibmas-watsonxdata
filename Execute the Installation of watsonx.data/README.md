@@ -13,11 +13,14 @@ Let's dive into the installation process and embark on the journey to unleash th
 
 ## 3.1 Prepare the installation
 The **screen** command is used to manage terminal sessions. To start a new session, use **screen -S session_name**, and to reattach to an existing session, use **screen -r session_name**. You can detach from a session by pressing **Ctrl-a followed by d**, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.
-
+```
   screen -S <name> creates a new shell
+```
 with 
+```
   screen -r <name> you can always attach to the shell if you lost the shell
   using **screen -list** you can check for all open shells
+```
 ```
 screen -S installwatsonxdata
 ```
