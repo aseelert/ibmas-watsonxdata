@@ -6,11 +6,11 @@ To get started, follow these steps:
 
 | Chapter   | Content                                                   
 | :--------:|-----------------------------------------------------------|
-| [Step 1: Requirements] | (./1.%20prepare/step1.md)  | 
-| [Step 2: Prepare the Installation ] | (./1.%20prepare/step2.md)  | 
-| [Step 3: Execute the Installation of watsonx.data]  | (./1.%20prepare/step3.md)  | 
+| [Step 1: Requirements] | (./Requirements)  | 
+| [Step 2: Prepare the Installation ] | (./Prepare%20the%20Installation)  | 
+| [Step 3: Execute the Installation of watsonx.data]  | (./Execute%20the%20Installation%20of%20watsonx.data)  | 
 
-Continue to the [Next Chapter](./2.%20Install%20Bastion%20Nodes/README.md).
+Continue to the [Next Chapter](./Prepare%20the%20Installation)).
 
 # ibmas-watsonxdata
 
