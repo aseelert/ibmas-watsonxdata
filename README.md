@@ -7,7 +7,7 @@ To get started, follow these steps:
 # Table of Contents
 
 | Chapter                                          | Content                                                    
-| :-----: | ----------------------------------------------------------
+| :---------------- | ----------------------------------------------------------
 | [Step 1: Requirements](./Requirements)             | Introduction to Requirements
 | [Step 2: Prepare the Installation](./Prepare%20the%20Installation) | Guide to Preparing the Installation using the bastion instance
 | [Step 3: Execute the Installation of watsonx.data](./Execute%20the%20Installation%20of%20watsonx.data) | Installing watsonx.data as standalone version
