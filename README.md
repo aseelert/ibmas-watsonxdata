@@ -4,11 +4,16 @@ In this chapter, we'll guide you through preparing your environment for the Red 
 
 To get started, follow these steps:
 
-| Chapter   | Content                                                   
-| :--------:|-----------------------------------------------------------|
-| [Step 1: Requirements] | (./Requirements)  | 
-| [Step 2: Prepare the Installation ] | (./Prepare%20the%20Installation)  | 
-| [Step 3: Execute the Installation of watsonx.data]  | (./Execute%20the%20Installation%20of%20watsonx.data)  | 
+# Table of Contents
+
+| Chapter                                          | Content                                                    
+| :----------------------------------------------: | ----------------------------------------------------------
+| [Step 1: Requirements](./Requirements)             | Introduction to Requirements
+| [Step 2: Prepare the Installation](./Prepare%20the%20Installation) | Guide to Preparing the Installation
+| [Step 3: Execute the Installation of watsonx.data](./Execute%20the%20Installation%20of%20watsonx.data) | Installing watsonx.data
+
+Continue to the [Next Chapter](./Prepare%20the%20Installation).
+
 
 Continue to the [Next Chapter](./Prepare%20the%20Installation)).
 
