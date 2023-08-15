@@ -1,4 +1,6 @@
 # Step 2 - Prepare the installation of watsonx.data and the bastion node
+##### Navigation
+[Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
 [![Red Hat](https://img.shields.io/badge/Platform-Red%20Hat-red)](https://www.redhat.com)
 [![CentOS](https://img.shields.io/badge/Platform-CentOS-yellow)](https://www.centos.org)
 [![OpenShift](https://img.shields.io/badge/Platform-OpenShift-blue)](https://www.openshift.com)
@@ -8,11 +10,6 @@ In this chapter, we'll guide you through the Bastion Node for your Red Hat Singl
 Now, let's delve into the concept of a bastion node. A bastion node, also known as a jump host or a gateway, serves as a secure entry point into a network or infrastructure. In the context of your SNO installation, the bastion node acts as an intermediary server that facilitates secure communication and management between your local machine and the Red Hat Single Node Cluster. It provides a controlled access point for performing administrative tasks, managing configurations, and executing commands within the cluster.
 
 Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.
-
-#### Navigation
-[Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
-
-
 # 2.1 Prepare the Bastion node for the installer
 
 ## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
@@ -260,3 +257,5 @@ worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 Fal
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
 ```
+#### Navigation
+[Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).

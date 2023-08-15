@@ -1,4 +1,6 @@
 # Step 1 - Requirements for Watsonx.data Installation
+##### Navigation
+[Next Chapter: Prepare the Installation](../Prepare%20the%20Installation) 
 
 Before proceeding with the installation of watsonx.data, it's important to ensure that your environment meets the necessary prerequisites. This section outlines the key requirements that need to be addressed to successfully deploy watsonx.data on your Red Hat cluster. These requirements lay the foundation for a smooth and efficient installation process, allowing you to leverage the capabilities of watsonx.data seamlessly.
 
