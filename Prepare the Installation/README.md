@@ -15,26 +15,57 @@ Throughout this chapter, we'll outline the steps required to set up and configur
 
 # Prepare the Bastion node for the installer
 
+## Accessing Red Hat Single Node Cluster (SNO) Details
+
+After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:
+
+1. **Go to:** Visit the TechZone platform at [https://techzone.ibm.com](https://techzone.ibm.com).
+
+2. **Log In:** Log in to your TechZone account using your credentials.
+
+3. **Access Reservations:** Navigate to the "My Reservations" section. You can usually find this in your account dashboard or a similar location.
+
+4. **Select Current Image:** Locate and select your current Single Node OpenShift (VMware on IBM Cloud) image reservation from the list. This should correspond to the Red Hat Single Node Cluster you reserved.
+
+5. **Retrieve Cluster Details:** Once you've selected your reservation, you should see a detailed view of your reserved SNO image. Look for information such as:
+
+   - **User and Password:** Credentials to access your cluster. (user: kubeadmin)
+   - **OpenShift Public URL:** The URL to access the OpenShift web console.
+   - **Bastion Node Terminal (SSH) Details:** Information on how to SSH into the bastion node, which serves as a secure entry point into your cluster. 
+
+6. **Accessing the Bastion Node:** Use the provided SSH details to connect to the bastion node. From the bastion node, you can perform administrative tasks, manage configurations, and execute commands within your SNO cluster. (user: admin and sudo su -)
+
+By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.
+
+```
 https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
+
 kubeadmin
 zR6vy-FvZXh-IzfCn-SIG4x
+```
 
-### Get the IBM API
-Getting an api key to download the installation images.
-https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA.
+#### Get the IBM API
 
-### Logon to the bastion node
+[![Get the IBM API Key](https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
+
+Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
+
+Click on the badge above or visit the [IBM Container Library](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA) to obtain your API key.
+
+
+#### Logon to the bastion node (example from reservation details)
 Prepare the bastion node via SSH (details in the techzone reservation)
 ```
 ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
-yDVe43J8
+Password: yDVe43J8
 ```
 
+#### switch from user admin to root via sudo
 ```
 sudo su -
 ```
-### Install required Redhat base software
-install NFS and the screen software to provide NFS storage for Watsonx.data and allow access using the firewall service. The installation can be done with screen, as this is a kind of background service/terminal, no need to run commands with & and/or nohup
+#### Install required Redhat base software
+Install **NFS** and the **screen** software to set up NFS storage for watsonx.data, facilitating seamless access to storage resources while ensuring security through firewall services. This installation process can be conveniently executed using the screen utility, which operates as a background terminal service. This eliminates the need to append commands with & or utilize nohup, streamlining the configuration process.
 ```
 yum -y install nfs-utils screen
 systemctl enable --now nfs-server rpcbind
@@ -49,9 +80,8 @@ systemctl restart nfs-server
 systemctl status nfs-server
 ```
 
-### Install the Cloudpak Installer CLI package
-Check the latest version for the IBM Installer
-https://github.com/IBM/cpd-cli/releases
+#### Install the Cloudpak Installer CLI package
+Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
 ```
 wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
 tar -xzvf cpd-cli-linux-EE-13.0.1.tgz
@@ -60,30 +90,30 @@ rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
-## Get the Redhat https API connection string
+#### Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 <img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
 logon to your cluster Desktop/Console URL and check for the cluster informations
 
 
-Set the data according to the Techzone Welcome Mail:
+#### Configure the data as specified in the TechZone reservation details:
 ```
 export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
 export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
 export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 ```
 
-#### Update the hosts for to the AP connection string
+#### Update the hosts for to the API connection string
 ```
 export SNO_API_HOST=$(echo $SNO_API_URL | sed 's/https:\/\///g' | sed 's/:6443//g')
 echo "192.168.252.1 $SNO_API_HOST" >> /etc/hosts
 ```
 
-#### verify the openshif cluster login
+#### Confirm the successful login to the OpenShift cluster.
 ```
 oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
 ```
 
-## Start using the Environment Setup
+#### Initiate the Environment Setup using the Unix environment to configure the installation settings.
 ```
 mkdir /root/ibm-lh-manage
 cd /root/ibm-lh-manage/
@@ -140,7 +170,7 @@ EOF
 ```
 
 
-#### Enable the settings 
+#### Activate the settings using the bash shell and source the environment.
 ```
 source /root/ibm-lh-manage/ibm-lh-manage.env
 echo "source /root/ibm-lh-manage/ibm-lh-manage.env" >> ~/.bashrc
@@ -171,19 +201,19 @@ cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
 /root/ibm-lh-manage/ibm-lakehouse-manage initialize
 ```
 
-###### validate pod (optional): 
+#### validate pod (optional): 
 ```
 podman exec -ti ibm-lakehouse-manage-utils bash  
 ```
 
-###### validate the login: 
+#### validate the login: 
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --token=${OCP_TOKEN} \
 --server=${OCP_URL}
 ```
 
-## Install NFS Provisioner and create a storage class for Watsonx.data
+#### Install NFS Provisioner and create a storage class for Watsonx.data
 ```
 ./ibm-lakehouse-manage setup-nfs-provisioner \
 --nfs_server=${NFS_SERVER_LOCATION} \
