@@ -21,6 +21,7 @@ with
   screen -r <name> you can always attach to the shell if you lost the shell
   using **screen -list** you can check for all open shells
 ```
+**Example** we use:
 ```
 screen -S installwatsonxdata
 ```
