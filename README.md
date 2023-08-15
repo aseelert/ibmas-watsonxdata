@@ -4,9 +4,11 @@ In this chapter, we'll guide you through preparing your environment for the Red 
 
 To get started, follow these steps:
 
-1. [Step 1: ...](./1.%20prepare/step1.md)
-2. [Step 2: ...](./1.%20prepare/step2.md)
-3. [Step 3: ...](./1.%20prepare/step3.md)
+| Chapter   | Content                                                   
+| :--------:|-----------------------------------------------------------|
+| [Step 1: Requirements] | (./1.%20prepare/step1.md)  | 
+| [Step 2: Prepare the Installation ] | (./1.%20prepare/step2.md)  | 
+| [Step 3: Execute the Installation of watsonx.data]  | (./1.%20prepare/step3.md)  | 
 
 Continue to the [Next Chapter](./2.%20Install%20Bastion%20Nodes/README.md).
 
