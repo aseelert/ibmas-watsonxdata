@@ -25,8 +25,8 @@ Use watsonx.data to store any type of data (structured, semi-structured, and uns
 
 
 
-### Getting an API Key to Download Installation Images
-[![Getting API Key](https://img.shields.io/badge/Get%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
+### Getting an IBM Entitlement Key to Download Installation Images
+[![IBM Entitlement Key](https://img.shields.io/badge/Get%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
 
 Obtain an API key to download installation images. Access your container software. With your entitlement key, you can access all of your container software in the IBM Entitled Registry. A complete list of container software that you own can be found in the Container Software Library.
 
