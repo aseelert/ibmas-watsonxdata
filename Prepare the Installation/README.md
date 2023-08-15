@@ -37,6 +37,8 @@ After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZon
 
 By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.
 
+#### Logon to the openshift console (example from reservation details)
+**Example:**
 ```
 https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
 
@@ -53,7 +55,8 @@ Click on the badge above or visit the [IBM Container Library](https://myibm.ibm.
 
 
 #### Logon to the bastion node (example from reservation details)
-Prepare the bastion node via SSH (details in the techzone reservation)
+Prepare the bastion node via SSH (details in the techzone reservation) 
+**Example:**
 ```
 ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
 Password: yDVe43J8
