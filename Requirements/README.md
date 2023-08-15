@@ -1,19 +1,34 @@
-# Step 1 - Requirements
+# Step 1 - Requirements for Watsonx.data Installation
 
-#### Navigation
-[Next Chapter: Prepare the Installation](../Prepare%20the%20Installation) 
+Before proceeding with the installation of watsonx.data, it's important to ensure that your environment meets the necessary prerequisites. This section outlines the key requirements that need to be addressed to successfully deploy watsonx.data on your Red Hat cluster. These requirements lay the foundation for a smooth and efficient installation process, allowing you to leverage the capabilities of watsonx.data seamlessly.
 
-#### Techzone Business Partner Access Information
-https://github.com/IBM/itz-support-public/blob/main/IBM-Technology-Zone/IBM-Technology-Zone-Runbooks/BusinessPartnersAccess.md
+In this section, we will cover essential aspects such as provisioning a Red Hat cluster on the TechZone platform, which serves as the underlying infrastructure for your watsonx.data deployment. Properly fulfilling these requirements will help create a robust foundation for your processing tasks using watsonx.data.
 
-#### Main installation documenation:
-watson x.data https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started
+Let's begin by exploring the steps involved in meeting these prerequisites and preparing your environment for the installation of watsonx.data.
 
-#### Getting an API key to download the installation images:
-https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA.
 
-#### Orginal and main information about SNO for Cloudpak for Data:
-https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md
+## Useful Links
+
+### Techzone Business Partner Access Information
+[![Techzone Business Partner Access Information](https://img.shields.io/badge/Access-Documentation-blue)](https://github.com/IBM/itz-support-public/blob/main/IBM-Technology-Zone/IBM-Technology-Zone-Runbooks/BusinessPartnersAccess.md)
+
+Learn about accessing Techzone as a Business Partner.
+
+### Main Installation Documentation: Watson x.data
+[![Main Installation Documentation](https://img.shields.io/badge/Documentation-Getting%20Started-blue)](https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started)
+
+Get started with installing Watson x.data.
+
+### Getting an API Key to Download Installation Images
+[![Getting API Key](https://img.shields.io/badge/Get%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
+
+Obtain an API key to download installation images.
+
+### Original and Main Information about SNO for Cloudpak for Data
+[![Original SNO Information](https://img.shields.io/badge/SNO%20Information-Read%20Here-green)](https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md)
+
+Access the original and main information about SNO for Cloudpak for Data.
+
 
 ## Important: 
 - request a 32Core x 128GB Memory
@@ -38,5 +53,7 @@ https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md
 
 <img width="1071" alt="image" src="https://media.github.ibm.com/user/50903/files/ccd0fbbb-893a-44c6-858a-83e5bae8ff4b">
 
+#### Navigation
+[Next Chapter: Prepare the Installation](../Prepare%20the%20Installation) 
 
 
