@@ -13,9 +13,9 @@ Throughout this chapter, we'll outline the steps required to set up and configur
 [Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
 
 
-# Prepare the Bastion node for the installer
+# 2.1 Prepare the Bastion node for the installer
 
-## Accessing Red Hat Single Node Cluster (SNO) Details
+## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
 
 After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:
 
@@ -31,7 +31,7 @@ After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZon
 
 By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.
 
-#### Logon to the openshift console (example from reservation details)
+#### 2.2.1 Logon to the openshift console (example from reservation details)
 **Example:**
 ```
 https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
@@ -40,7 +40,7 @@ kubeadmin
 zR6vy-FvZXh-IzfCn-SIG4x
 ```
 
-#### Logon to the bastion node (example from reservation details)
+#### 2.2.2 Logon to the bastion node (example from reservation details)
 Prepare the bastion node via SSH (details in the techzone reservation) 
 **Example:**
 ```
@@ -48,11 +48,11 @@ ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
 Password: yDVe43J8
 ```
 
-#### switch from user admin to root via sudo
+#### 2.2.3 switch from user admin to root via sudo
 ```
 sudo su -
 ```
-#### Install required Redhat base software
+## 3. Install required Redhat base software
 Install **NFS** and the **screen** software to set up NFS storage for watsonx.data, facilitating seamless access to storage resources while ensuring security through firewall services. This installation process can be conveniently executed using the screen utility, which operates as a background terminal service. This eliminates the need to append commands with & or utilize nohup, streamlining the configuration process.
 ```
 yum -y install nfs-utils screen
@@ -68,7 +68,7 @@ systemctl restart nfs-server
 systemctl status nfs-server
 ```
 
-#### Install the Cloudpak Installer CLI package
+## 4. Install the Cloudpak Installer CLI package
 Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
 ```
 wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
@@ -78,9 +78,9 @@ rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
-#### Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+### 4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 
-#### How to Get the OpenShift API URL
+#### 4.1.2 How to Get the OpenShift API URL
 To obtain the API URL of an OpenShift cluster, follow these steps:
 
 1. **Access OpenShift Web Console:** Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.
@@ -95,29 +95,35 @@ By following these steps, you'll be able to retrieve the API URL of your OpenShi
 <img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
 logon to your cluster Desktop/Console URL and check for the cluster informations
 
-#### Get the IBM Entitlement Key 
+#### 4.1.3 Get the IBM Entitlement Key 
 [![IBM Entitlement Key ](https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
 Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
 Click on the badge above or visit the [IBM Container Library](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA) to obtain your API key.
-#### Configure the data as specified in the TechZone reservation details:
+#### 4.1.4 Configure the data as specified in the TechZone reservation details:
+```
+export SNO_API_URL=<API URL>:<PORT>
+export SNO_CLUSTER_ADMIN_PWD=<kubeadmin Password>
+export SNO_IBM_ENTITLEMENT_KEY=<IBM Entitlement Key from section 4.1.3)
+```
+**Example:**
 ```
 export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
 export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
 export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
 ```
 
-#### Update the hosts for to the API connection string
+## 5 Update the hosts for to the API connection string
 ```
 export SNO_API_HOST=$(echo $SNO_API_URL | sed 's/https:\/\///g' | sed 's/:6443//g')
 echo "192.168.252.1 $SNO_API_HOST" >> /etc/hosts
 ```
 
-#### Confirm the successful login to the OpenShift cluster.
+### 5.1 Confirm the successful login to the OpenShift cluster.
 ```
 oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
 ```
 
-#### Initiate the Environment Setup using the Unix environment to configure the installation settings.
+## 6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
 ```
 mkdir /root/ibm-lh-manage
 cd /root/ibm-lh-manage/
@@ -174,13 +180,13 @@ EOF
 ```
 
 
-#### Activate the settings using the bash shell and source the environment.
+### 6.1 Activate the settings using the bash shell and source the environment.
 ```
 source /root/ibm-lh-manage/ibm-lh-manage.env
 echo "source /root/ibm-lh-manage/ibm-lh-manage.env" >> ~/.bashrc
 ```
 
-#### Pull the watsonx.data ibm-lakehouse-toolbox image.
+## 7.  Pull the watsonx.data ibm-lakehouse-toolbox image.
 ```
 $DOCKER_EXE pull $IBM_LH_TOOLBOX
 id=$($DOCKER_EXE create $IBM_LH_TOOLBOX)
@@ -189,7 +195,7 @@ $DOCKER_EXE rm $id
 unset id
 ```
 
-#### Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
+### 7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
 ```
 tar -xf /tmp/pkg.tar -C /tmp
 cat /tmp/opt/bom.txt
@@ -200,24 +206,24 @@ cp /tmp/opt/standalone/ibm-lakehouse-manage /root/ibm-lh-manage
 cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
 ```
 
-#### Run the following command to initialize the ibm-lh-manage-utils container.
+## 8. Run the following command to initialize the ibm-lh-manage-utils container.
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage initialize
 ```
 
-#### validate pod (optional): 
+### 8.1 validate pod (optional): 
 ```
 podman exec -ti ibm-lakehouse-manage-utils bash  
 ```
 
-#### validate the login: 
+### 8.2 validate the login: 
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --token=${OCP_TOKEN} \
 --server=${OCP_URL}
 ```
 
-#### Install NFS Provisioner and create a storage class for Watsonx.data
+### 8.3 Install NFS Provisioner and create a storage class for Watsonx.data
 ```
 ./ibm-lakehouse-manage setup-nfs-provisioner \
 --nfs_server=${NFS_SERVER_LOCATION} \
@@ -227,26 +233,27 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --nfs_provisioner_image=${NFS_IMAGE}
 ```
 
-#### Add the pull secret to the artifactory that contains watsonx.data images.
+### 8.4 Add the pull secret to the artifactory that contains watsonx.data images.
 ```
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
 ```
-
+#### 8.4.1
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
-
+#### 8.4.2
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 ```
 watch oc get mcp
-Every 2.0s: oc get mcp                                                                                                                                                                                               bastion-gym-lan: Mon Aug 14 05:08:17 2023
-
+```
+**Output:**
+```
 NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
 master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
 worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
 ```
-
+#### 8.4.3
 ```
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
