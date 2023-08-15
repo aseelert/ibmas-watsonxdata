@@ -1,6 +1,7 @@
 # Step 2 - Prepare the installation of watsonx.data and the bastion node
 ##### Navigation
 [Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
+
 [![Red Hat](https://img.shields.io/badge/Platform-Red%20Hat-red)](https://www.redhat.com)
 [![CentOS](https://img.shields.io/badge/Platform-CentOS-yellow)](https://www.centos.org)
 [![OpenShift](https://img.shields.io/badge/Platform-OpenShift-blue)](https://www.openshift.com)
