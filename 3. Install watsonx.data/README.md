@@ -34,7 +34,7 @@ screen -S installwatsonxdata
 oc get catalogsource -n ${PROJECT_CPD_OPS}
 oc get csv -n ${PROJECT_CPD_OPS}
 oc get po -n ibm-cert-manager
-oc get po -n ism-licensing
+oc get po -n ibm-licensing
 ```
 
 #### Verify the CR status. Run the following command:
