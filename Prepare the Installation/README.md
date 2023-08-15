@@ -16,16 +16,16 @@ Throughout this chapter, we'll outline the steps required to set up and configur
 ## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
 
 After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:
-
-1. **Go to:** Visit the TechZone platform at [https://techzone.ibm.com](https://techzone.ibm.com).
-2. **Log In:** Log in to your TechZone account using your credentials.
-3. **Access Reservations:** Navigate to the "My Reservations" section. You can usually find this in your account dashboard or a similar location.
-4. **Select Current Image:** Locate and select your current Single Node OpenShift (VMware on IBM Cloud) image reservation from the list. This should correspond to the Red Hat Single Node Cluster you reserved.
-5. **Retrieve Cluster Details:** Once you've selected your reservation, you should see a detailed view of your reserved SNO image. Look for information such as:
-   - **User and Password:** Credentials to access your cluster. (user: kubeadmin)
-   - **OpenShift Public URL:** The URL to access the OpenShift web console.
-   - **Bastion Node Terminal (SSH) Details:** Information on how to SSH into the bastion node, which serves as a secure entry point into your cluster. 
-6. **Accessing the Bastion Node:** Use the provided SSH details to connect to the bastion node. From the bastion node, you can perform administrative tasks, manage configurations, and execute commands within your SNO cluster. (user: admin and sudo su -)
+!!! success "step-by-step process"
+   1. **Go to:** Visit the TechZone platform at [https://techzone.ibm.com](https://techzone.ibm.com).
+   2. **Log In:** Log in to your TechZone account using your credentials.
+   3. **Access Reservations:** Navigate to the "My Reservations" section. You can usually find this in your account dashboard or a similar location.
+   4. **Select Current Image:** Locate and select your current Single Node OpenShift (VMware on IBM Cloud) image reservation from the list. This should correspond to the Red Hat Single Node Cluster you reserved.
+   5. **Retrieve Cluster Details:** Once you've selected your reservation, you should see a detailed view of your reserved SNO image. Look for information such as:
+      - **User and Password:** Credentials to access your cluster. (user: kubeadmin)
+      - **OpenShift Public URL:** The URL to access the OpenShift web console.
+      - **Bastion Node Terminal (SSH) Details:** Information on how to SSH into the bastion node, which serves as a secure entry point into your cluster. 
+   6. **Accessing the Bastion Node:** Use the provided SSH details to connect to the bastion node. From the bastion node, you can perform administrative tasks, manage configurations, and execute commands within your SNO cluster. (user: admin and sudo su -)
 
 By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.
 
