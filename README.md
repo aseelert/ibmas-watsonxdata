@@ -13,7 +13,7 @@ To get started, follow these steps:
 | [Step 3: Execute the Installation of watsonx.data](./Execute%20the%20Installation%20of%20watsonx.data) | Installing watsonx.data as standalone version
 
 
-Continue to the [Next Chapter](./Prepare%20the%20Installation).
+Continue to the [Next Chapter](./Requirements).
 
 
 # ibmas-watsonxdata

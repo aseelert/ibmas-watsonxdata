@@ -1,7 +1,7 @@
 # Step 1 - Requirements
 
 #### Navigation
-[Next Chapter: Prepare the Installation](./Prepare%20the%20Installation) | [Back to Table of Contents](#table-of-contents)
+[Next Chapter: Prepare the Installation](./Prepare%20the%20Installation) 
 
 #### Techzone Business Partner Access Information
 https://github.com/IBM/itz-support-public/blob/main/IBM-Technology-Zone/IBM-Technology-Zone-Runbooks/BusinessPartnersAccess.md

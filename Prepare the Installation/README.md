@@ -3,7 +3,7 @@
 In this chapter, we'll walk you through the installation of the Bastion Node for your Red Hat Single Node Cluster (SNO).
 
 #### Navigation
-[Previous Chapter: Requirements](./Requirements) | [Next Chapter: Execute the Installation of watsonx.data](./Execute%20the%20Installation%20of%20watsonx.data) | [Back to Table of Contents](#table-of-contents)
+[Next Chapter: Execute the Installation of watsonx.data](./Execute%20the%20Installation%20of%20watsonx.data) 
 
 
 # Prepare the Bastion node for the installer
