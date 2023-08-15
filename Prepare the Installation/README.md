@@ -44,9 +44,8 @@ kubeadmin
 zR6vy-FvZXh-IzfCn-SIG4x
 ```
 
-#### Get the IBM API
-
-[![Get the IBM API Key](https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
+#### Get the IBM Entitlement Key 
+[![IBM Entitlement Key ](https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
 
 Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
 
