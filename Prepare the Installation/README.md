@@ -1,6 +1,13 @@
-# Step 2 - Install the Bastion Node
+# Step 2 - Prepare the installation of watsonx.data and the bastion node
+[![Red Hat](https://img.shields.io/badge/Platform-Red%20Hat-red)](https://www.redhat.com)
+[![CentOS](https://img.shields.io/badge/Platform-CentOS-yellow)](https://www.centos.org)
+[![OpenShift](https://img.shields.io/badge/Platform-OpenShift-blue)](https://www.openshift.com)
 
-In this chapter, we'll walk you through the installation of the Bastion Node for your Red Hat Single Node Cluster (SNO).
+In this chapter, we'll guide you through the Bastion Node for your Red Hat Single Node Cluster (SNO). A Red Hat Single Node Cluster (SNO) is a standalone instance of a Red Hat OpenShift cluster designed to run on a single node, providing a simplified environment for testing and development purposes. It encapsulates the core capabilities of OpenShift, enabling you to simulate a multi-node cluster experience on a single machine.
+
+Now, let's delve into the concept of a bastion node. A bastion node, also known as a jump host or a gateway, serves as a secure entry point into a network or infrastructure. In the context of your SNO installation, the bastion node acts as an intermediary server that facilitates secure communication and management between your local machine and the Red Hat Single Node Cluster. It provides a controlled access point for performing administrative tasks, managing configurations, and executing commands within the cluster.
+
+Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.
 
 #### Navigation
 [Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
