@@ -85,6 +85,26 @@ rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
 #### Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+
+## How to Get the OpenShift API URL
+
+To obtain the API URL of an OpenShift cluster, follow these steps:
+
+1. **Access OpenShift Web Console:** Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.
+
+2. **Log In:** Log in to the OpenShift Web Console using your credentials.
+
+3. **Navigate to Cluster Details:** Once logged in, navigate to the "Help" or "User" section of the OpenShift Web Console. Look for an option that provides cluster details or settings.
+
+4. **Find API URL:** In the cluster details or settings section, you should find information about the API server URL. It may be labeled as "API URL," "Cluster URL," or something similar. This URL is the endpoint you'll use to interact with the OpenShift cluster programmatically.
+
+5. **Copy the API URL:** Copy the API URL to your clipboard. It will typically start with `https://` and include the cluster's domain name or IP address.
+
+6. **Use the API URL:** You can now use the copied API URL to interact with the OpenShift cluster through various tools, scripts, or applications that communicate with the OpenShift API.
+
+By following these steps, you'll be able to retrieve the API URL of your OpenShift cluster, allowing you to efficiently manage and interact with the cluster's resources programmatically.
+
+
 <img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
 logon to your cluster Desktop/Console URL and check for the cluster informations
 
