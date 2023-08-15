@@ -63,9 +63,9 @@ VERSION   STATUS      BUILD
 ```
 
 ```
-CPD Url: cpd-cpd-instance.apps.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com
+CPD Url: cpd-watsonxdata1-instance.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
 CPD Username: admin
-CPD Password: dAThquPvKNc7
+CPD Password: 5SieL9rI6NFS
 ```
 
 ```
