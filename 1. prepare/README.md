@@ -1,5 +1,17 @@
+## Requirments 
+#### Techzone Business Partner Access Information
+https://github.com/IBM/itz-support-public/blob/main/IBM-Technology-Zone/IBM-Technology-Zone-Runbooks/BusinessPartnersAccess.md
 
-### Important: 
+#### Main installation documenation:
+watson x.data https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started
+
+#### Getting an API key to download the installation images:
+https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA.
+
+#### Orginal and main information about SNO for Cloudpak for Data:
+https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md
+
+## Important: 
 - request a 32Core x 128GB Memory
 - do not select FIPS (must be disabled)
 
@@ -23,12 +35,4 @@
 <img width="1071" alt="image" src="https://media.github.ibm.com/user/50903/files/ccd0fbbb-893a-44c6-858a-83e5bae8ff4b">
 
 
-Main installation documenation:
-watson x.data https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started
-
-Getting an API key to download the installation images:
-https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA.
-
-Orginal and main information about SNO for Cloudpak for Data:
-https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md
 
