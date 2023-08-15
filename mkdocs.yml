@@ -1,112 +1,48 @@
-# Project Information
-site_name: "watsonx.data on a single node cluster"
-site_url: "https://pages.github.ibm.com/angelito/ibmas-watsonxdata"
-site_description: Databand Workshop
-site_author: "Angel Gonzalez"
-
-nav:
-  - Introduction: 'README.md'
-  - Part 1 - Requirements: 'Requirements/README.md'
-  - Part 2 - Preparation: 'Prepare the Installation/README.md'
-  - Part 3 - Installation: 'Execute the Installation of watsonx.data/README.md'
-  - Optional: 'Optional/get_minio_details.md'
-  
-  
-
-# Repository Information
-repo_name: 'angelito/ibmas-watsonxdata'
-repo_url: 'https://github.ibm.com/angelito/ibmas-watsonxdata'
-edit_uri: 'https://github.ibm.com/angelito/ibmas-watsonxdata'
-docs_dir: 'mkdocs'
-site_dir: 'site'
-remote_branch: 'mkdocs'
-remote_name: 'origin'
-
+site_name: Install IBM watsonx.data
 theme:
-  palette:
-    - scheme: default
-      primary: black
-      accent: blue
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-    - scheme: slate
-      primary: black
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-  font:
-    text: 'IBM Plex Sans'
-    code: 'IBM Plex Mono'
-  favicon: 'media/logo-ibm.png'
-  logo: 'media/logo-ibm.png'
   name: material
   features:
-    - navigation.instant
-    - navigation.tracking
-    # - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.tabs
     - navigation.sections
+    - toc.integrate
     - navigation.top
-    - navigation.footer
-    - toc.follow
-    # - toc.integrate
     - search.suggest
     - search.highlight
-    - header.autohide
-    - content.code.copy
     - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+      primary: teal
+      accent: purple 
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode    
+      primary: teal
+      accent: lime
 
-plugins:
-  - search
-  - inline-svg
-  - mkdocs-jupyter:
-      ignore_h1_titles: True
-  - table-reader
 
 markdown_extensions:
-  - tables
-  - abbr
-  - footnotes
-  - admonition
-  - attr_list
-  - def_list
-  - md_in_html
-  - meta
-  - toc:
-      permalink: true 
-      toc_depth: 4     
-  - smarty:
-      smart_quotes: false
-  - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
   - pymdownx.mark
-  - pymdownx.tilde
+  - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji'
+      emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
-extra:
-  homepage: https://www.ibm.com
-  generator: false
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.ibm.com/angelito/ibmas-watsonxdata
-    - icon: fontawesome/solid/globe
-      link: https://pages.github.ibm.com/angelito/ibmas-watsonxdata
-
-
-copyright: Copyright &copy; 2023 Alexander Seelert  - IBM Germany
+copyright: |
+  &copy; 2023 Alexander Seelert
