@@ -20,19 +20,13 @@ Throughout this chapter, we'll outline the steps required to set up and configur
 After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:
 
 1. **Go to:** Visit the TechZone platform at [https://techzone.ibm.com](https://techzone.ibm.com).
-
 2. **Log In:** Log in to your TechZone account using your credentials.
-
 3. **Access Reservations:** Navigate to the "My Reservations" section. You can usually find this in your account dashboard or a similar location.
-
 4. **Select Current Image:** Locate and select your current Single Node OpenShift (VMware on IBM Cloud) image reservation from the list. This should correspond to the Red Hat Single Node Cluster you reserved.
-
 5. **Retrieve Cluster Details:** Once you've selected your reservation, you should see a detailed view of your reserved SNO image. Look for information such as:
-
    - **User and Password:** Credentials to access your cluster. (user: kubeadmin)
    - **OpenShift Public URL:** The URL to access the OpenShift web console.
    - **Bastion Node Terminal (SSH) Details:** Information on how to SSH into the bastion node, which serves as a secure entry point into your cluster. 
-
 6. **Accessing the Bastion Node:** Use the provided SSH details to connect to the bastion node. From the bastion node, you can perform administrative tasks, manage configurations, and execute commands within your SNO cluster. (user: admin and sudo su -)
 
 By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.
@@ -86,22 +80,15 @@ rm -f cpd-cli-linux-EE-13.0.1.tgz
 
 #### Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 
-## How to Get the OpenShift API URL
-
+#### How to Get the OpenShift API URL
 To obtain the API URL of an OpenShift cluster, follow these steps:
 
 1. **Access OpenShift Web Console:** Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.
-
 2. **Log In:** Log in to the OpenShift Web Console using your credentials.
-
 3. **Navigate to Cluster Details:** Once logged in, navigate to the "Help" or "User" section of the OpenShift Web Console. Look for an option that provides cluster details or settings.
-
 4. **Find API URL:** In the cluster details or settings section, you should find information about the API server URL. It may be labeled as "API URL," "Cluster URL," or something similar. This URL is the endpoint you'll use to interact with the OpenShift cluster programmatically.
-
 5. **Copy the API URL:** Copy the API URL to your clipboard. It will typically start with `https://` and include the cluster's domain name or IP address.
-
 6. **Use the API URL:** You can now use the copied API URL to interact with the OpenShift cluster through various tools, scripts, or applications that communicate with the OpenShift API.
-
 By following these steps, you'll be able to retrieve the API URL of your OpenShift cluster, allowing you to efficiently manage and interact with the cluster's resources programmatically.
 
 
