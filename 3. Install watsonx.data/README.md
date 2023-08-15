@@ -41,17 +41,28 @@ oc get po -n ism-licensing
 ```
 /root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
 ```
+```
+# getting status for all installed components...  optionally add --components=<comma separated list of cpd components> for a specific set
+# component,CR-kind,CR-name,status,version,creationtimestamp,reconciled-version,operator-info
+watsonx_data,WxdAddon,wxdaddon,Completed,1.0.1,2023-08-14T15:17:36Z,1.0.1,IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
+analyticsengine,AnalyticsEngine,analyticsengine-sample,Completed,4.7.1,2023-08-14T14:52:23Z,4.7.1,268
+cpd_platform,Ibmcpd,ibmcpd-cr,Completed,4.7.1,2023-08-14T14:07:05Z,--,cpdPlatform operator 4.1.0 build 10
+zen,ZenService,lite-cr,Completed,5.0.0,2023-08-14T14:10:05Z,5.0.0,zen operator 5.0.0 build 277
+```
 
 ```
 oc get $(oc get Wxdaddon -o name -n ${PROJECT_CPD_INSTANCE}) -o custom-columns='VERSION:status.version,STATUS:status.wxdStatus,BUILD:.status.wxdBuildNumber' -n ${PROJECT_CPD_INSTANCE}
-
+```
+```
 VERSION   STATUS      BUILD
 1.0.1     Completed   IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
 ```
 
 ```
-[root@bastion-gym-lan ibm-lh-manage]# /root/ibm-lh-manage/ibm-lakehouse-manage get-cpd-instance-details
-get-cpd-instance-details
+/root/ibm-lh-manage/ibm-lakehouse-manage get-cpd-instance-details
+```
+
+```
 CPD Url: cpd-cpd-instance.apps.64d4c88651ac6c0017670f2e.cloud.techzone.ibm.com
 CPD Username: admin
 CPD Password: dAThquPvKNc7
