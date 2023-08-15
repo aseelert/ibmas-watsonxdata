@@ -17,7 +17,7 @@ The **screen** command is used to manage terminal sessions. To start a new sessi
   screen -S <name> creates a new shell
 with 
   screen -r <name> you can always attach to the shell if you lost the shell
-  using screen -list you can check for open shells
+  using **screen -list** you can check for all open shells
 ```
 screen -S installwatsonxdata
 ```
