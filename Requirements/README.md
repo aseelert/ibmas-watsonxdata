@@ -52,7 +52,7 @@ Use any active entitlement key to log in to the image registry and retrieve any 
 — You can have a maximum of (5) entitlement keys.
 — Once a key is deleted, it is no longer valid.
 
-### 3.4 Original and Main Information about SNO for Cloudpak for Data
+### 3.4 Original and Main Information about SNO for Cloudpak for Data 
 [![Original SNO Information](https://img.shields.io/badge/SNO%20Information-Read%20Here-green)](https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md)
 
 Access the original documentation about a Single Node Openshift Cluster for a Cloudpak for Data Installation.
