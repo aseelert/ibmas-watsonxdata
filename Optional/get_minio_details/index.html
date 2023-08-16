@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-minio-still-in-progress" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -312,9 +317,51 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Optional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Optional
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-minio-still-in-progress" class="md-nav__link">
+    1. Minio (still in progress)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Minio (still in progress)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-get-internal-ibm-lakehouse-minio-information" class="md-nav__link">
+    1.2 get internal IBM Lakehouse Minio information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -353,6 +400,34 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-minio-still-in-progress" class="md-nav__link">
+    1. Minio (still in progress)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Minio (still in progress)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-get-internal-ibm-lakehouse-minio-information" class="md-nav__link">
+    1.2 get internal IBM Lakehouse Minio information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -371,14 +446,22 @@
 
   <h1>Optional</h1>
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>echo &quot;Access Key:&quot; &amp;&amp; echo &quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.accesskey | base64decode}}&#39;)&quot; \
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&amp;&amp; echo &quot;Secret Key:&quot; &amp;&amp; echo &quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.secretkey | base64decode}}&#39;)&quot;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Access Key:
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>8927889015015009
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Secret Key:
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>wuuIeSjrQyHQbNTX
-</span></code></pre></div>
+<h2 id="1-minio-still-in-progress">1. Minio (still in progress)<a class="headerlink" href="#1-minio-still-in-progress" title="Permanent link">&para;</a></h2>
+<h3 id="12-get-internal-ibm-lakehouse-minio-information">1.2 get internal IBM Lakehouse Minio information<a class="headerlink" href="#12-get-internal-ibm-lakehouse-minio-information" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">echo</span> <span class="s2">&quot;Access Key:&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.accesskey | base64decode}}&#39;)&quot;</span> \
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;Secret Key:&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.secretkey | base64decode}}&#39;)&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">Access</span> <span class="n">Key</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="mi">8927889015015009</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Secret</span> <span class="n">Key</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">wuuIeSjrQyHQbNTX</span>
+</span></code></pre></div></td></tr></table></div>
 
 
 

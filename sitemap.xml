@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Optional/Demo_Connection_Details/</loc>
+         <lastmod>2023-08-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Optional/get_minio_details/</loc>
          <lastmod>2023-08-16</lastmod>
          <changefreq>daily</changefreq>
