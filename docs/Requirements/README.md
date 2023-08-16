@@ -64,7 +64,7 @@ Access the original documentation about a Single Node Openshift Cluster for a Cl
 
 ### 4.1 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
 
-- Go to https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa
+- Go to (https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa)
 - Click Reserve now
 - Select Purpose -> Practice / Self-Eduction
 - Click the checkbox to confirm that no customer data is being used
