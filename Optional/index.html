@@ -475,14 +475,14 @@
 <h2 id="rebooting-the-openshift-master-node-to-fix-eof-oc-login-problem">Rebooting the OpenShift Master Node to Fix EOF <code>oc login</code> Problem<a class="headerlink" href="#rebooting-the-openshift-master-node-to-fix-eof-oc-login-problem" title="Permanent link">&para;</a></h2>
 <p>If you encounter an EOF (End of File) error while using the <code>oc login</code> command in your OpenShift environment, rebooting the master node can often resolve the issue. Follow these steps:</p>
 <h3 id="1-log-in-to-bastion-node-with-user-root-not-admin">1. Log In to Bastion Node with user root (not admin)<a class="headerlink" href="#1-log-in-to-bastion-node-with-user-root-not-admin" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh -i /tmp/ocp/cluster/id_rsa core@192.168.252.11
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ocp</span><span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">id_rsa</span> <span class="n">core</span><span class="o">@</span><span class="mf">192.168.252.11</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="2-elevate-to-root">2. Elevate to Root<a class="headerlink" href="#2-elevate-to-root" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo su -
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">sudo</span> <span class="n">su</span> <span class="o">-</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="3-reboot-the-master-node">3. Reboot the Master Node<a class="headerlink" href="#3-reboot-the-master-node" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>reboot
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">reboot</span>
+</span></code></pre></div></td></tr></table></div>
 
 
 

@@ -404,42 +404,60 @@
 <p>By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.</p>
 <h4 id="221-logon-to-the-openshift-console-example-from-reservation-details">2.2.1 Logon to the openshift console (example from reservation details)<a class="headerlink" href="#221-logon-to-the-openshift-console-example-from-reservation-details" title="Permanent link">&para;</a></h4>
 <p><strong>Example:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>kubeadmin
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>zR6vy-FvZXh-IzfCn-SIG4x
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">console</span><span class="o">-</span><span class="n">openshift</span><span class="o">-</span><span class="n">console</span><span class="o">.</span><span class="n">apps</span><span class="mf">.64</span><span class="n">da1ffc1bedbf00175f38c9</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">techzone</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">kubeadmin</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">zR6vy</span><span class="o">-</span><span class="n">FvZXh</span><span class="o">-</span><span class="n">IzfCn</span><span class="o">-</span><span class="n">SIG4x</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h4 id="222-logon-to-the-bastion-node-example-from-reservation-details">2.2.2 Logon to the bastion node (example from reservation details)<a class="headerlink" href="#222-logon-to-the-bastion-node-example-from-reservation-details" title="Permanent link">&para;</a></h4>
 <p>Prepare the bastion node via SSH (details in the techzone reservation) 
 <strong>Example:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Password: yDVe43J8
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">ssh</span> <span class="n">admin</span><span class="nd">@api</span><span class="mf">.64</span><span class="n">da1ffc1bedbf00175f38c9</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">techzone</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span> <span class="o">-</span><span class="n">p</span> <span class="mi">40222</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Password</span><span class="p">:</span> <span class="n">yDVe43J8</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h4 id="223-switch-from-user-admin-to-root-via-sudo">2.2.3 switch from user admin to root via sudo<a class="headerlink" href="#223-switch-from-user-admin-to-root-via-sudo" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo su -
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">sudo</span> <span class="n">su</span> <span class="o">-</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="3-install-required-redhat-base-software">3. Install required Redhat base software<a class="headerlink" href="#3-install-required-redhat-base-software" title="Permanent link">&para;</a></h2>
 <p>Install <strong>NFS</strong> and the <strong>screen</strong> software to set up NFS storage for watsonx.data, facilitating seamless access to storage resources while ensuring security through firewall services. This installation process can be conveniently executed using the screen utility, which operates as a background terminal service. This eliminates the need to append commands with &amp; or utilize nohup, streamlining the configuration process.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>yum -y install nfs-utils screen
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>systemctl enable --now nfs-server rpcbind
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>systemctl start nfs-server
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mkdir /export
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>touch /etc/exports
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>echo &quot;/export *(rw,sync,no_root_squash,no_all_squash)&quot; &gt;&gt; /etc/exports
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>firewall-cmd --add-service=nfs --permanent
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>firewall-cmd --add-service={nfs3,mountd,rpc-bind} --permanent
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>firewall-cmd --reload
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>systemctl restart nfs-server
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>systemctl status nfs-server
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">nfs</span><span class="o">-</span><span class="n">utils</span> <span class="n">screen</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">systemctl</span> <span class="n">enable</span> <span class="o">--</span><span class="n">now</span> <span class="n">nfs</span><span class="o">-</span><span class="n">server</span> <span class="n">rpcbind</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">systemctl</span> <span class="n">start</span> <span class="n">nfs</span><span class="o">-</span><span class="n">server</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">mkdir</span> <span class="o">/</span><span class="n">export</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">exports</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">echo</span> <span class="s2">&quot;/export *(rw,sync,no_root_squash,no_all_squash)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">exports</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">service</span><span class="o">=</span><span class="n">nfs</span> <span class="o">--</span><span class="n">permanent</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">service</span><span class="o">=</span><span class="p">{</span><span class="n">nfs3</span><span class="p">,</span><span class="n">mountd</span><span class="p">,</span><span class="n">rpc</span><span class="o">-</span><span class="n">bind</span><span class="p">}</span> <span class="o">--</span><span class="n">permanent</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">reload</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">systemctl</span> <span class="n">restart</span> <span class="n">nfs</span><span class="o">-</span><span class="n">server</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">systemctl</span> <span class="n">status</span> <span class="n">nfs</span><span class="o">-</span><span class="n">server</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h2 id="4-install-the-cloudpak-installer-cli-package">4. Install the Cloudpak Installer CLI package<a class="headerlink" href="#4-install-the-cloudpak-installer-cli-package" title="Permanent link">&para;</a></h2>
 <p>Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>tar -xzvf cpd-cli-linux-EE-13.0.1.tgz
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mv cpd-cli-linux-EE-13.0.1-26/* .
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>rm -rf cpd-cli-linux-EE-13.0.1-26
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>rm -f cpd-cli-linux-EE-13.0.1.tgz
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">IBM</span><span class="o">/</span><span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v13</span><span class="mf">.0.1</span><span class="o">/</span><span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">EE</span><span class="o">-</span><span class="mf">13.0.1</span><span class="o">.</span><span class="n">tgz</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">tar</span> <span class="o">-</span><span class="n">xzvf</span> <span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">EE</span><span class="o">-</span><span class="mf">13.0.1</span><span class="o">.</span><span class="n">tgz</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">mv</span> <span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">EE</span><span class="o">-</span><span class="mf">13.0.1</span><span class="o">-</span><span class="mi">26</span><span class="o">/*</span> <span class="o">.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">EE</span><span class="o">-</span><span class="mf">13.0.1</span><span class="o">-</span><span class="mi">26</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="n">cpd</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">EE</span><span class="o">-</span><span class="mf">13.0.1</span><span class="o">.</span><span class="n">tgz</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h3 id="41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url">4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.<a class="headerlink" href="#41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url" title="Permanent link">&para;</a></h3>
 <h4 id="412-how-to-get-the-openshift-api-url">4.1.2 How to Get the OpenShift API URL<a class="headerlink" href="#412-how-to-get-the-openshift-api-url" title="Permanent link">&para;</a></h4>
 <p>To obtain the API URL of an OpenShift cluster, follow these steps:</p>
@@ -459,136 +477,211 @@ logon to your cluster Desktop/Console URL and check for the cluster informations
 Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
 Click on the badge above or visit the <a href="https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA">IBM Container Library</a> to obtain your API key.</p>
 <h4 id="414-configure-the-data-as-specified-in-the-techzone-reservation-details">4.1.4 Configure the data as specified in the TechZone reservation details:<a class="headerlink" href="#414-configure-the-data-as-specified-in-the-techzone-reservation-details" title="Permanent link">&para;</a></h4>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>export SNO_API_URL=&lt;API URL&gt;:&lt;PORT&gt;
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>export SNO_CLUSTER_ADMIN_PWD=&lt;kubeadmin Password&gt;
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>export SNO_IBM_ENTITLEMENT_KEY=&lt;IBM Entitlement Key from section 4.1.3)
-</span></code></pre></div>
+<p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">export</span> <span class="n">SNO_API_URL</span><span class="o">=&lt;</span><span class="n">API</span> <span class="n">URL</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">PORT</span><span class="o">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">export</span> <span class="n">SNO_CLUSTER_ADMIN_PWD</span><span class="o">=&lt;</span><span class="n">kubeadmin</span> <span class="n">Password</span><span class="o">&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">export</span> <span class="n">SNO_IBM_ENTITLEMENT_KEY</span><span class="o">=&lt;</span><span class="n">IBM</span> <span class="n">Entitlement</span> <span class="n">Key</span> <span class="kn">from</span> <span class="nn">section</span> <span class="mf">4.1.3</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <strong>Example:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">export</span> <span class="n">SNO_API_URL</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="mf">.64</span><span class="n">da1ffc1bedbf00175f38c9</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">techzone</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">6443</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">export</span> <span class="n">SNO_CLUSTER_ADMIN_PWD</span><span class="o">=</span><span class="n">zR6vy</span><span class="o">-</span><span class="n">FvZXh</span><span class="o">-</span><span class="n">IzfCn</span><span class="o">-</span><span class="n">SIG4x</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">export</span> <span class="n">SNO_IBM_ENTITLEMENT_KEY</span><span class="o">=</span><span class="n">eyJhbGciOiJIUzI1NiJ9</span><span class="o">.</span><span class="n">eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0</span><span class="o">.</span><span class="n">_4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h2 id="5-update-the-hosts-for-to-the-api-connection-string">5 Update the hosts for to the API connection string<a class="headerlink" href="#5-update-the-hosts-for-to-the-api-connection-string" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export SNO_API_HOST=$(echo $SNO_API_URL | sed &#39;s/https:\/\///g&#39; | sed &#39;s/:6443//g&#39;)
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>echo &quot;192.168.252.1 $SNO_API_HOST&quot; &gt;&gt; /etc/hosts
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">export</span> <span class="n">SNO_API_HOST</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SNO_API_URL</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/https:\/\///g&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/:6443//g&#39;</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">echo</span> <span class="s2">&quot;192.168.252.1 $SNO_API_HOST&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="51-confirm-the-successful-login-to-the-openshift-cluster">5.1 Confirm the successful login to the OpenShift cluster.<a class="headerlink" href="#51-confirm-the-successful-login-to-the-openshift-cluster" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">oc</span> <span class="n">login</span> <span class="o">-</span><span class="n">u</span> <span class="n">kubeadmin</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">SNO_CLUSTER_ADMIN_PWD</span> <span class="err">$</span><span class="n">SNO_API_URL</span> <span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">skip</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">verify</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings">6. Initiate the Environment Setup using the Unix environment to configure the installation settings.<a class="headerlink" href="#6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings" title="Permanent link">&para;</a></h2>
 <p>The current version of IBM Lakehouse (watsonx.data) is 1.0.1 this can be change from LH_IMAGE_TAG=latest to LH_IMAGE_TAG=1.0.1. 
 All operators are installed in <strong>watsonxdata1-operator</strong> namespace and the instance itself in <strong>watsonxdata1-instance</strong>. Nothing else needs to be replaced for this demo.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir /root/ibm-lh-manage
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cd /root/ibm-lh-manage/
-</span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>tee ibm-lh-manage.env &lt;&lt;EOF 
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a># Watsonx.data  version
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>export LH_IMAGE_TAG=latest
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a># Watsonx.data settings
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>export DOCKER_EXE=podman
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>export UTILS_IMG=icr.io/cpopen/watsonx-data/ibm-lakehouse-manage-utils:\$LH_IMAGE_TAG
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>export IBM_LH_TOOLBOX=icr.io/cpopen/watsonx-data/ibm-lakehouse-toolbox:\$LH_IMAGE_TAG
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>export WORK_DIR=/root/ibm-lh-manage/.ibm-lh-manage-utils
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>export IMAGE_ARCH=x86-64
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>export PROD_REGISTRY=cp.icr.io
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>export PROD_USER=cp
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a># Projects
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>export PROJECT_CPD_OPS=watsonxdata1-operator
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>export PROJECT_CPD_INSTANCE=watsonxdata1-instance
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a># IBM Entitled Registry
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>export IBM_ENTITLEMENT_KEY=$SNO_IBM_ENTITLEMENT_KEY
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a># Cluster
-</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>export OCP_USERNAME=&quot;kubeadmin&quot;
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>export OCP_PASSWORD=$SNO_CLUSTER_ADMIN_PWD
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>export OCP_TOKEN=&quot;$(oc whoami -t)&quot;
-</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>export OCP_URL=$SNO_API_URL
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>export OPENSHIFT_TYPE=self-managed
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
-</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>
-</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a># NFS Storage
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a># ------------------------------------------------------------------------------
-</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>export NFS_SERVER_LOCATION=192.168.252.2
-</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>export NFS_PATH=/export
-</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>export PROJECT_NFS_PROVISIONER=nfs-provisioner
-</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>export NFS_STORAGE_CLASS=nfs-storage-provisioner
-</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>export NFS_IMAGE=k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
-</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>export STG_CLASS_BLOCK=nfs-storage-provisioner
-</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>export STG_CLASS_FILE=nfs-storage-provisioner
-</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>EOF
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">mkdir</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">cd</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span>
+<span class="normal"><a href="#__codelineno-10-32">32</a></span>
+<span class="normal"><a href="#__codelineno-10-33">33</a></span>
+<span class="normal"><a href="#__codelineno-10-34">34</a></span>
+<span class="normal"><a href="#__codelineno-10-35">35</a></span>
+<span class="normal"><a href="#__codelineno-10-36">36</a></span>
+<span class="normal"><a href="#__codelineno-10-37">37</a></span>
+<span class="normal"><a href="#__codelineno-10-38">38</a></span>
+<span class="normal"><a href="#__codelineno-10-39">39</a></span>
+<span class="normal"><a href="#__codelineno-10-40">40</a></span>
+<span class="normal"><a href="#__codelineno-10-41">41</a></span>
+<span class="normal"><a href="#__codelineno-10-42">42</a></span>
+<span class="normal"><a href="#__codelineno-10-43">43</a></span>
+<span class="normal"><a href="#__codelineno-10-44">44</a></span>
+<span class="normal"><a href="#__codelineno-10-45">45</a></span>
+<span class="normal"><a href="#__codelineno-10-46">46</a></span>
+<span class="normal"><a href="#__codelineno-10-47">47</a></span>
+<span class="normal"><a href="#__codelineno-10-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">tee</span> <span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">.</span><span class="n">env</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span> 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Watsonx.data  version</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">export</span> <span class="n">LH_IMAGE_TAG</span><span class="o">=</span><span class="n">latest</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="c1"># Watsonx.data settings</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">export</span> <span class="n">DOCKER_EXE</span><span class="o">=</span><span class="n">podman</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="n">export</span> <span class="n">UTILS_IMG</span><span class="o">=</span><span class="n">icr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">cpopen</span><span class="o">/</span><span class="n">watsonx</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span><span class="o">-</span><span class="n">utils</span><span class="p">:</span>\<span class="err">$</span><span class="n">LH_IMAGE_TAG</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="n">export</span> <span class="n">IBM_LH_TOOLBOX</span><span class="o">=</span><span class="n">icr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">cpopen</span><span class="o">/</span><span class="n">watsonx</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">toolbox</span><span class="p">:</span>\<span class="err">$</span><span class="n">LH_IMAGE_TAG</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="n">export</span> <span class="n">WORK_DIR</span><span class="o">=/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/.</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">-</span><span class="n">utils</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="n">export</span> <span class="n">IMAGE_ARCH</span><span class="o">=</span><span class="n">x86</span><span class="o">-</span><span class="mi">64</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="n">export</span> <span class="n">PROD_REGISTRY</span><span class="o">=</span><span class="n">cp</span><span class="o">.</span><span class="n">icr</span><span class="o">.</span><span class="n">io</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="n">export</span> <span class="n">PROD_USER</span><span class="o">=</span><span class="n">cp</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="c1"># Projects</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="n">export</span> <span class="n">PROJECT_CPD_OPS</span><span class="o">=</span><span class="n">watsonxdata1</span><span class="o">-</span><span class="n">operator</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="n">export</span> <span class="n">PROJECT_CPD_INSTANCE</span><span class="o">=</span><span class="n">watsonxdata1</span><span class="o">-</span><span class="n">instance</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="c1"># IBM Entitled Registry</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="n">export</span> <span class="n">IBM_ENTITLEMENT_KEY</span><span class="o">=</span><span class="err">$</span><span class="n">SNO_IBM_ENTITLEMENT_KEY</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="c1"># Cluster</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="n">export</span> <span class="n">OCP_USERNAME</span><span class="o">=</span><span class="s2">&quot;kubeadmin&quot;</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="n">export</span> <span class="n">OCP_PASSWORD</span><span class="o">=</span><span class="err">$</span><span class="n">SNO_CLUSTER_ADMIN_PWD</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="n">export</span> <span class="n">OCP_TOKEN</span><span class="o">=</span><span class="s2">&quot;$(oc whoami -t)&quot;</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="n">export</span> <span class="n">OCP_URL</span><span class="o">=</span><span class="err">$</span><span class="n">SNO_API_URL</span>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="n">export</span> <span class="n">OPENSHIFT_TYPE</span><span class="o">=</span><span class="bp">self</span><span class="o">-</span><span class="n">managed</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36"></a>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37"></a>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="c1"># NFS Storage</span>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="c1"># ------------------------------------------------------------------------------</span>
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="n">export</span> <span class="n">NFS_SERVER_LOCATION</span><span class="o">=</span><span class="mf">192.168.252.2</span>
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="n">export</span> <span class="n">NFS_PATH</span><span class="o">=/</span><span class="n">export</span>
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="n">export</span> <span class="n">PROJECT_NFS_PROVISIONER</span><span class="o">=</span><span class="n">nfs</span><span class="o">-</span><span class="n">provisioner</span>
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="n">export</span> <span class="n">NFS_STORAGE_CLASS</span><span class="o">=</span><span class="n">nfs</span><span class="o">-</span><span class="n">storage</span><span class="o">-</span><span class="n">provisioner</span>
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45"></a><span class="n">export</span> <span class="n">NFS_IMAGE</span><span class="o">=</span><span class="n">k8s</span><span class="o">.</span><span class="n">gcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">sig</span><span class="o">-</span><span class="n">storage</span><span class="o">/</span><span class="n">nfs</span><span class="o">-</span><span class="n">subdir</span><span class="o">-</span><span class="n">external</span><span class="o">-</span><span class="n">provisioner</span><span class="p">:</span><span class="n">v4</span><span class="mf">.0.2</span>
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46"></a><span class="n">export</span> <span class="n">STG_CLASS_BLOCK</span><span class="o">=</span><span class="n">nfs</span><span class="o">-</span><span class="n">storage</span><span class="o">-</span><span class="n">provisioner</span>
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47"></a><span class="n">export</span> <span class="n">STG_CLASS_FILE</span><span class="o">=</span><span class="n">nfs</span><span class="o">-</span><span class="n">storage</span><span class="o">-</span><span class="n">provisioner</span>
+</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48"></a><span class="n">EOF</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h3 id="61-activate-the-settings-using-the-bash-shell-and-source-the-environment">6.1 Activate the settings using the bash shell and source the environment.<a class="headerlink" href="#61-activate-the-settings-using-the-bash-shell-and-source-the-environment" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>source /root/ibm-lh-manage/ibm-lh-manage.env
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>echo &quot;source /root/ibm-lh-manage/ibm-lh-manage.env&quot; &gt;&gt; ~/.bashrc
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">source</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">.</span><span class="n">env</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">echo</span> <span class="s2">&quot;source /root/ibm-lh-manage/ibm-lh-manage.env&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image">7.  Pull the watsonx.data ibm-lakehouse-toolbox image.<a class="headerlink" href="#7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$DOCKER_EXE pull $IBM_LH_TOOLBOX
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>id=$($DOCKER_EXE create $IBM_LH_TOOLBOX)
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>$DOCKER_EXE cp $id:/opt - &gt; /tmp/pkg.tar
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>$DOCKER_EXE rm $id
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>unset id
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="err">$</span><span class="n">DOCKER_EXE</span> <span class="n">pull</span> <span class="err">$</span><span class="n">IBM_LH_TOOLBOX</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nb">id</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="n">DOCKER_EXE</span> <span class="n">create</span> <span class="err">$</span><span class="n">IBM_LH_TOOLBOX</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="err">$</span><span class="n">DOCKER_EXE</span> <span class="n">cp</span> <span class="err">$</span><span class="nb">id</span><span class="p">:</span><span class="o">/</span><span class="n">opt</span> <span class="o">-</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pkg</span><span class="o">.</span><span class="n">tar</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="err">$</span><span class="n">DOCKER_EXE</span> <span class="n">rm</span> <span class="err">$</span><span class="nb">id</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">unset</span> <span class="nb">id</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum">7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum<a class="headerlink" href="#71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>tar -xf /tmp/pkg.tar -C /tmp
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>cat /tmp/opt/bom.txt
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>cksum /tmp/opt/*/*
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>cp /tmp/opt/standalone/ibm-lakehouse-manage /root/ibm-lh-manage
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">tar</span> <span class="o">-</span><span class="n">xf</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pkg</span><span class="o">.</span><span class="n">tar</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">tmp</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">cat</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">bom</span><span class="o">.</span><span class="n">txt</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">cksum</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">opt</span><span class="o">/*/*</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">cp</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">cp</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container">8. Run the following command to initialize the ibm-lh-manage-utils container.<a class="headerlink" href="#8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage initialize
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">initialize</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="81-validate-pod-optional">8.1 validate pod (optional):<a class="headerlink" href="#81-validate-pod-optional" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>podman exec -ti ibm-lakehouse-manage-utils bash  
 </span></code></pre></div>
 <h3 id="82-validate-the-login">8.2 validate the login:<a class="headerlink" href="#82-validate-the-login" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>--token=${OCP_TOKEN} \
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>--server=${OCP_URL}
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">login</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">ocp</span> \
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="o">--</span><span class="n">token</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">OCP_TOKEN</span><span class="p">}</span> \
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">OCP_URL</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata">8.3 Install NFS Provisioner and create a storage class for Watsonx.data<a class="headerlink" href="#83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./ibm-lakehouse-manage setup-nfs-provisioner \
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>--nfs_server=${NFS_SERVER_LOCATION} \
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>--nfs_path=${NFS_PATH} \
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>--nfs_provisioner_ns=${PROJECT_NFS_PROVISIONER} \
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>--nfs_storageclass_name=${NFS_STORAGE_CLASS} \
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>--nfs_provisioner_image=${NFS_IMAGE}
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="o">./</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">setup</span><span class="o">-</span><span class="n">nfs</span><span class="o">-</span><span class="n">provisioner</span> \
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="o">--</span><span class="n">nfs_server</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_SERVER_LOCATION</span><span class="p">}</span> \
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="o">--</span><span class="n">nfs_path</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_PATH</span><span class="p">}</span> \
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="o">--</span><span class="n">nfs_provisioner_ns</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">PROJECT_NFS_PROVISIONER</span><span class="p">}</span> \
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="o">--</span><span class="n">nfs_storageclass_name</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_STORAGE_CLASS</span><span class="p">}</span> \
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="o">--</span><span class="n">nfs_provisioner_image</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_IMAGE</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <h3 id="84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39; machineconfigpool/master
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39; machineconfigpool/worker
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
+</span></code></pre></div></td></tr></table></div>
 <h4 id="841">8.4.1<a class="headerlink" href="#841" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">add</span><span class="o">-</span><span class="n">icr</span><span class="o">-</span><span class="n">cred</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="k">global</span><span class="o">-</span><span class="n">pull</span><span class="o">-</span><span class="n">secret</span> <span class="o">--</span><span class="n">entitled_registry_key</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">IBM_ENTITLEMENT_KEY</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <h4 id="842">8.4.2<a class="headerlink" href="#842" title="Permanent link">&para;</a></h4>
 <p>When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>watch oc get mcp
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
+</span></code></pre></div></td></tr></table></div>
 <strong>Output:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False  False      1              0                   0                     0                      112m
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False  False      0              0                   0                     0                      112m
-</span></code></pre></div></p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">NAME</span>     <span class="n">CONFIG</span>                                             <span class="n">UPDATED</span>   <span class="n">UPDATING</span>   <span class="n">DEGRADED</span>   <span class="n">MACHINECOUNT</span>   <span class="n">READYMACHINECOUNT</span>   <span class="n">UPDATEDMACHINECOUNT</span>   <span class="n">DEGRADEDMACHINECOUNT</span>   <span class="n">AGE</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h4 id="843">8.4.3<a class="headerlink" href="#843" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39; machineconfigpool/master
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39; machineconfigpool/worker
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
+</span></code></pre></div></td></tr></table></div>
 <h4 id="navigation_1">Navigation<a class="headerlink" href="#navigation_1" title="Permanent link">&para;</a></h4>
 <p><a href="../Execute%20the%20Installation%20of%20watsonx.data">Next Chapter: Execute the Installation of watsonx.data</a>  or return to the <a href="../">Introduction</a>.</p>
 
