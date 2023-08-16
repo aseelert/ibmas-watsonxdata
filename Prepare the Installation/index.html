@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Prepare%20the%20Installation/">
       
       
+        <link rel="prev" href="../Requirements/">
+      
+      
+        <link rel="next" href="../Execute%20the%20Installation%20of%20watsonx.data/">
       
       <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/380px-IBM_logo.svg.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Step 2 - Prepare the installation of watsonx.data and the bastion node - watsonx.data on a single node cluster</title>
+        <title>Part 2 - Preparation - watsonx.data on a single node cluster</title>
       
     
     
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Step 2 - Prepare the installation of watsonx.data and the bastion node
+              Part 2 - Preparation
             
           </span>
         </div>
@@ -261,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Requirements/README.md" class="md-nav__link">
+      <a href="../Requirements/" class="md-nav__link">
         Part 1 - Requirements
       </a>
     </li>
@@ -274,11 +278,275 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../docs/Prepare the Installation/README.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 2 - Preparation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Part 2 - Preparation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-prepare-the-bastion-node-for-the-installer" class="md-nav__link">
+    2.1 Prepare the Bastion node for the installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-accessing-red-hat-single-node-cluster-sno-details" class="md-nav__link">
+    2.2 Accessing Red Hat Single Node Cluster (SNO) Details
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Accessing Red Hat Single Node Cluster (SNO) Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-logon-to-the-openshift-console-example-from-reservation-details" class="md-nav__link">
+    2.2.1 Logon to the openshift console (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-logon-to-the-bastion-node-example-from-reservation-details" class="md-nav__link">
+    2.2.2 Logon to the bastion node (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-switch-from-user-admin-to-root-via-sudo" class="md-nav__link">
+    2.2.3 switch from user admin to root via sudo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-required-redhat-base-software" class="md-nav__link">
+    3. Install required Redhat base software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-the-cloudpak-installer-cli-package" class="md-nav__link">
+    4. Install the Cloudpak Installer CLI package
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Install the Cloudpak Installer CLI package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url" class="md-nav__link">
+    4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#412-how-to-get-the-openshift-api-url" class="md-nav__link">
+    4.1.2 How to Get the OpenShift API URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-get-the-ibm-entitlement-key" class="md-nav__link">
+    4.1.3 Get the IBM Entitlement Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-configure-the-data-as-specified-in-the-techzone-reservation-details" class="md-nav__link">
+    4.1.4 Configure the data as specified in the TechZone reservation details:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-update-the-hosts-for-to-the-api-connection-string" class="md-nav__link">
+    5 Update the hosts for to the API connection string
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Update the hosts for to the API connection string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-confirm-the-successful-login-to-the-openshift-cluster" class="md-nav__link">
+    5.1 Confirm the successful login to the OpenShift cluster.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings" class="md-nav__link">
+    6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Initiate the Environment Setup using the Unix environment to configure the installation settings.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-activate-the-settings-using-the-bash-shell-and-source-the-environment" class="md-nav__link">
+    6.1 Activate the settings using the bash shell and source the environment.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image" class="md-nav__link">
+    7.  Pull the watsonx.data ibm-lakehouse-toolbox image.
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pull the watsonx.data ibm-lakehouse-toolbox image.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum" class="md-nav__link">
+    7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container" class="md-nav__link">
+    8. Run the following command to initialize the ibm-lh-manage-utils container.
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Run the following command to initialize the ibm-lh-manage-utils container.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-validate-pod-optional" class="md-nav__link">
+    8.1 validate pod (optional):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-validate-the-login" class="md-nav__link">
+    8.2 validate the login:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata" class="md-nav__link">
+    8.3 Install NFS Provisioner and create a storage class for Watsonx.data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-pause-for-the-patches" class="md-nav__link">
+    8.4 pause for the patches
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 pause for the patches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
+    8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-check-the-update-rollout" class="md-nav__link">
+    8.4.2 Check the Update Rollout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-un-pause-for-the-patches" class="md-nav__link">
+    8.4.3 un pause for the patches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigation_1" class="md-nav__link">
+    Navigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -291,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Execute the Installation of watsonx.data/README.md" class="md-nav__link">
+      <a href="../Execute%20the%20Installation%20of%20watsonx.data/" class="md-nav__link">
         Part 3 - Installation
       </a>
     </li>
@@ -306,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Optional/README.md" class="md-nav__link">
+      <a href="../Optional/" class="md-nav__link">
         Troubleshoot
       </a>
     </li>
@@ -321,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Optional/Demo_Connection_Details.md" class="md-nav__link">
+      <a href="../Optional/Demo_Connection_Details/" class="md-nav__link">
         Test data
       </a>
     </li>
@@ -336,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/Optional/get_minio_details.md" class="md-nav__link">
+      <a href="../Optional/get_minio_details/" class="md-nav__link">
         Optional
       </a>
     </li>
@@ -944,6 +1212,42 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Requirements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 1 - Requirements" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 1 - Requirements
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Execute%20the%20Installation%20of%20watsonx.data/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 3 - Installation" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Part 3 - Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
