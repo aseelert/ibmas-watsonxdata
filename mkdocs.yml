@@ -24,23 +24,24 @@ remote_name: 'origin'
 
 theme:
   palette:
-    - scheme: default
-      primary: black
-      accent: blue
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
     - scheme: slate
       primary: black
       accent: blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    - scheme: default
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
   font:
-    text: 'IBM Plex Sans'
+    text: 'IBM Plex Arabic'
     code: 'IBM Plex Mono'
-  favicon: 'media/logo-ibm.png'
-  logo: 'media/logo-ibm.png'
+  favicon: 'https://www.ibm.com/brand/experience-guides/developer/8f4e3cc2b5d52354a6d43c8edba1e3c9/02_8-bar-reverse.svg'
+  logo: 'https://www.ibm.com/brand/experience-guides/developer/8f4e3cc2b5d52354a6d43c8edba1e3c9/02_8-bar-reverse.svg'
   name: material
   features:
     - navigation.instant
@@ -57,8 +58,9 @@ theme:
     - header.autohide
     - content.code.copy
     - content.tabs.link​
-extra_css: 
-  - extra.css
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search
   - inline-svg

@@ -1,0 +1,11 @@
+html, body {
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+.language-text.highlight pre {
+  font-size: 12px; /* Adjust the font size as needed */
+}
+
+.language-text.highlight code {
+  font-size: 12px; /* Adjust the font size as needed */
+}
