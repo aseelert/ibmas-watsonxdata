@@ -64,19 +64,19 @@ Access the original documentation about a Single Node Openshift Cluster for a Cl
 
 ### 4.1 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
 
-- Go to[Single Node OpenShift (VMware on IBM Cloud)](https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa)
+- **Go to** [Single Node OpenShift (VMware on IBM Cloud)](https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa)
 - Click Reserve now
-- Select Purpose -> Practice / Self-Eduction
-- Click the checkbox to confirm that no customer data is being used
-- Leave the opportunity number empty
+- Select Purpose -> **Practice / Self-Eduction**
+- Click the checkbox to confirm that **no customer data** is being used
+- Leave the opportunity number **empty**
 - Enter a description for the Purpose
-- Choose the geography DAL12 (other geographies are WDC04, LON02, LON06, FRA04 and TOK02)
-- Leave the defaults for "End date time", "OCP/Kubernetes Cluster Network" and "Enable FIPS Security"
-- Choose the master single node flavor. Choose at least the 32x256 flavor
-- Choose the OpenShift version 4.12
+- **Choose the geography DAL12** (other geographies are WDC04, LON02, LON06, FRA04 and TOK02)
+- Leave the defaults for "End date time", "OCP/Kubernetes Cluster Network" and **"Disable FIPS Security"**
+- Choose the master single node flavor. Choose at least the **32x256 flavor**
+- Choose the OpenShift version **4.12**
 - Leave the defaults for "OCP/Kubernetes Service Network"
 - Eventually add notes
-- Click Submit
+- **Click Submit**
 
 
 <img width="1071" alt="image" src="https://media.github.ibm.com/user/50903/files/ccd0fbbb-893a-44c6-858a-83e5bae8ff4b">
