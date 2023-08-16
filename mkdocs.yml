@@ -6,11 +6,12 @@ site_author: "Alexander Seelert"
 
 nav:
   - Introduction: 'README.md'
-  - Part 1 - Requirements: 'Requirements/README.md'
-  - Part 2 - Preparation: 'Prepare the Installation/README.md'
-  - Part 3 - Installation: 'Execute the Installation of watsonx.data/README.md'
-  - Optional: 'Optional/get_minio_details.md'
-  - Troubleshoot: 'Optional/README.md'
+  - Part 1 - Requirements: 'docs/Requirements/README.md'
+  - Part 2 - Preparation: 'docs/Prepare the Installation/README.md'
+  - Part 3 - Installation: 'docs/Execute the Installation of watsonx.data/README.md'
+  - Troubleshoot: 'docs/Optional/README.md'
+  - Test data: 'docs/Optional/Demo_Connection_Details.md'
+  - Optional: 'docs/Optional/get_minio_details.md'
   
   
 # Repository Information
