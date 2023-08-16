@@ -1,0 +1,107 @@
+# Project Information
+site_name: "watsonx.data on a single node cluster"
+site_url: "https://pages.github.ibm.com/alexander/ibmas-watsonxdata"
+site_description: Databand Workshop
+site_author: "Alexander Seelert"
+
+nav:
+  - Introduction: 'README.md'
+  - Part 1 - Requirements: 'docs/Requirements/README.md'
+  - Part 2 - Preparation: 'docs/Prepare the Installation/README.md'
+  - Part 3 - Installation: 'docs/Execute the Installation of watsonx.data/README.md'
+  - Optional: 'docs/Optional/get_minio_details.md'
+  - Troubleshoot: 'docs/Optional/README.md'
+  
+  
+# Repository Information
+repo_name: 'alexander/ibmas-watsonxdata'
+repo_url: 'https://github.ibm.com/alexander/ibmas-watsonxdata'
+edit_uri: 'https://github.ibm.com/alexander/ibmas-watsonxdata'
+docs_dir: 'docs'
+site_dir: 'site'
+remote_branch: 'mkdocs'
+remote_name: 'origin'
+
+theme:
+  palette:
+    - scheme: default
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: 'IBM Plex Sans'
+    code: 'IBM Plex Mono'
+    size:
+      text: 9px
+      code: 7px
+  favicon: 'media/logo-ibm.png'
+  logo: 'media/logo-ibm.png'
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    # - toc.integrate
+    - search.suggest
+    - search.highlight
+    - header.autohide
+    - content.code.copy
+    - content.tabs.link​
+plugins:
+  - search
+  - inline-svg
+  - mkdocs-jupyter:
+      ignore_h1_titles: True
+  - table-reader
+markdown_extensions:
+  - tables
+  - abbr
+  - footnotes
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - meta
+  - toc:
+      permalink: true 
+      toc_depth: 4     
+  - smarty:
+      smart_quotes: false
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+​extra:
+  homepage: https://www.ibm.com
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.ibm.com/alexander/ibmas-watsonxdata
+    - icon: fontawesome/solid/globe
+      link: https://pages.github.ibm.com/alexander/ibmas-watsonxdata
+​copyright: Copyright &copy; 2023 Alexaander Seelert  - IBM Germany

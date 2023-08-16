@@ -1,0 +1,681 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Databand Workshop">
+      
+      
+        <meta name="author" content="Alexander Seelert">
+      
+      
+        <link rel="canonical" href="https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Prepare%20the%20Installation/">
+      
+      
+        <link rel="prev" href="../Requirements/">
+      
+      
+        <link rel="next" href="../Execute%20the%20Installation%20of%20watsonx.data/">
+      
+      <link rel="icon" href="../media/logo-ibm.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Part 2 - Preparation - watsonx.data on a single node cluster</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-2-prepare-the-installation-of-watsonxdata-and-the-bastion-node" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="watsonx.data on a single node cluster" class="md-header__button md-logo" aria-label="watsonx.data on a single node cluster" data-md-component="logo">
+      
+  <img src="../media/logo-ibm.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            watsonx.data on a single node cluster
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 2 - Preparation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.ibm.com/alexander/ibmas-watsonxdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alexander/ibmas-watsonxdata
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="watsonx.data on a single node cluster" class="md-nav__button md-logo" aria-label="watsonx.data on a single node cluster" data-md-component="logo">
+      
+  <img src="../media/logo-ibm.png" alt="logo">
+
+    </a>
+    watsonx.data on a single node cluster
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.ibm.com/alexander/ibmas-watsonxdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alexander/ibmas-watsonxdata
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Requirements/" class="md-nav__link">
+        Part 1 - Requirements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Part 2 - Preparation
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Execute%20the%20Installation%20of%20watsonx.data/" class="md-nav__link">
+        Part 3 - Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optional/get_minio_details/" class="md-nav__link">
+        Optional
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optional/" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="step-2-prepare-the-installation-of-watsonxdata-and-the-bastion-node">Step 2 - Prepare the installation of watsonx.data and the bastion node<a class="headerlink" href="#step-2-prepare-the-installation-of-watsonxdata-and-the-bastion-node" title="Permanent link">&para;</a></h1>
+<h5 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">&para;</a></h5>
+<p><a href="../Execute%20the%20Installation%20of%20watsonx.data">Next Chapter: Execute the Installation of watsonx.data</a>  or return to the <a href="../">Introduction</a>.</p>
+<p><a href="https://www.redhat.com"><img alt="Red Hat" src="https://img.shields.io/badge/Platform-Red%20Hat-red" /></a>
+<a href="https://www.centos.org"><img alt="CentOS" src="https://img.shields.io/badge/Platform-CentOS-yellow" /></a>
+<a href="https://www.openshift.com"><img alt="OpenShift" src="https://img.shields.io/badge/Platform-OpenShift-blue" /></a></p>
+<p>In this chapter, we'll guide you through the Bastion Node for your Red Hat Single Node Cluster (SNO). A Red Hat Single Node Cluster (SNO) is a standalone instance of a Red Hat OpenShift cluster designed to run on a single node, providing a simplified environment for testing and development purposes. It encapsulates the core capabilities of OpenShift, enabling you to simulate a multi-node cluster experience on a single machine.</p>
+<p>Now, let's delve into the concept of a bastion node. A bastion node, also known as a jump host or a gateway, serves as a secure entry point into a network or infrastructure. In the context of your SNO installation, the bastion node acts as an intermediary server that facilitates secure communication and management between your local machine and the Red Hat Single Node Cluster. It provides a controlled access point for performing administrative tasks, managing configurations, and executing commands within the cluster.</p>
+<p>Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.</p>
+<h1 id="21-prepare-the-bastion-node-for-the-installer">2.1 Prepare the Bastion node for the installer<a class="headerlink" href="#21-prepare-the-bastion-node-for-the-installer" title="Permanent link">&para;</a></h1>
+<h2 id="22-accessing-red-hat-single-node-cluster-sno-details">2.2 Accessing Red Hat Single Node Cluster (SNO) Details<a class="headerlink" href="#22-accessing-red-hat-single-node-cluster-sno-details" title="Permanent link">&para;</a></h2>
+<p>After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:</p>
+<ol>
+<li><strong>Go to:</strong> Visit the TechZone platform at <a href="https://techzone.ibm.com">https://techzone.ibm.com</a>.</li>
+<li><strong>Log In:</strong> Log in to your TechZone account using your credentials.</li>
+<li><strong>Access Reservations:</strong> Navigate to the "My Reservations" section. You can usually find this in your account dashboard or a similar location.</li>
+<li><strong>Select Current Image:</strong> Locate and select your current Single Node OpenShift (VMware on IBM Cloud) image reservation from the list. This should correspond to the Red Hat Single Node Cluster you reserved.</li>
+<li><strong>Retrieve Cluster Details:</strong> Once you've selected your reservation, you should see a detailed view of your reserved SNO image. Look for information such as:</li>
+<li><strong>User and Password:</strong> Credentials to access your cluster. (user: kubeadmin)</li>
+<li><strong>OpenShift Public URL:</strong> The URL to access the OpenShift web console.</li>
+<li><strong>Bastion Node Terminal (SSH) Details:</strong> Information on how to SSH into the bastion node, which serves as a secure entry point into your cluster. </li>
+<li><strong>Accessing the Bastion Node:</strong> Use the provided SSH details to connect to the bastion node. From the bastion node, you can perform administrative tasks, manage configurations, and execute commands within your SNO cluster. (user: admin and sudo su -)</li>
+</ol>
+<p>By following these steps and retrieving the cluster details from the TechZone reservation page, you'll have the necessary information to effectively manage and work with your Red Hat Single Node Cluster environment.</p>
+<h4 id="221-logon-to-the-openshift-console-example-from-reservation-details">2.2.1 Logon to the openshift console (example from reservation details)<a class="headerlink" href="#221-logon-to-the-openshift-console-example-from-reservation-details" title="Permanent link">&para;</a></h4>
+<p><strong>Example:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://console-openshift-console.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>kubeadmin
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>zR6vy-FvZXh-IzfCn-SIG4x
+</span></code></pre></div></p>
+<h4 id="222-logon-to-the-bastion-node-example-from-reservation-details">2.2.2 Logon to the bastion node (example from reservation details)<a class="headerlink" href="#222-logon-to-the-bastion-node-example-from-reservation-details" title="Permanent link">&para;</a></h4>
+<p>Prepare the bastion node via SSH (details in the techzone reservation) 
+<strong>Example:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh admin@api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com -p 40222
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Password: yDVe43J8
+</span></code></pre></div></p>
+<h4 id="223-switch-from-user-admin-to-root-via-sudo">2.2.3 switch from user admin to root via sudo<a class="headerlink" href="#223-switch-from-user-admin-to-root-via-sudo" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo su -
+</span></code></pre></div>
+<h2 id="3-install-required-redhat-base-software">3. Install required Redhat base software<a class="headerlink" href="#3-install-required-redhat-base-software" title="Permanent link">&para;</a></h2>
+<p>Install <strong>NFS</strong> and the <strong>screen</strong> software to set up NFS storage for watsonx.data, facilitating seamless access to storage resources while ensuring security through firewall services. This installation process can be conveniently executed using the screen utility, which operates as a background terminal service. This eliminates the need to append commands with &amp; or utilize nohup, streamlining the configuration process.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>yum -y install nfs-utils screen
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>systemctl enable --now nfs-server rpcbind
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>systemctl start nfs-server
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mkdir /export
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>touch /etc/exports
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>echo &quot;/export *(rw,sync,no_root_squash,no_all_squash)&quot; &gt;&gt; /etc/exports
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>firewall-cmd --add-service=nfs --permanent
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>firewall-cmd --add-service={nfs3,mountd,rpc-bind} --permanent
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>firewall-cmd --reload
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>systemctl restart nfs-server
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>systemctl status nfs-server
+</span></code></pre></div></p>
+<h2 id="4-install-the-cloudpak-installer-cli-package">4. Install the Cloudpak Installer CLI package<a class="headerlink" href="#4-install-the-cloudpak-installer-cli-package" title="Permanent link">&para;</a></h2>
+<p>Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>tar -xzvf cpd-cli-linux-EE-13.0.1.tgz
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mv cpd-cli-linux-EE-13.0.1-26/* .
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>rm -rf cpd-cli-linux-EE-13.0.1-26
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>rm -f cpd-cli-linux-EE-13.0.1.tgz
+</span></code></pre></div></p>
+<h3 id="41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url">4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.<a class="headerlink" href="#41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url" title="Permanent link">&para;</a></h3>
+<h4 id="412-how-to-get-the-openshift-api-url">4.1.2 How to Get the OpenShift API URL<a class="headerlink" href="#412-how-to-get-the-openshift-api-url" title="Permanent link">&para;</a></h4>
+<p>To obtain the API URL of an OpenShift cluster, follow these steps:</p>
+<ol>
+<li><strong>Access OpenShift Web Console:</strong> Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.</li>
+<li><strong>Log In:</strong> Log in to the OpenShift Web Console using your credentials.</li>
+<li><strong>Navigate to Cluster Details:</strong> Once logged in, navigate to the "Help" or "User" section of the OpenShift Web Console. Look for an option that provides cluster details or settings.</li>
+<li><strong>Find API URL:</strong> In the cluster details or settings section, you should find information about the API server URL. It may be labeled as "API URL," "Cluster URL," or something similar. This URL is the endpoint you'll use to interact with the OpenShift cluster programmatically.</li>
+<li><strong>Copy the API URL:</strong> Copy the API URL to your clipboard. It will typically start with <code>https://</code> and include the cluster's domain name or IP address.</li>
+<li><strong>Use the API URL:</strong> You can now use the copied API URL to interact with the OpenShift cluster through various tools, scripts, or applications that communicate with the OpenShift API.
+By following these steps, you'll be able to retrieve the API URL of your OpenShift cluster, allowing you to efficiently manage and interact with the cluster's resources programmatically.</li>
+</ol>
+<p><img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
+logon to your cluster Desktop/Console URL and check for the cluster informations</p>
+<h4 id="413-get-the-ibm-entitlement-key">4.1.3 Get the IBM Entitlement Key<a class="headerlink" href="#413-get-the-ibm-entitlement-key" title="Permanent link">&para;</a></h4>
+<p><a href="https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA"><img alt="IBM Entitlement Key " src="https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue" /></a>
+Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
+Click on the badge above or visit the <a href="https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA">IBM Container Library</a> to obtain your API key.</p>
+<h4 id="414-configure-the-data-as-specified-in-the-techzone-reservation-details">4.1.4 Configure the data as specified in the TechZone reservation details:<a class="headerlink" href="#414-configure-the-data-as-specified-in-the-techzone-reservation-details" title="Permanent link">&para;</a></h4>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>export SNO_API_URL=&lt;API URL&gt;:&lt;PORT&gt;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>export SNO_CLUSTER_ADMIN_PWD=&lt;kubeadmin Password&gt;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>export SNO_IBM_ENTITLEMENT_KEY=&lt;IBM Entitlement Key from section 4.1.3)
+</span></code></pre></div>
+<strong>Example:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+</span></code></pre></div></p>
+<h2 id="5-update-the-hosts-for-to-the-api-connection-string">5 Update the hosts for to the API connection string<a class="headerlink" href="#5-update-the-hosts-for-to-the-api-connection-string" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>export SNO_API_HOST=$(echo $SNO_API_URL | sed &#39;s/https:\/\///g&#39; | sed &#39;s/:6443//g&#39;)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>echo &quot;192.168.252.1 $SNO_API_HOST&quot; &gt;&gt; /etc/hosts
+</span></code></pre></div>
+<h3 id="51-confirm-the-successful-login-to-the-openshift-cluster">5.1 Confirm the successful login to the OpenShift cluster.<a class="headerlink" href="#51-confirm-the-successful-login-to-the-openshift-cluster" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
+</span></code></pre></div>
+<h2 id="6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings">6. Initiate the Environment Setup using the Unix environment to configure the installation settings.<a class="headerlink" href="#6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings" title="Permanent link">&para;</a></h2>
+<p>The current version of IBM Lakehouse (watsonx.data) is 1.0.1 this can be change from LH_IMAGE_TAG=latest to LH_IMAGE_TAG=1.0.1. 
+All operators are installed in <strong>watsonxdata1-operator</strong> namespace and the instance itself in <strong>watsonxdata1-instance</strong>. Nothing else needs to be replaced for this demo.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir /root/ibm-lh-manage
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cd /root/ibm-lh-manage/
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>tee ibm-lh-manage.env &lt;&lt;EOF 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a># Watsonx.data  version
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>export LH_IMAGE_TAG=latest
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a># Watsonx.data settings
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>export DOCKER_EXE=podman
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>export UTILS_IMG=icr.io/cpopen/watsonx-data/ibm-lakehouse-manage-utils:\$LH_IMAGE_TAG
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>export IBM_LH_TOOLBOX=icr.io/cpopen/watsonx-data/ibm-lakehouse-toolbox:\$LH_IMAGE_TAG
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>export WORK_DIR=/root/ibm-lh-manage/.ibm-lh-manage-utils
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>export IMAGE_ARCH=x86-64
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>export PROD_REGISTRY=cp.icr.io
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>export PROD_USER=cp
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a># Projects
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>export PROJECT_CPD_OPS=watsonxdata1-operator
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>export PROJECT_CPD_INSTANCE=watsonxdata1-instance
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a># IBM Entitled Registry
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>export IBM_ENTITLEMENT_KEY=$SNO_IBM_ENTITLEMENT_KEY
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a># Cluster
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>export OCP_USERNAME=&quot;kubeadmin&quot;
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>export OCP_PASSWORD=$SNO_CLUSTER_ADMIN_PWD
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>export OCP_TOKEN=&quot;$(oc whoami -t)&quot;
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>export OCP_URL=$SNO_API_URL
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>export OPENSHIFT_TYPE=self-managed
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a># NFS Storage
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a># ------------------------------------------------------------------------------
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>export NFS_SERVER_LOCATION=192.168.252.2
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>export NFS_PATH=/export
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>export PROJECT_NFS_PROVISIONER=nfs-provisioner
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>export NFS_STORAGE_CLASS=nfs-storage-provisioner
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>export NFS_IMAGE=k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>export STG_CLASS_BLOCK=nfs-storage-provisioner
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>export STG_CLASS_FILE=nfs-storage-provisioner
+</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>EOF
+</span></code></pre></div></p>
+<h3 id="61-activate-the-settings-using-the-bash-shell-and-source-the-environment">6.1 Activate the settings using the bash shell and source the environment.<a class="headerlink" href="#61-activate-the-settings-using-the-bash-shell-and-source-the-environment" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>source /root/ibm-lh-manage/ibm-lh-manage.env
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>echo &quot;source /root/ibm-lh-manage/ibm-lh-manage.env&quot; &gt;&gt; ~/.bashrc
+</span></code></pre></div>
+<h2 id="7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image">7.  Pull the watsonx.data ibm-lakehouse-toolbox image.<a class="headerlink" href="#7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$DOCKER_EXE pull $IBM_LH_TOOLBOX
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>id=$($DOCKER_EXE create $IBM_LH_TOOLBOX)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>$DOCKER_EXE cp $id:/opt - &gt; /tmp/pkg.tar
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>$DOCKER_EXE rm $id
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>unset id
+</span></code></pre></div>
+<h3 id="71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum">7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum<a class="headerlink" href="#71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>tar -xf /tmp/pkg.tar -C /tmp
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>cat /tmp/opt/bom.txt
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>cksum /tmp/opt/*/*
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>cp /tmp/opt/standalone/ibm-lakehouse-manage /root/ibm-lh-manage
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
+</span></code></pre></div>
+<h2 id="8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container">8. Run the following command to initialize the ibm-lh-manage-utils container.<a class="headerlink" href="#8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage initialize
+</span></code></pre></div>
+<h3 id="81-validate-pod-optional">8.1 validate pod (optional):<a class="headerlink" href="#81-validate-pod-optional" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>podman exec -ti ibm-lakehouse-manage-utils bash  
+</span></code></pre></div>
+<h3 id="82-validate-the-login">8.2 validate the login:<a class="headerlink" href="#82-validate-the-login" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>--token=${OCP_TOKEN} \
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>--server=${OCP_URL}
+</span></code></pre></div>
+<h3 id="83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata">8.3 Install NFS Provisioner and create a storage class for Watsonx.data<a class="headerlink" href="#83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./ibm-lakehouse-manage setup-nfs-provisioner \
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>--nfs_server=${NFS_SERVER_LOCATION} \
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>--nfs_path=${NFS_PATH} \
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>--nfs_provisioner_ns=${PROJECT_NFS_PROVISIONER} \
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>--nfs_storageclass_name=${NFS_STORAGE_CLASS} \
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>--nfs_provisioner_image=${NFS_IMAGE}
+</span></code></pre></div>
+<h3 id="84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39; machineconfigpool/master
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39; machineconfigpool/worker
+</span></code></pre></div>
+<h4 id="841">8.4.1<a class="headerlink" href="#841" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
+</span></code></pre></div>
+<h4 id="842">8.4.2<a class="headerlink" href="#842" title="Permanent link">&para;</a></h4>
+<p>When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>watch oc get mcp
+</span></code></pre></div>
+<strong>Output:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False  False      1              0                   0                     0                      112m
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False  False      0              0                   0                     0                      112m
+</span></code></pre></div></p>
+<h4 id="843">8.4.3<a class="headerlink" href="#843" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39; machineconfigpool/master
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>oc patch --type=merge --patch=&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39; machineconfigpool/worker
+</span></code></pre></div>
+<h4 id="navigation_1">Navigation<a class="headerlink" href="#navigation_1" title="Permanent link">&para;</a></h4>
+<p><a href="../Execute%20the%20Installation%20of%20watsonx.data">Next Chapter: Execute the Installation of watsonx.data</a>  or return to the <a href="../">Introduction</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Requirements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 1 - Requirements" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 1 - Requirements
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Execute%20the%20Installation%20of%20watsonx.data/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 3 - Installation" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Part 3 - Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "header.autohide", "content.code.copy", "content.tabs.link\u200b"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>

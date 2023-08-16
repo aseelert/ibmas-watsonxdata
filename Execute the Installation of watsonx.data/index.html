@@ -1,0 +1,762 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Databand Workshop">
+      
+      
+        <meta name="author" content="Alexander Seelert">
+      
+      
+        <link rel="canonical" href="https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Execute%20the%20Installation%20of%20watsonx.data/">
+      
+      
+        <link rel="prev" href="../Prepare%20the%20Installation/">
+      
+      
+        <link rel="next" href="../Optional/get_minio_details/">
+      
+      <link rel="icon" href="../media/logo-ibm.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Part 3 - Installation - watsonx.data on a single node cluster</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-3-install-watsonxdata" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="watsonx.data on a single node cluster" class="md-header__button md-logo" aria-label="watsonx.data on a single node cluster" data-md-component="logo">
+      
+  <img src="../media/logo-ibm.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            watsonx.data on a single node cluster
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 3 - Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.ibm.com/alexander/ibmas-watsonxdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alexander/ibmas-watsonxdata
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="watsonx.data on a single node cluster" class="md-nav__button md-logo" aria-label="watsonx.data on a single node cluster" data-md-component="logo">
+      
+  <img src="../media/logo-ibm.png" alt="logo">
+
+    </a>
+    watsonx.data on a single node cluster
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.ibm.com/alexander/ibmas-watsonxdata" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alexander/ibmas-watsonxdata
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Requirements/" class="md-nav__link">
+        Part 1 - Requirements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prepare%20the%20Installation/" class="md-nav__link">
+        Part 2 - Preparation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 3 - Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Part 3 - Installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-prepare-the-installation" class="md-nav__link">
+    3.1 Prepare the installation
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Prepare the installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#32-login-to-the-cluster" class="md-nav__link">
+    3.2 login to the cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-set-up-the-topology-run-the-following-commands" class="md-nav__link">
+    3.2.1 Set up the topology. Run the following commands:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-run-the-following-command-to-install-watsonxdata-cartridge-cr-and-accept-the-license-agreement" class="md-nav__link">
+    3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
+    4. Run the following command to verify whether the catalog source is created.
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Run the following command to verify whether the catalog source is created.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-verify-the-cr-status-run-the-following-command" class="md-nav__link">
+    4.1 Verify the CR status. Run the following command:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
+    4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#421-get-the-watsonxdata-external-url" class="md-nav__link">
+    4.2.1 Get the watsonx.data external URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-validate-memory" class="md-nav__link">
+    5. Validate Memory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optional/get_minio_details/" class="md-nav__link">
+        Optional
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optional/" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-prepare-the-installation" class="md-nav__link">
+    3.1 Prepare the installation
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Prepare the installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#32-login-to-the-cluster" class="md-nav__link">
+    3.2 login to the cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#321-set-up-the-topology-run-the-following-commands" class="md-nav__link">
+    3.2.1 Set up the topology. Run the following commands:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-run-the-following-command-to-install-watsonxdata-cartridge-cr-and-accept-the-license-agreement" class="md-nav__link">
+    3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
+    4. Run the following command to verify whether the catalog source is created.
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Run the following command to verify whether the catalog source is created.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-verify-the-cr-status-run-the-following-command" class="md-nav__link">
+    4.1 Verify the CR status. Run the following command:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
+    4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#421-get-the-watsonxdata-external-url" class="md-nav__link">
+    4.2.1 Get the watsonx.data external URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-validate-memory" class="md-nav__link">
+    5. Validate Memory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="step-3-install-watsonxdata">Step 3 - Install watsonx.data<a class="headerlink" href="#step-3-install-watsonxdata" title="Permanent link">&para;</a></h1>
+<h5 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">&para;</a></h5>
+<p><a href="../Prepare%20the%20Installation">Previous Chapter</a> or return to the <a href="../">Introduction</a>.</p>
+<p>in this comprehensive chapter, we will provide you with step-by-step instructions for successfully installing the IBM WatsonX Data application on your Red Hat Single Node Cluster (SNO). By the end of this chapter, you will have a clear understanding of how to set up and configure the WatsonX Data application on your cluster.</p>
+<p>Building upon the introduction and prerequisites covered earlier, this installation guide will delve into the specific details necessary for a seamless and successful deployment. The focus will primarily be on the installation of the WatsonX Data application, ensuring that you have all the information you need to carry out the process efficiently.</p>
+<p>By following the instructions outlined in this chapter, you will gain practical insights into provisioning the necessary resources, configuring the environment, and executing the installation process step by step. Our goal is to empower you with the knowledge and confidence to effectively set up the WatsonX Data application, enhancing your data-related capabilities within your Red Hat Single Node Cluster.</p>
+<p>Let's dive into the installation process and embark on the journey to unleash the full potential of IBM WatsonX Data within your cluster environment.</p>
+<h2 id="31-prepare-the-installation">3.1 Prepare the installation<a class="headerlink" href="#31-prepare-the-installation" title="Permanent link">&para;</a></h2>
+<p>The <strong>screen</strong> command is used to manage terminal sessions. To start a new session, use <strong>screen -S session_name</strong>, and to reattach to an existing session, use <strong>screen -r session_name</strong>. You can detach from a session by pressing <strong>Ctrl-a followed by d</strong>, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  screen -S &lt;name&gt; creates a new shell
+</span></code></pre></div>
+with 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  screen -r &lt;name&gt; you can always attach to the shell if you lost the shell
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  using **screen -list** you can check for all open shells
+</span></code></pre></div>
+<strong>Example</strong> we use:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>screen -S installwatsonxdata
+</span></code></pre></div></p>
+<h3 id="32-login-to-the-cluster">3.2 login to the cluster<a class="headerlink" href="#32-login-to-the-cluster" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--user=${OCP_USERNAME} \
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>--password=${OCP_PASSWORD} \
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>--server=${OCP_URL}
+</span></code></pre></div>
+<h3 id="321-set-up-the-topology-run-the-following-commands">3.2.1 Set up the topology. Run the following commands:<a class="headerlink" href="#321-set-up-the-topology-run-the-following-commands" title="Permanent link">&para;</a></h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage authorize-instance-topology
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
+</span></code></pre></div></p>
+<h3 id="322-run-the-following-command-to-install-watsonxdata-cartridge-cr-and-accept-the-license-agreement">3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:<a class="headerlink" href="#322-run-the-following-command-to-install-watsonxdata-cartridge-cr-and-accept-the-license-agreement" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
+</span></code></pre></div>
+<h2 id="4-run-the-following-command-to-verify-whether-the-catalog-source-is-created">4. Run the following command to verify whether the catalog source is created.<a class="headerlink" href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc get catalogsource -n ${PROJECT_CPD_OPS}
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>oc get csv -n ${PROJECT_CPD_OPS}
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>oc get po -n ibm-cert-manager
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>oc get po -n ibm-licensing
+</span></code></pre></div>
+<h3 id="41-verify-the-cr-status-run-the-following-command">4.1 Verify the CR status. Run the following command:<a class="headerlink" href="#41-verify-the-cr-status-run-the-following-command" title="Permanent link">&para;</a></h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># getting status for all installed components...  optionally add --components=&lt;comma separated list of cpd components&gt; for a specific set
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a># component,CR-kind,CR-name,status,version,creationtimestamp,reconciled-version,operator-info
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>watsonx_data,WxdAddon,wxdaddon,Completed,1.0.1,2023-08-14T15:17:36Z,1.0.1,IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>analyticsengine,AnalyticsEngine,analyticsengine-sample,Completed,4.7.1,2023-08-14T14:52:23Z,4.7.1,268
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>cpd_platform,Ibmcpd,ibmcpd-cr,Completed,4.7.1,2023-08-14T14:07:05Z,--,cpdPlatform operator 4.1.0 build 10
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>zen,ZenService,lite-cr,Completed,5.0.0,2023-08-14T14:10:05Z,5.0.0,zen operator 5.0.0 build 277
+</span></code></pre></div></p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc get $(oc get Wxdaddon -o name -n ${PROJECT_CPD_INSTANCE}) -o custom-columns=&#39;VERSION:status.version,STATUS:status.wxdStatus,BUILD:.status.wxdBuildNumber&#39; -n ${PROJECT_CPD_INSTANCE}
+</span></code></pre></div>
+<strong>Example</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>VERSION   STATUS      BUILD
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>1.0.1     Completed   IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
+</span></code></pre></div></p>
+<h3 id="42-get-the-login-credentials-to-access-ibm-cockpit-url-zen">4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)<a class="headerlink" href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" title="Permanent link">&para;</a></h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/root/ibm-lh-manage/ibm-lakehouse-manage get-cpd-instance-details
+</span></code></pre></div>
+<strong>Example</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>CPD Url: cpd-watsonxdata1-instance.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>CPD Username: admin
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>CPD Password: 5SieL9rI6NFS
+</span></code></pre></div></p>
+<h3 id="421-get-the-watsonxdata-external-url">4.2.1 Get the watsonx.data external URL<a class="headerlink" href="#421-get-the-watsonxdata-external-url" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc get routes -A | grep cpd | awk &#39;{print &quot;https://&quot; $3}&#39;
+</span></code></pre></div>
+<h3 id="5-validate-memory">5. Validate Memory<a class="headerlink" href="#5-validate-memory" title="Permanent link">&para;</a></h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>oc adm top node
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>NAME       CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>master-1   2875m        9%     25062Mi         19%
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc adm top pod -n $PROJECT_CPD_INSTANCE
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>NAME                                               CPU(cores)   MEMORY(bytes)
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>ibm-lh-lakehouse-hive-metastore-76cf5d8fd5-68hns   10m          329Mi
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>ibm-lh-lakehouse-minio-67cc69976b-8pvvk            0m           148Mi
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>ibm-lh-lakehouse-presto-01-presto-0                50m          1568Mi
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>ibm-lh-postgres-edb-1                              4m           112Mi
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>ibm-lh-postgres-edb-2                              4m           41Mi
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>ibm-lh-postgres-edb-3                              4m           38Mi
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>ibm-nginx-8665d8c6d9-nxw66                         6m           109Mi
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>ibm-nginx-8665d8c6d9-qq4js                         4m           94Mi
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>ibm-nginx-tester-554756d6f5-hk7t4                  4m           72Mi
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>lhconsole-api-76fd9f9646-shjbj                     12m          140Mi
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>lhconsole-nodeclient-dbfbc4465-q2fdf               0m           31Mi
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>lhconsole-ui-dd57d6c5f-bbrtj                       1m           4Mi
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>spark-hb-br-recovery-6b69c86964-4srh8              2m           0Mi
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>spark-hb-cloud-native-postgresql-1                 3m           61Mi
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>spark-hb-cloud-native-postgresql-2                 3m           58Mi
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>spark-hb-control-plane-69cf58b5cb-m6hqt            158m         1652Mi
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>spark-hb-create-trust-store-58669dcd57-4f8s8       46m          56Mi
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>spark-hb-deployer-agent-69c79755b8-zgwwb           2m           22Mi
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>spark-hb-nginx-94cdd5474-8knzb                     0m           6Mi
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>spark-hb-register-hb-dataplane-776dcbb54f-z2d47    4m           4Mi
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>usermgmt-85455dbcd-7shhr                           1m           55Mi
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>usermgmt-85455dbcd-snd5w                           0m           62Mi
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>zen-audit-74d75cdf76-kftgw                         5m           102Mi
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>zen-core-54575f65d6-9jv9d                          4m           111Mi
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>zen-core-54575f65d6-wqwpc                          3m           99Mi
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>zen-core-api-cb7458bbb-5f2nw                       20m          352Mi
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>zen-core-api-cb7458bbb-r6qcw                       15m          346Mi
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>zen-metastore-edb-1                                4m           88Mi
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>zen-metastore-edb-2                                6m           81Mi
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>zen-minio-0                                        32m          363Mi
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>zen-minio-1                                        35m          362Mi
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>zen-minio-2                                        27m          365Mi
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>zen-watchdog-6b8c9c9987-jkbcr                      1m           102Mi
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>zen-watcher-8b88f4858-sx4l9                        12m          273Mi
+</span></code></pre></div></p>
+<h5 id="navigation_1">Navigation<a class="headerlink" href="#navigation_1" title="Permanent link">&para;</a></h5>
+<p><a href="../Prepare%20the%20Installation">Previous Chapter</a> or return to the <a href="../">Introduction</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Prepare%20the%20Installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 2 - Preparation" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 2 - Preparation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Optional/get_minio_details/" class="md-footer__link md-footer__link--next" aria-label="Next: Optional" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Optional
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "header.autohide", "content.code.copy", "content.tabs.link\u200b"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
