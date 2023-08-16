@@ -289,9 +289,263 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 2 - Preparation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Part 2 - Preparation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-prepare-the-bastion-node-for-the-installer" class="md-nav__link">
+    2.1 Prepare the Bastion node for the installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-accessing-red-hat-single-node-cluster-sno-details" class="md-nav__link">
+    2.2 Accessing Red Hat Single Node Cluster (SNO) Details
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Accessing Red Hat Single Node Cluster (SNO) Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-logon-to-the-openshift-console-example-from-reservation-details" class="md-nav__link">
+    2.2.1 Logon to the openshift console (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-logon-to-the-bastion-node-example-from-reservation-details" class="md-nav__link">
+    2.2.2 Logon to the bastion node (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-switch-from-user-admin-to-root-via-sudo" class="md-nav__link">
+    2.2.3 switch from user admin to root via sudo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-required-redhat-base-software" class="md-nav__link">
+    3. Install required Redhat base software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-the-cloudpak-installer-cli-package" class="md-nav__link">
+    4. Install the Cloudpak Installer CLI package
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Install the Cloudpak Installer CLI package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url" class="md-nav__link">
+    4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#412-how-to-get-the-openshift-api-url" class="md-nav__link">
+    4.1.2 How to Get the OpenShift API URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-get-the-ibm-entitlement-key" class="md-nav__link">
+    4.1.3 Get the IBM Entitlement Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-configure-the-data-as-specified-in-the-techzone-reservation-details" class="md-nav__link">
+    4.1.4 Configure the data as specified in the TechZone reservation details:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-update-the-hosts-for-to-the-api-connection-string" class="md-nav__link">
+    5 Update the hosts for to the API connection string
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Update the hosts for to the API connection string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-confirm-the-successful-login-to-the-openshift-cluster" class="md-nav__link">
+    5.1 Confirm the successful login to the OpenShift cluster.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings" class="md-nav__link">
+    6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Initiate the Environment Setup using the Unix environment to configure the installation settings.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-activate-the-settings-using-the-bash-shell-and-source-the-environment" class="md-nav__link">
+    6.1 Activate the settings using the bash shell and source the environment.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image" class="md-nav__link">
+    7.  Pull the watsonx.data ibm-lakehouse-toolbox image.
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pull the watsonx.data ibm-lakehouse-toolbox image.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum" class="md-nav__link">
+    7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container" class="md-nav__link">
+    8. Run the following command to initialize the ibm-lh-manage-utils container.
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Run the following command to initialize the ibm-lh-manage-utils container.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-validate-pod-optional" class="md-nav__link">
+    8.1 validate pod (optional):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-validate-the-login" class="md-nav__link">
+    8.2 validate the login:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata" class="md-nav__link">
+    8.3 Install NFS Provisioner and create a storage class for Watsonx.data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-pause-for-the-patches" class="md-nav__link">
+    8.4 pause for the patches
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 pause for the patches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
+    8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-check-the-update-rollout" class="md-nav__link">
+    8.4.2 Check the Update Rollout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-un-pause-for-the-patches" class="md-nav__link">
+    8.4.3 un pause for the patches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigation_1" class="md-nav__link">
+    Navigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -362,6 +616,244 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-prepare-the-bastion-node-for-the-installer" class="md-nav__link">
+    2.1 Prepare the Bastion node for the installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-accessing-red-hat-single-node-cluster-sno-details" class="md-nav__link">
+    2.2 Accessing Red Hat Single Node Cluster (SNO) Details
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Accessing Red Hat Single Node Cluster (SNO) Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-logon-to-the-openshift-console-example-from-reservation-details" class="md-nav__link">
+    2.2.1 Logon to the openshift console (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-logon-to-the-bastion-node-example-from-reservation-details" class="md-nav__link">
+    2.2.2 Logon to the bastion node (example from reservation details)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-switch-from-user-admin-to-root-via-sudo" class="md-nav__link">
+    2.2.3 switch from user admin to root via sudo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-required-redhat-base-software" class="md-nav__link">
+    3. Install required Redhat base software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-the-cloudpak-installer-cli-package" class="md-nav__link">
+    4. Install the Cloudpak Installer CLI package
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Install the Cloudpak Installer CLI package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-retrieve-the-api-connection-string-for-accessing-openshift-by-obtaining-the-red-hat-https-api-url" class="md-nav__link">
+    4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#412-how-to-get-the-openshift-api-url" class="md-nav__link">
+    4.1.2 How to Get the OpenShift API URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-get-the-ibm-entitlement-key" class="md-nav__link">
+    4.1.3 Get the IBM Entitlement Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-configure-the-data-as-specified-in-the-techzone-reservation-details" class="md-nav__link">
+    4.1.4 Configure the data as specified in the TechZone reservation details:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-update-the-hosts-for-to-the-api-connection-string" class="md-nav__link">
+    5 Update the hosts for to the API connection string
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Update the hosts for to the API connection string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-confirm-the-successful-login-to-the-openshift-cluster" class="md-nav__link">
+    5.1 Confirm the successful login to the OpenShift cluster.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-initiate-the-environment-setup-using-the-unix-environment-to-configure-the-installation-settings" class="md-nav__link">
+    6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Initiate the Environment Setup using the Unix environment to configure the installation settings.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-activate-the-settings-using-the-bash-shell-and-source-the-environment" class="md-nav__link">
+    6.1 Activate the settings using the bash shell and source the environment.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pull-the-watsonxdata-ibm-lakehouse-toolbox-image" class="md-nav__link">
+    7.  Pull the watsonx.data ibm-lakehouse-toolbox image.
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pull the watsonx.data ibm-lakehouse-toolbox image.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-extract-the-watsonxdata-stand-alone-pkgtar-file-in-to-the-tmp-directory-verify-that-the-checksum-is-correct-by-comparing-the-checksum" class="md-nav__link">
+    7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-the-following-command-to-initialize-the-ibm-lh-manage-utils-container" class="md-nav__link">
+    8. Run the following command to initialize the ibm-lh-manage-utils container.
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Run the following command to initialize the ibm-lh-manage-utils container.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-validate-pod-optional" class="md-nav__link">
+    8.1 validate pod (optional):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-validate-the-login" class="md-nav__link">
+    8.2 validate the login:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-install-nfs-provisioner-and-create-a-storage-class-for-watsonxdata" class="md-nav__link">
+    8.3 Install NFS Provisioner and create a storage class for Watsonx.data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-pause-for-the-patches" class="md-nav__link">
+    8.4 pause for the patches
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 pause for the patches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
+    8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-check-the-update-rollout" class="md-nav__link">
+    8.4.2 Check the Update Rollout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-un-pause-for-the-patches" class="md-nav__link">
+    8.4.3 un pause for the patches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigation_1" class="md-nav__link">
+    Navigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -387,7 +879,7 @@
 <p>In this chapter, we'll guide you through the Bastion Node for your Red Hat Single Node Cluster (SNO). A Red Hat Single Node Cluster (SNO) is a standalone instance of a Red Hat OpenShift cluster designed to run on a single node, providing a simplified environment for testing and development purposes. It encapsulates the core capabilities of OpenShift, enabling you to simulate a multi-node cluster experience on a single machine.</p>
 <p>Now, let's delve into the concept of a bastion node. A bastion node, also known as a jump host or a gateway, serves as a secure entry point into a network or infrastructure. In the context of your SNO installation, the bastion node acts as an intermediary server that facilitates secure communication and management between your local machine and the Red Hat Single Node Cluster. It provides a controlled access point for performing administrative tasks, managing configurations, and executing commands within the cluster.</p>
 <p>Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.</p>
-<h1 id="21-prepare-the-bastion-node-for-the-installer">2.1 Prepare the Bastion node for the installer<a class="headerlink" href="#21-prepare-the-bastion-node-for-the-installer" title="Permanent link">&para;</a></h1>
+<h2 id="21-prepare-the-bastion-node-for-the-installer">2.1 Prepare the Bastion node for the installer<a class="headerlink" href="#21-prepare-the-bastion-node-for-the-installer" title="Permanent link">&para;</a></h2>
 <h2 id="22-accessing-red-hat-single-node-cluster-sno-details">2.2 Accessing Red Hat Single Node Cluster (SNO) Details<a class="headerlink" href="#22-accessing-red-hat-single-node-cluster-sno-details" title="Permanent link">&para;</a></h2>
 <p>After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:</p>
 <ol>
@@ -636,8 +1128,8 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">initialize</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="81-validate-pod-optional">8.1 validate pod (optional):<a class="headerlink" href="#81-validate-pod-optional" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>podman exec -ti ibm-lakehouse-manage-utils bash  
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">podman</span> <span class="n">exec</span> <span class="o">-</span><span class="n">ti</span> <span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span><span class="o">-</span><span class="n">utils</span> <span class="n">bash</span>  
+</span></code></pre></div></td></tr></table></div>
 <h3 id="82-validate-the-login">8.2 validate the login:<a class="headerlink" href="#82-validate-the-login" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
 <span class="normal"><a href="#__codelineno-16-2">2</a></span>
@@ -658,15 +1150,15 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="o">--</span><span class="n">nfs_storageclass_name</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_STORAGE_CLASS</span><span class="p">}</span> \
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="o">--</span><span class="n">nfs_provisioner_image</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_IMAGE</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#84-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h3>
+<h3 id="84-pause-for-the-patches">8.4 pause for the patches<a class="headerlink" href="#84-pause-for-the-patches" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
 <span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
 </span></code></pre></div></td></tr></table></div>
-<h4 id="841">8.4.1<a class="headerlink" href="#841" title="Permanent link">&para;</a></h4>
+<h4 id="841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h4>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">add</span><span class="o">-</span><span class="n">icr</span><span class="o">-</span><span class="n">cred</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="k">global</span><span class="o">-</span><span class="n">pull</span><span class="o">-</span><span class="n">secret</span> <span class="o">--</span><span class="n">entitled_registry_key</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">IBM_ENTITLEMENT_KEY</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h4 id="842">8.4.2<a class="headerlink" href="#842" title="Permanent link">&para;</a></h4>
+<h4 id="842-check-the-update-rollout">8.4.2 Check the Update Rollout<a class="headerlink" href="#842-check-the-update-rollout" title="Permanent link">&para;</a></h4>
 <p>When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
 </span></code></pre></div></td></tr></table></div>
@@ -677,7 +1169,7 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
 </span></code></pre></div></td></tr></table></div></p>
-<h4 id="843">8.4.3<a class="headerlink" href="#843" title="Permanent link">&para;</a></h4>
+<h4 id="843-un-pause-for-the-patches">8.4.3 un pause for the patches<a class="headerlink" href="#843-un-pause-for-the-patches" title="Permanent link">&para;</a></h4>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
 <span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
