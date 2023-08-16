@@ -13,21 +13,21 @@ Let's dive into the installation process and embark on the journey to unleash th
 
 ## 3.1 Prepare the installation
 The **screen** command is used to manage terminal sessions. To start a new session, use **screen -S session_name**, and to reattach to an existing session, use **screen -r session_name**. You can detach from a session by pressing **Ctrl-a followed by d**, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.
-```
+```py linenums="1"
   screen -S <name> creates a new shell
 ```
 with 
-```
+```py linenums="1"
   screen -r <name> you can always attach to the shell if you lost the shell
   using **screen -list** you can check for all open shells
 ```
 **Example** we use:
-```
+```py linenums="1"
 screen -S installwatsonxdata
 ```
 
 ### 3.2 login to the cluster
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --user=${OCP_USERNAME} \
 --password=${OCP_PASSWORD} \
@@ -35,20 +35,20 @@ screen -S installwatsonxdata
 ```
   
 ### 3.2.1 Set up the topology. Run the following commands:
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
 ```
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage authorize-instance-topology
 /root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
 ```
 
 ### 3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
 ```
 ## 4. Run the following command to verify whether the catalog source is created.
-```
+```py linenums="1"
 oc get catalogsource -n ${PROJECT_CPD_OPS}
 oc get csv -n ${PROJECT_CPD_OPS}
 oc get po -n ibm-cert-manager
@@ -56,10 +56,10 @@ oc get po -n ibm-licensing
 ```
 
 ### 4.1 Verify the CR status. Run the following command:
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage get-cr-status
 ```
-```
+```py linenums="1"
 # getting status for all installed components...  optionally add --components=<comma separated list of cpd components> for a specific set
 # component,CR-kind,CR-name,status,version,creationtimestamp,reconciled-version,operator-info
 watsonx_data,WxdAddon,wxdaddon,Completed,1.0.1,2023-08-14T15:17:36Z,1.0.1,IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
@@ -68,40 +68,40 @@ cpd_platform,Ibmcpd,ibmcpd-cr,Completed,4.7.1,2023-08-14T14:07:05Z,--,cpdPlatfor
 zen,ZenService,lite-cr,Completed,5.0.0,2023-08-14T14:10:05Z,5.0.0,zen operator 5.0.0 build 277
 ```
 
-```
+```py linenums="1"
 oc get $(oc get Wxdaddon -o name -n ${PROJECT_CPD_INSTANCE}) -o custom-columns='VERSION:status.version,STATUS:status.wxdStatus,BUILD:.status.wxdBuildNumber' -n ${PROJECT_CPD_INSTANCE}
 ```
 **Example**
-```
+```py linenums="1"
 VERSION   STATUS      BUILD
 1.0.1     Completed   IBM watsonx.data operator 1.0.1 build number v1.0.1-1054-20230721-214944-onprem-v1.0.1
 ```
 ### 4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
-```
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage get-cpd-instance-details
 ```
 **Example**
-```
+```py linenums="1"
 CPD Url: cpd-watsonxdata1-instance.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com
 CPD Username: admin
 CPD Password: 5SieL9rI6NFS
 ```
 ### 4.2.1 Get the watsonx.data external URL
-```
+```py linenums="1"
 oc get routes -A | grep cpd | awk '{print "https://" $3}'
 ```
 ### 5. Validate Memory
-```
+```py linenums="1"
 oc adm top node
 ```
-```
+```py linenums="1"
 NAME       CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
 master-1   2875m        9%     25062Mi         19%
 ```
-```
+```py linenums="1"
 oc adm top pod -n $PROJECT_CPD_INSTANCE
 ```
-```
+```py linenums="1"
 NAME                                               CPU(cores)   MEMORY(bytes)
 ibm-lh-lakehouse-hive-metastore-76cf5d8fd5-68hns   10m          329Mi
 ibm-lh-lakehouse-minio-67cc69976b-8pvvk            0m           148Mi
