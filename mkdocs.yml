@@ -10,6 +10,7 @@ nav:
   - Part 2 - Preparation: 'Prepare the Installation/README.md'
   - Part 3 - Installation: 'Execute the Installation of watsonx.data/README.md'
   - Optional: 'Optional/get_minio_details.md'
+  - Troubleshoot: 'Optional/README.md'
   
   
 # Repository Information
@@ -38,9 +39,6 @@ theme:
   font:
     text: 'IBM Plex Sans'
     code: 'IBM Plex Mono'
-  font-size:
-    text: 9px
-    code: 7px
   favicon: 'media/logo-ibm.png'
   logo: 'media/logo-ibm.png'
   name: material
@@ -59,6 +57,8 @@ theme:
     - header.autohide
     - content.code.copy
     - content.tabs.link​
+extra_css: 
+  - extra.css
 plugins:
   - search
   - inline-svg
