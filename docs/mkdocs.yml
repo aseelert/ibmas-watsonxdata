@@ -38,9 +38,9 @@ theme:
   font:
     text: 'IBM Plex Sans'
     code: 'IBM Plex Mono'
-  font-size:
-    text: 9px
-    code: 7px
+    size:
+      text: 9px
+      code: 7px
   favicon: 'media/logo-ibm.png'
   logo: 'media/logo-ibm.png'
   name: material
