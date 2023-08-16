@@ -1,5 +1,7 @@
 # ibmas-watsonxdata
 
+Please visit: https://pages.github.ibm.com/alexander/ibmas-watsonxdata for a better style.
+
 Welcome to the GitHub documentation for setting up a Red Hat Single Node Cluster! 
 In this guide, we will provide you with step-by-step instructions to deploy a powerful Red Hat OpenShift single-node cluster. This cluster serves as a fundamental building block for various applications, offering an environment that combines the benefits of containerization and orchestration.
 

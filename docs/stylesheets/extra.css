@@ -2,6 +2,11 @@ html, body {
   font-size: 20px; /* Adjust the font size as needed */
 }
 
+h1, h2, h3, h4, h5, h6  {
+  color: black
+}
+
+
 .language-text.highlight pre {
   font-size: 12px; /* Adjust the font size as needed */
 }
