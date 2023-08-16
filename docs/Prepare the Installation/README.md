@@ -11,7 +11,7 @@ In this chapter, we'll guide you through the Bastion Node for your Red Hat Singl
 Now, let's delve into the concept of a bastion node. A bastion node, also known as a jump host or a gateway, serves as a secure entry point into a network or infrastructure. In the context of your SNO installation, the bastion node acts as an intermediary server that facilitates secure communication and management between your local machine and the Red Hat Single Node Cluster. It provides a controlled access point for performing administrative tasks, managing configurations, and executing commands within the cluster.
 
 Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.
-# 2.1 Prepare the Bastion node for the installer
+## 2.1 Prepare the Bastion node for the installer
 
 ## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
 
@@ -212,7 +212,7 @@ cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
 ```
 
 ### 8.1 validate pod (optional): 
-```
+```py linenums="1"
 podman exec -ti ibm-lakehouse-manage-utils bash  
 ```
 
@@ -233,16 +233,16 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --nfs_provisioner_image=${NFS_IMAGE}
 ```
 
-### 8.4 Add the pull secret to the artifactory that contains watsonx.data images.
+### 8.4 pause for the patches
 ```py linenums="1"
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
 ```
-#### 8.4.1
+#### 8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
-#### 8.4.2
+#### 8.4.2 Check the Update Rollout
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 ```py linenums="1"
 watch oc get mcp
@@ -253,7 +253,7 @@ NAME     CONFIG                                             UPDATED   UPDATING  
 master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
 worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
 ```
-#### 8.4.3
+#### 8.4.3 un pause for the patches
 ```py linenums="1"
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
