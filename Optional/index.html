@@ -373,6 +373,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-ibm-lakehouse-manage-login-to-ocp-login-fails" class="md-nav__link">
+    2. ibm-lakehouse-manage login-to-ocp login fails
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ibm-lakehouse-manage login-to-ocp login fails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-firs-validate-the-login" class="md-nav__link">
+    2.1 Firs validate the login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-get-the-current-token" class="md-nav__link">
+    2.2 Get the current Token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-check-the-new-login" class="md-nav__link">
+    2.3 Check the new login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -469,6 +503,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-ibm-lakehouse-manage-login-to-ocp-login-fails" class="md-nav__link">
+    2. ibm-lakehouse-manage login-to-ocp login fails
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ibm-lakehouse-manage login-to-ocp login fails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-firs-validate-the-login" class="md-nav__link">
+    2.1 Firs validate the login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-get-the-current-token" class="md-nav__link">
+    2.2 Get the current Token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-check-the-new-login" class="md-nav__link">
+    2.3 Check the new login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -500,6 +568,22 @@
 <h3 id="14-reboot-the-master-node">1.4 Reboot the Master Node<a class="headerlink" href="#14-reboot-the-master-node" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">reboot</span>
 </span></code></pre></div></td></tr></table></div>
+<h2 id="2-ibm-lakehouse-manage-login-to-ocp-login-fails">2. ibm-lakehouse-manage login-to-ocp login fails<a class="headerlink" href="#2-ibm-lakehouse-manage-login-to-ocp-login-fails" title="Permanent link">&para;</a></h2>
+<p>The oc login command is working but the installer ibm-lakehouse-manage login-to-ocp fails with token expired. Please create a new token session as following:</p>
+<h3 id="21-firs-validate-the-login">2.1 Firs validate the login<a class="headerlink" href="#21-firs-validate-the-login" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">oc</span> <span class="n">login</span> <span class="o">-</span><span class="n">u</span> <span class="n">kubeadmin</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">SNO_CLUSTER_ADMIN_PWD</span> <span class="err">$</span><span class="n">SNO_API_URL</span> <span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">skip</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">verify</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="22-get-the-current-token">2.2 Get the current Token<a class="headerlink" href="#22-get-the-current-token" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">export</span> <span class="n">OCP_TOKEN</span><span class="o">=</span><span class="s2">&quot;$(oc whoami -t)&quot;</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="23-check-the-new-login">2.3 Check the new login<a class="headerlink" href="#23-check-the-new-login" title="Permanent link">&para;</a></h3>
+<p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">login</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">ocp</span> \
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">--</span><span class="n">token</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">OCP_TOKEN</span><span class="p">}</span> \
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">OCP_URL</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+if the login with the token is not working, it is possible to execute the command with user and password </p>
 
 
 
