@@ -242,7 +242,7 @@ oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worke
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
-#### 8.4.1.2 Important: Change the Openshift POD limit from 250 
+#### 8.4.1.2 Important: Change the Openshift POD limit from 250
 to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
 ```py linenums="1"
 oc apply -f - <<EOF

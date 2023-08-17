@@ -107,7 +107,7 @@ export SNO_IBM_ENTITLEMENT_KEY=<IBM Entitlement Key from section 4.1.3)
 ```py linenums="1"
 export SNO_API_URL=https://api.64da1ffc1bedbf00175f38c9.cloud.techzone.ibm.com:6443
 export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
-export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0._4cHQE3w3iDhpKZocW0bL376zNG3ebzqYcJINNUUS7w
+export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0
 ```
 
 ## 5 Update the hosts for to the API connection string
@@ -242,7 +242,7 @@ oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worke
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
-#### 8.4.1.2 Important: Change the Openshift POD limit from 250 
+#### 8.4.1.2 Important: Change the Openshift POD limit from 250
 to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
 ```py linenums="1"
 oc apply -f - <<EOF
