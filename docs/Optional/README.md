@@ -38,3 +38,4 @@ If the login with the token is not working, it is possible to execute the comman
 --user=${OCP_USERNAME} \
 --password=${OCP_PASSWORD} \
 --server=${OCP_URL}
+```
