@@ -513,8 +513,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" class="md-nav__link">
-    8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
+  <a href="#8412-important-change-the-openshift-pod-limit-from-250" class="md-nav__link">
+    8.4.1.2 Important: Change the Openshift POD limit from 250
   </a>
   
 </li>
@@ -844,8 +844,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" class="md-nav__link">
-    8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
+  <a href="#8412-important-change-the-openshift-pod-limit-from-250" class="md-nav__link">
+    8.4.1.2 Important: Change the Openshift POD limit from 250
   </a>
   
 </li>
@@ -1187,7 +1187,7 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 <h4 id="8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h4>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">add</span><span class="o">-</span><span class="n">icr</span><span class="o">-</span><span class="n">cred</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="k">global</span><span class="o">-</span><span class="n">pull</span><span class="o">-</span><span class="n">secret</span> <span class="o">--</span><span class="n">entitled_registry_key</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">IBM_ENTITLEMENT_KEY</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h4 id="8412-important-change-the-openshift-pod-limit-from-250-to-320">8.4.1.2 Important: Change the Openshift POD limit from 250 to 320<a class="headerlink" href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" title="Permanent link">&para;</a></h4>
+<h4 id="8412-important-change-the-openshift-pod-limit-from-250">8.4.1.2 Important: Change the Openshift POD limit from 250<a class="headerlink" href="#8412-important-change-the-openshift-pod-limit-from-250" title="Permanent link">&para;</a></h4>
 <p>to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
