@@ -250,13 +250,19 @@ oc apply -f - <<EOF
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
-  name: "set-max-pods"
+  name: cp4d-sno-config
 spec:
   machineConfigPoolSelector:
     matchLabels:
-      custom-kubelet: large-pods
+      pools.operator.machineconfiguration.openshift.io/master: ""
   kubeletConfig:
-    maxPods: 320
+    podPidsLimit: 12288
+    allowedUnsafeSysctls:
+      - "kernel.msg*"
+      - "kernel.shm*"
+      - "kernel.sem"
+    podsPerCore: 0
+    maxPods: 500
 EOF
 ```
 #### 8.4.2 Check the Update Rollout
