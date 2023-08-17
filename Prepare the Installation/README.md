@@ -245,24 +245,18 @@ oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worke
 #### 8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
 to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
 ```py linenums="1"
+oc label --overwrite machineconfigpool master custom-kubelet=large-pods
 oc apply -f - <<EOF
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
-  name: max-pods-config
-maxPods: 320
----
-apiVersion: machineconfiguration.openshift.io/v1
-kind: MachineConfigPool
-metadata:
-  name: max-pods
-machineConfigSelector:
-  matchLabels:
-    custom-kubelet: max-pods-config
-nodeSelector:
-  matchLabels:
-    node-role.kubernetes.io/worker: ""
-    node-role.kubernetes.io/master: ""
+  name: "set-max-pods"
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      custom-kubelet: large-pods
+  kubeletConfig:
+    maxPods: 320
 EOF
 ```
 #### 8.4.2 Check the Update Rollout
