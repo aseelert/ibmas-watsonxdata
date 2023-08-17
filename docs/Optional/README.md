@@ -32,3 +32,9 @@ export OCP_TOKEN="$(oc whoami -t)"
 --server=${OCP_URL}
 ```
 If the login with the token is not working, it is possible to execute the command with an user and password instead.
+
+```py linenums="1"
+/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
+--user=${OCP_USERNAME} \
+--password=${OCP_PASSWORD} \
+--server=${OCP_URL}
