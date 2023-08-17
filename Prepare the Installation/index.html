@@ -498,11 +498,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#84-pause-for-the-patches" class="md-nav__link">
-    8.4 pause for the patches
+  <a href="#84-pause-before-apply-the-machinepool-patches" class="md-nav__link">
+    8.4 pause before apply the machinepool patches
   </a>
   
-    <nav class="md-nav" aria-label="8.4 pause for the patches">
+    <nav class="md-nav" aria-label="8.4 pause before apply the machinepool patches">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -520,15 +520,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#842-check-the-update-rollout" class="md-nav__link">
-    8.4.2 Check the Update Rollout
+  <a href="#842-un-pause-for-the-patches" class="md-nav__link">
+    8.4.2 un pause for the patches
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#843-un-pause-for-the-patches" class="md-nav__link">
-    8.4.3 un pause for the patches
+  <a href="#843-check-the-update-rollout" class="md-nav__link">
+    8.4.3 Check the Update Rollout
   </a>
   
 </li>
@@ -829,11 +829,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#84-pause-for-the-patches" class="md-nav__link">
-    8.4 pause for the patches
+  <a href="#84-pause-before-apply-the-machinepool-patches" class="md-nav__link">
+    8.4 pause before apply the machinepool patches
   </a>
   
-    <nav class="md-nav" aria-label="8.4 pause for the patches">
+    <nav class="md-nav" aria-label="8.4 pause before apply the machinepool patches">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -851,15 +851,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#842-check-the-update-rollout" class="md-nav__link">
-    8.4.2 Check the Update Rollout
+  <a href="#842-un-pause-for-the-patches" class="md-nav__link">
+    8.4.2 un pause for the patches
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#843-un-pause-for-the-patches" class="md-nav__link">
-    8.4.3 un pause for the patches
+  <a href="#843-check-the-update-rollout" class="md-nav__link">
+    8.4.3 Check the Update Rollout
   </a>
   
 </li>
@@ -1179,7 +1179,7 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="o">--</span><span class="n">nfs_storageclass_name</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_STORAGE_CLASS</span><span class="p">}</span> \
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="o">--</span><span class="n">nfs_provisioner_image</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">NFS_IMAGE</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="84-pause-for-the-patches">8.4 pause for the patches<a class="headerlink" href="#84-pause-for-the-patches" title="Permanent link">&para;</a></h3>
+<h3 id="84-pause-before-apply-the-machinepool-patches">8.4 pause before apply the machinepool patches<a class="headerlink" href="#84-pause-before-apply-the-machinepool-patches" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
 <span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
@@ -1225,22 +1225,22 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 </span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>    <span class="n">maxPods</span><span class="p">:</span> <span class="mi">500</span>
 </span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="n">EOF</span>
 </span></code></pre></div></td></tr></table></div></p>
-<h4 id="842-check-the-update-rollout">8.4.2 Check the Update Rollout<a class="headerlink" href="#842-check-the-update-rollout" title="Permanent link">&para;</a></h4>
+<h4 id="842-un-pause-for-the-patches">8.4.2 un pause for the patches<a class="headerlink" href="#842-un-pause-for-the-patches" title="Permanent link">&para;</a></h4>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="843-check-the-update-rollout">8.4.3 Check the Update Rollout<a class="headerlink" href="#843-check-the-update-rollout" title="Permanent link">&para;</a></h4>
 <p>When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
-</span></code></pre></div></td></tr></table></div>
-<strong>Output:</strong>
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span>
-<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">NAME</span>     <span class="n">CONFIG</span>                                             <span class="n">UPDATED</span>   <span class="n">UPDATING</span>   <span class="n">DEGRADED</span>   <span class="n">MACHINECOUNT</span>   <span class="n">READYMACHINECOUNT</span>   <span class="n">UPDATEDMACHINECOUNT</span>   <span class="n">DEGRADEDMACHINECOUNT</span>   <span class="n">AGE</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
 </span></code></pre></div></td></tr></table></div></p>
-<h4 id="843-un-pause-for-the-patches">8.4.3 un pause for the patches<a class="headerlink" href="#843-un-pause-for-the-patches" title="Permanent link">&para;</a></h4>
+<p><strong>Output:</strong>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
-<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
-</span></code></pre></div></td></tr></table></div>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">NAME</span>     <span class="n">CONFIG</span>                                             <span class="n">UPDATED</span>   <span class="n">UPDATING</span>   <span class="n">DEGRADED</span>   <span class="n">MACHINECOUNT</span>   <span class="n">READYMACHINECOUNT</span>   <span class="n">UPDATEDMACHINECOUNT</span>   <span class="n">DEGRADEDMACHINECOUNT</span>   <span class="n">AGE</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h4 id="navigation_1">Navigation<a class="headerlink" href="#navigation_1" title="Permanent link">&para;</a></h4>
 <p><a href="../Execute%20the%20Installation%20of%20watsonx.data">Next Chapter: Execute the Installation of watsonx.data</a>  or return to the <a href="../">Introduction</a>.</p>
 
