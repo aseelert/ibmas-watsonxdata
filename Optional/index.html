@@ -584,6 +584,11 @@
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="o">--</span><span class="n">server</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">OCP_URL</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 If the login with the token is not working, it is possible to execute the command with an user and password instead.</p>
+<p>```py linenums="1"
+/root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
+&ndash;user=${OCP_USERNAME} \
+&ndash;password=${OCP_PASSWORD} \
+&ndash;server=${OCP_URL}</p>
 
 
 
