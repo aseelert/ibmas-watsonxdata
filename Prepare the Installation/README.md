@@ -233,7 +233,7 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --nfs_provisioner_image=${NFS_IMAGE}
 ```
 
-### 8.4 pause for the patches
+### 8.4 pause before apply the machinepool patches
 ```py linenums="1"
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
@@ -264,7 +264,13 @@ spec:
     maxPods: 500
 EOF
 ```
-#### 8.4.2 Check the Update Rollout
+#### 8.4.2 un pause for the patches
+```py linenums="1"
+oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
+oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
+```
+
+#### 8.4.3 Check the Update Rollout
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 ```py linenums="1"
 watch oc get mcp
@@ -275,11 +281,6 @@ watch oc get mcp
 NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
 master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
 worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
-```
-#### 8.4.3 un pause for the patches
-```py linenums="1"
-oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
-oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
 ```
 #### Navigation
 [Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
