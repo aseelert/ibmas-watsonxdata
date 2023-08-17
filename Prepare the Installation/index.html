@@ -506,8 +506,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
-    8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  <a href="#8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
+    8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" class="md-nav__link">
+    8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
   </a>
   
 </li>
@@ -830,8 +837,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
-    8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  <a href="#8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" class="md-nav__link">
+    8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" class="md-nav__link">
+    8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
   </a>
   
 </li>
@@ -1170,24 +1184,64 @@ All operators are installed in <strong>watsonxdata1-operator</strong> namespace 
 <span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:true}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
 </span></code></pre></div></td></tr></table></div>
-<h4 id="841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#841-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h4>
+<h4 id="8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images">8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.<a class="headerlink" href="#8411-add-the-pull-secret-to-the-artifactory-that-contains-watsonxdata-images" title="Permanent link">&para;</a></h4>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">add</span><span class="o">-</span><span class="n">icr</span><span class="o">-</span><span class="n">cred</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="k">global</span><span class="o">-</span><span class="n">pull</span><span class="o">-</span><span class="n">secret</span> <span class="o">--</span><span class="n">entitled_registry_key</span><span class="o">=</span><span class="err">$</span><span class="p">{</span><span class="n">IBM_ENTITLEMENT_KEY</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
+<h4 id="8412-important-change-the-openshift-pod-limit-from-250-to-320">8.4.1.2 Important: Change the Openshift POD limit from 250 to 320<a class="headerlink" href="#8412-important-change-the-openshift-pod-limit-from-250-to-320" title="Permanent link">&para;</a></h4>
+<p>to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-20-10">10</a></span>
+<span class="normal"><a href="#__codelineno-20-11">11</a></span>
+<span class="normal"><a href="#__codelineno-20-12">12</a></span>
+<span class="normal"><a href="#__codelineno-20-13">13</a></span>
+<span class="normal"><a href="#__codelineno-20-14">14</a></span>
+<span class="normal"><a href="#__codelineno-20-15">15</a></span>
+<span class="normal"><a href="#__codelineno-20-16">16</a></span>
+<span class="normal"><a href="#__codelineno-20-17">17</a></span>
+<span class="normal"><a href="#__codelineno-20-18">18</a></span>
+<span class="normal"><a href="#__codelineno-20-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">oc</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">apiVersion</span><span class="p">:</span> <span class="n">machineconfiguration</span><span class="o">.</span><span class="n">openshift</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">v1</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">kind</span><span class="p">:</span> <span class="n">KubeletConfig</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">metadata</span><span class="p">:</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a>  <span class="n">name</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">pods</span><span class="o">-</span><span class="n">config</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="n">maxPods</span><span class="p">:</span> <span class="mi">320</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="o">---</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="n">apiVersion</span><span class="p">:</span> <span class="n">machineconfiguration</span><span class="o">.</span><span class="n">openshift</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">v1</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="n">kind</span><span class="p">:</span> <span class="n">MachineConfigPool</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="n">metadata</span><span class="p">:</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a>  <span class="n">name</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">pods</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="n">machineConfigSelector</span><span class="p">:</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13"></a>  <span class="n">matchLabels</span><span class="p">:</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14"></a>    <span class="n">custom</span><span class="o">-</span><span class="n">kubelet</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">pods</span><span class="o">-</span><span class="n">config</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="n">nodeSelector</span><span class="p">:</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16"></a>  <span class="n">matchLabels</span><span class="p">:</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>    <span class="n">node</span><span class="o">-</span><span class="n">role</span><span class="o">.</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">worker</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a>    <span class="n">node</span><span class="o">-</span><span class="n">role</span><span class="o">.</span><span class="n">kubernetes</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">master</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="n">EOF</span>
+</span></code></pre></div></td></tr></table></div></p>
 <h4 id="842-check-the-update-rollout">8.4.2 Check the Update Rollout<a class="headerlink" href="#842-check-the-update-rollout" title="Permanent link">&para;</a></h4>
 <p>When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">watch</span> <span class="n">oc</span> <span class="n">get</span> <span class="n">mcp</span>
 </span></code></pre></div></td></tr></table></div>
 <strong>Output:</strong>
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
-<span class="normal"><a href="#__codelineno-21-2">2</a></span>
-<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">NAME</span>     <span class="n">CONFIG</span>                                             <span class="n">UPDATED</span>   <span class="n">UPDATING</span>   <span class="n">DEGRADED</span>   <span class="n">MACHINECOUNT</span>   <span class="n">READYMACHINECOUNT</span>   <span class="n">UPDATEDMACHINECOUNT</span>   <span class="n">DEGRADEDMACHINECOUNT</span>   <span class="n">AGE</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">NAME</span>     <span class="n">CONFIG</span>                                             <span class="n">UPDATED</span>   <span class="n">UPDATING</span>   <span class="n">DEGRADED</span>   <span class="n">MACHINECOUNT</span>   <span class="n">READYMACHINECOUNT</span>   <span class="n">UPDATEDMACHINECOUNT</span>   <span class="n">DEGRADEDMACHINECOUNT</span>   <span class="n">AGE</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">master</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">2</span><span class="n">df1fc6555c56bbafbc513f89eac366c</span>   <span class="kc">False</span>     <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">1</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">worker</span>   <span class="n">rendered</span><span class="o">-</span><span class="n">worker</span><span class="o">-</span><span class="mi">5920</span><span class="n">c72cbaf105641bbd46b714c4c3ef</span>   <span class="kc">True</span>      <span class="kc">False</span>  <span class="kc">False</span>      <span class="mi">0</span>              <span class="mi">0</span>                   <span class="mi">0</span>                     <span class="mi">0</span>                      <span class="mi">112</span><span class="n">m</span>
 </span></code></pre></div></td></tr></table></div></p>
 <h4 id="843-un-pause-for-the-patches">8.4.3 un pause for the patches<a class="headerlink" href="#843-un-pause-for-the-patches" title="Permanent link">&para;</a></h4>
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">master</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">oc</span> <span class="n">patch</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">merge</span> <span class="o">--</span><span class="n">patch</span><span class="o">=</span><span class="s1">&#39;{&quot;spec&quot;:{&quot;paused&quot;:false}}&#39;</span> <span class="n">machineconfigpool</span><span class="o">/</span><span class="n">worker</span>
 </span></code></pre></div></td></tr></table></div>
 <h4 id="navigation_1">Navigation<a class="headerlink" href="#navigation_1" title="Permanent link">&para;</a></h4>
 <p><a href="../Execute%20the%20Installation%20of%20watsonx.data">Next Chapter: Execute the Installation of watsonx.data</a>  or return to the <a href="../">Introduction</a>.</p>
