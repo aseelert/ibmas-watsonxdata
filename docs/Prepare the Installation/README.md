@@ -238,9 +238,32 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
 ```
-#### 8.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
+#### 8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
+```
+#### 8.4.1.2 Important: Change the Openshift POD limit from 250 to 320
+to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
+```py linenums="1"
+oc apply -f - <<EOF
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: max-pods-config
+maxPods: 320
+---
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata:
+  name: max-pods
+machineConfigSelector:
+  matchLabels:
+    custom-kubelet: max-pods-config
+nodeSelector:
+  matchLabels:
+    node-role.kubernetes.io/worker: ""
+    node-role.kubernetes.io/master: ""
+EOF
 ```
 #### 8.4.2 Check the Update Rollout
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
