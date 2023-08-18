@@ -11,7 +11,7 @@ nav:
   - Part 3 - Installation: 'Execute the Installation of watsonx.data/README.md'
   - Troubleshoot: 'Optional/README.md'
   - Test data: 'Optional/Demo_Connection_Details.md'
-  - Optional: install MiniO: 'Optional/install_minio.md'
+  - Optional - install MiniO: 'Optional/install_minio.md'
   
 # Repository Information
 repo_name: 'alexander/ibmas-watsonxdata'
