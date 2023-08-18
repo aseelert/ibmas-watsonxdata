@@ -15,13 +15,15 @@
         <link rel="canonical" href="https://pages.github.ibm.com/alexander/ibmas-watsonxdata/Optional/install_minio/">
       
       
+        <link rel="prev" href="../Demo_Connection_Details/">
+      
       
       <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/380px-IBM_logo.svg.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Install minio - watsonx.data on a single node cluster</title>
+        <title>Optional - install MiniO - watsonx.data on a single node cluster</title>
       
     
     
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install minio
+              Optional - install MiniO
             
           </span>
         </div>
@@ -334,11 +336,131 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../get_minio_details/" class="md-nav__link">
-        Optional
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Optional - install MiniO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Optional - install MiniO
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-minio-at-redhat" class="md-nav__link">
+    1. Install MinIO at Redhat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-introduction-before-deploy-the-minio-setup" class="md-nav__link">
+    1.1 Introduction before deploy the MinIO setup
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Introduction before deploy the MinIO setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-download-the-specific-release" class="md-nav__link">
+    2. Download the specific release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-extract-the-software" class="md-nav__link">
+    3. Extract the software
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-apply-the-deployment" class="md-nav__link">
+    4. Apply the Deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-patch-the-minio-deployment-to-a-specific-release" class="md-nav__link">
+    4.1 Patch the MinIO Deployment to a specific release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-create-pvcs-for-minio-config-1gb-and-data-100gb" class="md-nav__link">
+    4.2 Create PVCs for MinIO config (1GB) and data (100GB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-apply-the-pvcs-to-the-deployment" class="md-nav__link">
+    4.3 Apply the PVCs to the Deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-set-ressource-limits" class="md-nav__link">
+    4.4 Set ressource limits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-expose-the-service" class="md-nav__link">
+    4.5 Expose the service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-the-connection-and-login" class="md-nav__link">
+    5. Test the connection and login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-optional-good-to-know-how-to-get-the-internal-ibm-lakehouse-minio-information" class="md-nav__link">
+    6. Optional (good to know) how to get the internal IBM Lakehouse MinIO information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -445,6 +567,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-optional-good-to-know-how-to-get-the-internal-ibm-lakehouse-minio-information" class="md-nav__link">
+    6. Optional (good to know) how to get the internal IBM Lakehouse MinIO information
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -468,7 +597,7 @@
   
 
 
-  <h1>Install minio</h1>
+  <h1>Optional - install MiniO</h1>
 
 <h2 id="1-install-minio-at-redhat">1. Install MinIO at Redhat<a class="headerlink" href="#1-install-minio-at-redhat" title="Permanent link">&para;</a></h2>
 <h2 id="11-introduction-before-deploy-the-minio-setup">1.1 Introduction before deploy the MinIO setup<a class="headerlink" href="#11-introduction-before-deploy-the-minio-setup" title="Permanent link">&para;</a></h2>
@@ -610,6 +739,21 @@
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">secret_key</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">oc</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">deployment</span><span class="w"> </span><span class="n">minio</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">velero</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="o">=</span><span class="n">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.template.spec.containers[0].env[?(@.name==&quot;MINIO_SECRET_KEY&quot;)].value}&#39;</span><span class="p">)</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">echo</span><span class="w"> </span><span class="ss">&quot;Hostname: $hostname, Accesskey: $access_key, Secretkey: $secret_key&quot;</span>
 </span></code></pre></div></td></tr></table></div>
+<h3 id="6-optional-good-to-know-how-to-get-the-internal-ibm-lakehouse-minio-information">6. Optional (good to know) how to get the internal IBM Lakehouse MinIO information<a class="headerlink" href="#6-optional-good-to-know-how-to-get-the-internal-ibm-lakehouse-minio-information" title="Permanent link">&para;</a></h3>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">echo</span> <span class="s2">&quot;Access Key:&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.accesskey | base64decode}}&#39;)&quot;</span> \
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;Secret Key:&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template=&#39;{{.data.secretkey | base64decode}}&#39;)&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">Access</span> <span class="n">Key</span><span class="p">:</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="mi">8927889015015009</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">Secret</span> <span class="n">Key</span><span class="p">:</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">wuuIeSjrQyHQbNTX</span>
+</span></code></pre></div></td></tr></table></div>
 
 
 
@@ -631,6 +775,27 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Demo_Connection_Details/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Test data" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Test data
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
