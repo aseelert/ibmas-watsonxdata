@@ -108,3 +108,15 @@ access_key=$(oc get deployment minio -n velero -o=jsonpath='{.spec.template.spec
 secret_key=$(oc get deployment minio -n velero -o=jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="MINIO_SECRET_KEY")].value}')
 echo "Hostname: $hostname, Accesskey: $access_key, Secretkey: $secret_key"
 ```
+
+
+### 6. Optional (good to know) how to get the internal IBM Lakehouse MinIO information
+```py linenums="1"
+echo "Access Key:" && echo "$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template='{{.data.accesskey | base64decode}}')" \
+&& echo "Secret Key:" && echo "$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template='{{.data.secretkey | base64decode}}')"
+ 
+Access Key:
+8927889015015009
+Secret Key:
+wuuIeSjrQyHQbNTX
+```
