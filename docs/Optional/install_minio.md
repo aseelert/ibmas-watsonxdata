@@ -34,7 +34,9 @@ oc apply -f examples/minio/00-minio-deployment.yaml
 ```
 
 ### 4.1 Patch the MinIO Deployment to a specific release
+```pq linenums="1"
 oc set image deployment/minio minio=minio/minio:RELEASE.2021-04-22T15-44-28Z -n velero
+```
 
 ### 4.2 Create PVCs for MinIO config (1GB) and data (100GB)
 ```sql linenums="1"
@@ -68,8 +70,21 @@ EOF
 ```  
 ### 4.3 Apply the PVCs to the Deployment  
 ```sql linenums="1"
-oc set volume deployment.apps/minio --add --overwrite --name=config --mount-path=/config --type=persistentVolumeClaim --claim-name="minio-config-pvc" -n velero
-oc set volume deployment.apps/minio --add --overwrite --name=storage --mount-path=/storage --type=persistentVolumeClaim --claim-name="minio-storage-pvc" -n velero
+oc set volume deployment.apps/minio -n velero \
+  --add \
+  --overwrite \
+  --name=config \
+  --mount-path=/config \
+  --type=persistentVolumeClaim \
+  --claim-name=minio-config-pvc
+
+oc set volume deployment.apps/minio -n velero \
+  --add \
+  --overwrite \
+  --name=storage \
+  --mount-path=/storage \
+  --type=persistentVolumeClaim \
+  --claim-name=minio-storage-pvc
 ```
 ### 4.4 Set ressource limits
 ```sql linenums="1"
@@ -78,7 +93,6 @@ oc set resources deployment minio -n velero --requests=cpu=500m,memory=256Mi --l
 ### 4.5 Expose the service
 ```sql linenums="1"
 oc patch svc minio -n velero --type=json -p '[{"op": "replace", "path": "/spec/ports/0/port", "value": 9077}, {"op": "replace", "path": "/spec/ports/0/name", "value": "ibmas-svc-9077"}]'
-
 ```
 ```sql linenums="1"
 oc expose svc minio -n velero --port=ibmas-svc-9077 --name=minio-route --wildcard-policy=None
