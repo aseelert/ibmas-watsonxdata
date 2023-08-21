@@ -38,15 +38,22 @@ screen -S installwatsonxdata
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage apply-cluster-components
 ```
+**Runtime:** about 1-2min
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage authorize-instance-topology
+```
+**Runtime:** about 1-2min
+```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
 ```
+**Runtime:** about 5min
+
 
 ### 3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage install --license_acceptance=true
 ```
+**Runtime:** about 2,5h
 ## 4. Run the following command to verify whether the catalog source is created.
 ```py linenums="1"
 oc get catalogsource -n ${PROJECT_CPD_OPS}
