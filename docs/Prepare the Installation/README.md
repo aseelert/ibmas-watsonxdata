@@ -272,6 +272,8 @@ oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/work
 
 #### 8.4.3 Check the Update Rollout
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
+
+The Master/Worker nodes will **reboot** once. This task can take about 5-15min. Wait until everything is updated.
 ```py linenums="1"
 watch oc get mcp
 ```
