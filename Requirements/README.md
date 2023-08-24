@@ -8,7 +8,7 @@ In this section, we will cover essential aspects such as provisioning a Red Hat 
 
 Let's begin by exploring the steps involved in meeting these prerequisites and preparing your environment for the installation of watsonx.data.
 
-## 2. Summary for prerequisites
+## 1.2 Summary for prerequisites
 
 Before you begin the installation process, make sure you have the following prerequisites in place:
 
@@ -25,14 +25,14 @@ Before you begin the installation process, make sure you have the following prer
 With these prerequisites fulfilled, you'll be well-equipped to navigate through the installation process smoothly and efficiently.
 
 
-## 3. Useful Links
+## 1.3 Useful Links
 
-### 3.1 Techzone Business Partner Access Information
+### 1.3.1 Techzone Business Partner Access Information
 [![Techzone Business Partner Access Information](https://img.shields.io/badge/Access-Documentation-blue)](https://github.com/IBM/itz-support-public/blob/main/IBM-Technology-Zone/IBM-Technology-Zone-Runbooks/BusinessPartnersAccess.md)
 
 Learn about accessing Techzone as a Business Partner. Business Partners (BPs) Authenticated on IBM Partner Plus (PP) Have Access to IBM Technology Zone Using Their IBM Ids.
 
-### 3.2 Main Installation Documentation: Watson x.data
+### 1.3.2 Main Installation Documentation: Watson x.data
 [![Main Installation Documentation](https://img.shields.io/badge/Documentation-Getting%20Started-blue)](https://www.ibm.com/docs/en/watsonxdata/1.0.x?topic=software-getting-started)
 
 IBM® watsonx.data is a new open architecture lakehouse that combines the elements of the data warehouse and data lakes. The best-in-class features and optimizations available on the watsonx.data make it an optimal choice for next generation data analytics and automation.
@@ -41,9 +41,7 @@ watsonx.data is a unique solution that allows co-existence of open source techno
 
 Use watsonx.data to store any type of data (structured, semi-structured, and unstructured) and make that data accessible directly for Artificial Intelligence (AI) and Business Intelligence (BI). You can also attach your data sources to watsonx.data, which helps to reduce data duplication and cost of storing data in multiple places. It uses open data formats with APIs and machine learning libraries, making it easier for data scientists and data engineers to use the data. watsonx.data architecture enforces schema and data integrity, making it easier to implement robust data security and governance mechanisms.
 
-
-
-### 3.3 Getting an IBM Entitlement Key to Download Installation Images
+### 1.3.3 Getting an IBM Entitlement Key to Download Installation Images
 [![IBM Entitlement Key](https://img.shields.io/badge/Get%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
 
 Obtain an API key to download installation images. Access your container software. With your entitlement key, you can access all of your container software in the IBM Entitled Registry. A complete list of container software that you own can be found in the Container Software Library.
@@ -52,17 +50,17 @@ Use any active entitlement key to log in to the image registry and retrieve any 
 — You can have a maximum of (5) entitlement keys.
 — Once a key is deleted, it is no longer valid.
 
-### 3.4 Original and Main Information about SNO for Cloudpak for Data 
+### 1.3.4 Original and Main Information about SNO for Cloudpak for Data 
 [![Original SNO Information](https://img.shields.io/badge/SNO%20Information-Read%20Here-green)](https://github.ibm.com/claus-huempel/cpd-sno/blob/main/techzone/index.md)
 
 Access the original documentation about a Single Node Openshift Cluster for a Cloudpak for Data Installation.
 
 
-## 4. Important: 
+## 1.4 Important: 
 - request a 32Core x 128GB Memory
 - do not select FIPS (must be disabled)
 
-### 4.1 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
+### 1.5 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
 
 - **Go to** [Single Node OpenShift (VMware on IBM Cloud)](https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa)
 - Click Reserve now

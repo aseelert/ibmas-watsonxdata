@@ -1,4 +1,4 @@
-## 1. Install MinIO at Redhat
+## 1. Install MinIO at Redhat (not yet working)
 
 ## 1.1 Introduction before deploy the MinIO setup
 This guide provides a comprehensive walkthrough on setting up a Minio S3 cluster within the context of an OpenShift environment, specifically tailored for a Single Node OpenShift (SNO) deployment.

@@ -12,7 +12,15 @@ Let's dive into the installation process and embark on the journey to unleash th
 
 
 ## 3.1 Prepare the installation
+[![Linux](https://img.shields.io/badge/Linux-Command-Line-blue)
 The **screen** command is used to manage terminal sessions. To start a new session, use **screen -S session_name**, and to reattach to an existing session, use **screen -r session_name**. You can detach from a session by pressing **Ctrl-a followed by d**, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.
+
+**Example** for this Demo:
+```py linenums="1"
+screen -S installwatsonxdata
+```
+
+**Details:**
 ```py linenums="1"
   screen -S <name> creates a new shell
 ```
@@ -21,10 +29,7 @@ with
   screen -r <name> you can always attach to the shell if you lost the shell
   using **screen -list** you can check for all open shells
 ```
-**Example** we use:
-```py linenums="1"
-screen -S installwatsonxdata
-```
+
 
 ### 3.2 login to the cluster
 ```py linenums="1"
@@ -47,6 +52,7 @@ screen -S installwatsonxdata
 /root/ibm-lh-manage/ibm-lakehouse-manage setup-instance-topology
 ```
 **Runtime:** about 5min
+
 
 ### 3.2.2 Run the following command to install Watsonx.data cartridge (CR) and accept the license agreement:
 ```py linenums="1"

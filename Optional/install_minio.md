@@ -1,4 +1,4 @@
-## 1. Install MinIO at Redhat
+## 1. Install MinIO at Redhat (not yet working)
 
 ## 1.1 Introduction before deploy the MinIO setup
 This guide provides a comprehensive walkthrough on setting up a Minio S3 cluster within the context of an OpenShift environment, specifically tailored for a Single Node OpenShift (SNO) deployment.
@@ -107,4 +107,16 @@ hostname=$(oc get route minio-route -n velero -o=jsonpath='{.spec.host}')
 access_key=$(oc get deployment minio -n velero -o=jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="MINIO_ACCESS_KEY")].value}')
 secret_key=$(oc get deployment minio -n velero -o=jsonpath='{.spec.template.spec.containers[0].env[?(@.name=="MINIO_SECRET_KEY")].value}')
 echo "Hostname: $hostname, Accesskey: $access_key, Secretkey: $secret_key"
+```
+
+
+### 6. Optional (good to know) how to get the internal IBM Lakehouse MinIO information
+```py linenums="1"
+echo "Access Key:" && echo "$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template='{{.data.accesskey | base64decode}}')" \
+&& echo "Secret Key:" && echo "$(oc get secret ibm-zen-objectstore-secret -n $PROJECT_CPD_INSTANCE -o go-template='{{.data.secretkey | base64decode}}')"
+ 
+Access Key:
+8927889015015009
+Secret Key:
+wuuIeSjrQyHQbNTX
 ```

@@ -13,6 +13,10 @@ Now, let's delve into the concept of a bastion node. A bastion node, also known 
 Throughout this chapter, we'll outline the steps required to set up and configure the bastion node within your Red Hat Single Node Cluster, enabling you to establish a secure and manageable environment for your development and testing activities.
 ## 2.1 Prepare the Bastion node for the installer
 
+### 2.1.1 Bastion Node Execution
+[![Linux](https://img.shields.io/badge/Linux-Command-Line-blue)
+As we progress, please note that the upcoming phases of the process will **exclusively take place at the bastion node**. Your involvement is not required for any additional server, local laptop, or client setup. Stay tuned for streamlined execution and seamless progress, all centered around the bastion node.
+
 ## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
 
 After successfully reserving a Red Hat Single Node Cluster (SNO) through TechZone, you can proceed to access important details related to your cluster setup. To retrieve these details, follow these steps:
@@ -50,7 +54,7 @@ Password: yDVe43J8
 ```py linenums="1"
 sudo su -
 ```
-## 3. Install required Redhat base software
+## 2.3 Install required Redhat base software
 Install **NFS** and the **screen** software to set up NFS storage for watsonx.data, facilitating seamless access to storage resources while ensuring security through firewall services. This installation process can be conveniently executed using the screen utility, which operates as a background terminal service. This eliminates the need to append commands with & or utilize nohup, streamlining the configuration process.
 ```py linenums="1"
 yum -y install nfs-utils screen
@@ -66,7 +70,7 @@ systemctl restart nfs-server
 systemctl status nfs-server
 ```
 
-## 4. Install the Cloudpak Installer CLI package
+## 2.4. Install the Cloudpak Installer CLI package
 Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
 ```py linenums="1"
 wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
@@ -76,9 +80,9 @@ rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
-### 4.1  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+### 2.5  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 
-#### 4.1.2 How to Get the OpenShift API URL
+#### 2.5.1 How to Get the OpenShift API URL
 To obtain the API URL of an OpenShift cluster, follow these steps:
 
 1. **Access OpenShift Web Console:** Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.
@@ -93,14 +97,14 @@ By following these steps, you'll be able to retrieve the API URL of your OpenShi
 <img width="383" alt="image" src="https://media.github.ibm.com/user/50903/files/c69cc0b2-016d-4680-b0f0-8f34dbdcdbaa">
 logon to your cluster Desktop/Console URL and check for the cluster informations
 
-#### 4.1.3 Get the IBM Entitlement Key 
+#### 2.5.2 Get the IBM Entitlement Key 
 [![IBM Entitlement Key ](https://img.shields.io/badge/Get%20IBM%20API%20Key-IBM%20Container%20Library-blue)](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA)
 Getting an API key to download the installation images. This API key will provide you access to the IBM Container Library where you can obtain the required installation images.
 Click on the badge above or visit the [IBM Container Library](https://myibm.ibm.com/products-services/containerlibrary?_gl=1*1yebie7*_ga_FYECCCS21D*MTY5MTk5NTI3MC4xMy4xLjE2OTE5OTU0MTIuMC4wLjA) to obtain your API key.
-#### 4.1.4 Configure the data as specified in the TechZone reservation details:
+#### 2.5.3 Configure the data as specified in the TechZone reservation details:
 ```py linenums="1"
 export SNO_API_URL=<API URL>:<PORT>
-export SNO_CLUSTER_ADMIN_PWD=<kubeadmin Password>
+export SNO_CLUSTER_ADMIN_PWD=<kubeadmin Password from reservation details >
 export SNO_IBM_ENTITLEMENT_KEY=<IBM Entitlement Key from section 4.1.3)
 ```
 **Example:**
@@ -110,18 +114,18 @@ export SNO_CLUSTER_ADMIN_PWD=zR6vy-FvZXh-IzfCn-SIG4x
 export SNO_IBM_ENTITLEMENT_KEY=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MDY0NzEzNTksImp0aSI6IjkzNGY1ZjMxNTBjZjRiMjBhNTI0ZTA2MmJkZjNlNmRhIn0
 ```
 
-## 5 Update the hosts for to the API connection string
+## 2.6 Update the hosts for to the API connection string
 ```py linenums="1"
 export SNO_API_HOST=$(echo $SNO_API_URL | sed 's/https:\/\///g' | sed 's/:6443//g')
 echo "192.168.252.1 $SNO_API_HOST" >> /etc/hosts
 ```
 
-### 5.1 Confirm the successful login to the OpenShift cluster.
+### 2.6.1 Confirm the successful login to the OpenShift cluster.
 ```py linenums="1"
 oc login -u kubeadmin -p $SNO_CLUSTER_ADMIN_PWD $SNO_API_URL --insecure-skip-tls-verify
 ```
 
-## 6. Initiate the Environment Setup using the Unix environment to configure the installation settings.
+## 2.7 Initiate the Environment Setup using the Unix environment to configure the installation settings.
 The current version of IBM Lakehouse (watsonx.data) is 1.0.1 this can be change from LH_IMAGE_TAG=latest to LH_IMAGE_TAG=1.0.1. 
 All operators are installed in **watsonxdata1-operator** namespace and the instance itself in **watsonxdata1-instance**. Nothing else needs to be replaced for this demo.
 ```py linenums="1"
@@ -180,13 +184,13 @@ EOF
 ```
 
 
-### 6.1 Activate the settings using the bash shell and source the environment.
+### 2.7.1 Activate the settings using the bash shell and source the environment.
 ```py linenums="1"
 source /root/ibm-lh-manage/ibm-lh-manage.env
 echo "source /root/ibm-lh-manage/ibm-lh-manage.env" >> ~/.bashrc
 ```
 
-## 7.  Pull the watsonx.data ibm-lakehouse-toolbox image.
+## 2.8  Pull the watsonx.data ibm-lakehouse-toolbox image.
 ```py linenums="1"
 $DOCKER_EXE pull $IBM_LH_TOOLBOX
 id=$($DOCKER_EXE create $IBM_LH_TOOLBOX)
@@ -195,7 +199,7 @@ $DOCKER_EXE rm $id
 unset id
 ```
 
-### 7.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
+### 2.8.1 Extract the watsonx.data stand-alone pkg.tar file in to the /tmp directory. Verify that the checksum is correct by comparing the checksum
 ```py linenums="1"
 tar -xf /tmp/pkg.tar -C /tmp
 cat /tmp/opt/bom.txt
@@ -206,24 +210,24 @@ cp /tmp/opt/standalone/ibm-lakehouse-manage /root/ibm-lh-manage
 cp /tmp/opt/standalone/README.txt /root/ibm-lh-manage
 ```
 
-## 8. Run the following command to initialize the ibm-lh-manage-utils container.
+## 2.9 Run the following command to initialize the ibm-lh-manage-utils container.
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage initialize
 ```
 
-### 8.1 validate pod (optional): 
+### 2.9.1 validate pod (optional): 
 ```py linenums="1"
 podman exec -ti ibm-lakehouse-manage-utils bash  
 ```
 
-### 8.2 validate the login: 
+### 2.9.2 validate the login: 
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage login-to-ocp \
 --token=${OCP_TOKEN} \
 --server=${OCP_URL}
 ```
 
-### 8.3 Install NFS Provisioner and create a storage class for Watsonx.data
+### 2.9.3 Install NFS Provisioner and create a storage class for Watsonx.data
 ```py linenums="1"
 ./ibm-lakehouse-manage setup-nfs-provisioner \
 --nfs_server=${NFS_SERVER_LOCATION} \
@@ -233,16 +237,16 @@ podman exec -ti ibm-lakehouse-manage-utils bash
 --nfs_provisioner_image=${NFS_IMAGE}
 ```
 
-### 8.4 pause before apply the machinepool patches
+### 2.9.4 pause before apply the machinepool patches
 ```py linenums="1"
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":true}}' machineconfigpool/worker
 ```
-#### 8.4.1.1 Add the pull secret to the artifactory that contains watsonx.data images.
+#### 2.9.4.1 Add the pull secret to the artifactory that contains watsonx.data images.
 ```py linenums="1"
 /root/ibm-lh-manage/ibm-lakehouse-manage add-icr-cred-to-global-pull-secret --entitled_registry_key=${IBM_ENTITLEMENT_KEY}
 ```
-#### 8.4.1.2 Important: Change the Openshift POD limit from 250
+#### 2.9.4.2 Important: Change the Openshift POD limit from 250
 to avoid temporary issues, such as oc login is not possible anymore, you need to increase the pod limit for this single node cluster.
 ```py linenums="1"
 oc apply -f - <<EOF
@@ -264,13 +268,13 @@ spec:
     maxPods: 500
 EOF
 ```
-#### 8.4.2 un pause for the patches
+#### 2.9.5 un-pause for the patches
 ```py linenums="1"
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/master
 oc patch --type=merge --patch='{"spec":{"paused":false}}' machineconfigpool/worker
 ```
 
-#### 8.4.3 Check the Update Rollout
+#### 2.9.6 Check the Update Rollout
 When the pull secret is created, Red Hat OpenShift propagates it to every node that might take some time to complete. Therefore, wait until the UPDATED column displays True for all the worker nodes in the system config pool before you proceed to the next step.
 
 The Master/Worker nodes will **reboot** once. This task can take about 5-15min. Wait until everything is updated.
@@ -278,11 +282,17 @@ The Master/Worker nodes will **reboot** once. This task can take about 5-15min. 
 watch oc get mcp
 ```
 
-**Output:**
+**Output During update (after 2.9.5 was executed):**
 ```py linenums="1"
 NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
-master   rendered-master-2df1fc6555c56bbafbc513f89eac366c   False     False	 False      1              0                   0                     0                      112m
-worker   rendered-worker-5920c72cbaf105641bbd46b714c4c3ef   True      False	 False      0              0                   0                     0                      112m
+master   rendered-master-59a686ae7586a26ddabf7c8722532916   False     True	 False      1              0                   0                     0                      105m
+worker   rendered-worker-14eed1550f4ee8b059d552a95eb3d320   True      False	 False      0              0                   0                     0                      105m
+```
+**Output successful update :**
+```py linenums="1"
+NAME     CONFIG                                             UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
+master   rendered-master-374accc6a69c33990bbc22a263412dcb   True      False      False      1              1                   1                     0                      108m
+worker   rendered-worker-14eed1550f4ee8b059d552a95eb3d320   True      False	 False      0              0                   0                     0                      108m```
 ```
 #### Navigation
 [Next Chapter: Execute the Installation of watsonx.data](../Execute%20the%20Installation%20of%20watsonx.data)  or return to the [Introduction](../README.md).
