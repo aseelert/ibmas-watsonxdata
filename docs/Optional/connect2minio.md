@@ -16,7 +16,7 @@ Currently **only Firefox** can handle the console via **http** as Chrome and Saf
 http://ibm-lh-lakehouse-minio-svc-watsonxdata1-instance.apps.64e30977c502c400176b4b03.cloud.techzone.ibm.com
 
 #### 1.1.3 Alternative without create a route
-use portforward to the service, so the console is available at http://localhost:9001 via Firefox 
+use portforward to the service, so the console is available at(http://localhost:9001) via Firefox 
 ```py linenums="1"
 kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --address 0.0.0.0 9001:9001
 ```

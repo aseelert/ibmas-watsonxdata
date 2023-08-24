@@ -1,6 +1,6 @@
 ## 1. Demo Data 
 ## 1.1 CSV Demo data
-https://ibm.ent.box.com/v/data-cars-csv
+(https://ibm.ent.box.com/v/data-cars-csv)
 ```sql linenums="1"
 CREATE TABLE "cars" (
 	"Car" VARCHAR,
@@ -15,7 +15,7 @@ CREATE TABLE "cars" (
 );
 ```
 ## 1.2 Parquet data
-https://ibm.ent.box.com/v/ontime-aircraft-id
+(https://ibm.ent.box.com/v/ontime-aircraft-id)
 
 ## 2. external connections
 ### 2.1 AWS S3 
