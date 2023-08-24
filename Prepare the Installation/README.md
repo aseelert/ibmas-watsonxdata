@@ -14,7 +14,6 @@ Throughout this chapter, we'll outline the steps required to set up and configur
 ## 2.1 Prepare the Bastion node for the installer
 
 ### 2.1.1 Bastion Node Execution
-[![Linux](https://img.shields.io/badge/Linux-Command-Line-blue)]
 As we progress, please note that the upcoming phases of the process will **exclusively take place at the bastion node**. Your involvement is not required for any additional server, local laptop, or client setup. Stay tuned for streamlined execution and seamless progress, all centered around the bastion node.
 
 ## 2.2 Accessing Red Hat Single Node Cluster (SNO) Details
