@@ -60,9 +60,9 @@ https://ibm.ent.box.com/v/ontime-aircraft-id
 
 ## 3. Tables details
 
-- (Db2) CUSTOMER: Main customer details, including name, address, and credit card information. This table is hosted in a Db2 Warehouse relational database.
-- (Postgres) CUSTOMER_LOYALTY: Customer loyalty and sales information from 2016 onward. This table is hosted in a PostgreSQL relational database.
-- (AWS S3) CUSTOMER_LOYALTY_HISTORY: Archived customer loyalty information from 2010-2015. This data is stored in a CSV file on Amazon S3 object storage.
+- <span style="color:darkgrenn">(Db2)</span> CUSTOMER: Main customer details, including name, address, and credit card information. This table is hosted in a Db2 Warehouse relational database.
+- <span style="color:purple">(Postgres</span> CUSTOMER_LOYALTY: Customer loyalty and sales information from 2016 onward. This table is hosted in a PostgreSQL relational database.
+- <span style="color:orange">(AWS S3)</span> CUSTOMER_LOYALTY_HISTORY: Archived customer loyalty information from 2010-2015. This data is stored in a CSV file on Amazon S3 object storage.
 	- QUANTITY_SOLD: Change type to INTEGER
 	- SHIPPING_DAYS: Change type to INTEGER
 	- SATISFACTION_RATING: Change type to INTEGER
