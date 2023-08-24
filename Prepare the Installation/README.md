@@ -80,7 +80,7 @@ rm -rf cpd-cli-linux-EE-13.0.1-26
 rm -f cpd-cli-linux-EE-13.0.1.tgz
 ```
 
-### 2.5  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
+## 2.5  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 
 #### 2.5.1 How to Get the OpenShift API URL
 To obtain the API URL of an OpenShift cluster, follow these steps:

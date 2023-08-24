@@ -98,11 +98,11 @@ CPD Url: cpd-watsonxdata1-instance.apps.64da1ffc1bedbf00175f38c9.cloud.techzone.
 CPD Username: admin
 CPD Password: 5SieL9rI6NFS
 ```
-### 3.4 Get the watsonx.data external URL
+## 3.4 Get the watsonx.data external URL
 ```py linenums="1"
 oc get routes -A | grep cpd | awk '{print "https://" $3}'
 ```
-### 3.5 Validate Memory
+## 3.5 Validate Memory
 ```py linenums="1"
 oc adm top node
 ```
