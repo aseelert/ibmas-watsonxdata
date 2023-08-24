@@ -13,7 +13,7 @@ CREATE TABLE "cars" (
 	"Model" INT,
 	"Origin" VARCHAR
 );
-``````
+```
 ## 1.2 Parquet data
 https://ibm.ent.box.com/v/ontime-aircraft-id
 
