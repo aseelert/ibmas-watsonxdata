@@ -1,5 +1,8 @@
 # ibmas-watsonxdata
 
+![Watson X_Banner](https://media.github.ibm.com/user/50903/files/93335a66-22d9-4904-8c80-8c16f9924701)
+
+
 Please visit: https://pages.github.ibm.com/alexander/ibmas-watsonxdata for a better style.
 
 Welcome to the GitHub documentation for setting up a Red Hat Single Node Cluster! 
