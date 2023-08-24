@@ -363,37 +363,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
-    4. Run the following command to verify whether the catalog source is created.
+  <a href="#33-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
+    3.3 Run the following command to verify whether the catalog source is created.
   </a>
   
-    <nav class="md-nav" aria-label="4. Run the following command to verify whether the catalog source is created.">
+    <nav class="md-nav" aria-label="3.3 Run the following command to verify whether the catalog source is created.">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-verify-the-cr-status-run-the-following-command" class="md-nav__link">
-    4.1 Verify the CR status. Run the following command:
+  <a href="#331-verify-the-cr-status-run-the-following-command" class="md-nav__link">
+    3.3.1 Verify the CR status. Run the following command:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
-    4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
+  <a href="#332-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
+    3.3.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#421-get-the-watsonxdata-external-url" class="md-nav__link">
-    4.2.1 Get the watsonx.data external URL
+  <a href="#34-get-the-watsonxdata-external-url" class="md-nav__link">
+    3.4 Get the watsonx.data external URL
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-validate-memory" class="md-nav__link">
-    5. Validate Memory
+  <a href="#35-validate-memory" class="md-nav__link">
+    3.5 Validate Memory
   </a>
   
 </li>
@@ -517,37 +517,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
-    4. Run the following command to verify whether the catalog source is created.
+  <a href="#33-run-the-following-command-to-verify-whether-the-catalog-source-is-created" class="md-nav__link">
+    3.3 Run the following command to verify whether the catalog source is created.
   </a>
   
-    <nav class="md-nav" aria-label="4. Run the following command to verify whether the catalog source is created.">
+    <nav class="md-nav" aria-label="3.3 Run the following command to verify whether the catalog source is created.">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-verify-the-cr-status-run-the-following-command" class="md-nav__link">
-    4.1 Verify the CR status. Run the following command:
+  <a href="#331-verify-the-cr-status-run-the-following-command" class="md-nav__link">
+    3.3.1 Verify the CR status. Run the following command:
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
-    4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
+  <a href="#332-get-the-login-credentials-to-access-ibm-cockpit-url-zen" class="md-nav__link">
+    3.3.2 Get the Login credentials to access IBM Cockpit URL (ZEN)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#421-get-the-watsonxdata-external-url" class="md-nav__link">
-    4.2.1 Get the watsonx.data external URL
+  <a href="#34-get-the-watsonxdata-external-url" class="md-nav__link">
+    3.4 Get the watsonx.data external URL
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-validate-memory" class="md-nav__link">
-    5. Validate Memory
+  <a href="#35-validate-memory" class="md-nav__link">
+    3.5 Validate Memory
   </a>
   
 </li>
@@ -583,16 +583,18 @@
 <p>By following the instructions outlined in this chapter, you will gain practical insights into provisioning the necessary resources, configuring the environment, and executing the installation process step by step. Our goal is to empower you with the knowledge and confidence to effectively set up the WatsonX Data application, enhancing your data-related capabilities within your Red Hat Single Node Cluster.</p>
 <p>Let's dive into the installation process and embark on the journey to unleash the full potential of IBM WatsonX Data within your cluster environment.</p>
 <h2 id="31-prepare-the-installation">3.1 Prepare the installation<a class="headerlink" href="#31-prepare-the-installation" title="Permanent link">&para;</a></h2>
-<p>The <strong>screen</strong> command is used to manage terminal sessions. To start a new session, use <strong>screen -S session_name</strong>, and to reattach to an existing session, use <strong>screen -r session_name</strong>. You can detach from a session by pressing <strong>Ctrl-a followed by d</strong>, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>  <span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">creates</span> <span class="n">a</span> <span class="n">new</span> <span class="n">shell</span>
+<p>[<img alt="Linux" src="https://img.shields.io/badge/Linux-Command-Line-blue" />
+The <strong>screen</strong> command is used to manage terminal sessions. To start a new session, use <strong>screen -S session_name</strong>, and to reattach to an existing session, use <strong>screen -r session_name</strong>. You can detach from a session by pressing <strong>Ctrl-a followed by d</strong>, and reattach using the reattach command. This enables you to run processes in the background, detach and reattach as needed.</p>
+<p><strong>Example</strong> for this Demo:
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">installwatsonxdata</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p><strong>Details:</strong>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>  <span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">creates</span> <span class="n">a</span> <span class="n">new</span> <span class="n">shell</span>
 </span></code></pre></div></td></tr></table></div>
 with 
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>  <span class="n">screen</span> <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">always</span> <span class="n">attach</span> <span class="n">to</span> <span class="n">the</span> <span class="n">shell</span> <span class="k">if</span> <span class="n">you</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">shell</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span class="n">using</span> <span class="o">**</span><span class="n">screen</span> <span class="o">-</span><span class="nb">list</span><span class="o">**</span> <span class="n">you</span> <span class="n">can</span> <span class="n">check</span> <span class="k">for</span> <span class="nb">all</span> <span class="nb">open</span> <span class="n">shells</span>
-</span></code></pre></div></td></tr></table></div>
-<strong>Example</strong> we use:
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">installwatsonxdata</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>  <span class="n">screen</span> <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">you</span> <span class="n">can</span> <span class="n">always</span> <span class="n">attach</span> <span class="n">to</span> <span class="n">the</span> <span class="n">shell</span> <span class="k">if</span> <span class="n">you</span> <span class="n">lost</span> <span class="n">the</span> <span class="n">shell</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span class="n">using</span> <span class="o">**</span><span class="n">screen</span> <span class="o">-</span><span class="nb">list</span><span class="o">**</span> <span class="n">you</span> <span class="n">can</span> <span class="n">check</span> <span class="k">for</span> <span class="nb">all</span> <span class="nb">open</span> <span class="n">shells</span>
 </span></code></pre></div></td></tr></table></div></p>
 <h3 id="32-login-to-the-cluster">3.2 login to the cluster<a class="headerlink" href="#32-login-to-the-cluster" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
@@ -617,7 +619,7 @@ with
 <p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">install</span> <span class="o">--</span><span class="n">license_acceptance</span><span class="o">=</span><span class="n">true</span>
 </span></code></pre></div></td></tr></table></div>
 <strong>Runtime:</strong> about 2,5h</p>
-<h2 id="4-run-the-following-command-to-verify-whether-the-catalog-source-is-created">4. Run the following command to verify whether the catalog source is created.<a class="headerlink" href="#4-run-the-following-command-to-verify-whether-the-catalog-source-is-created" title="Permanent link">&para;</a></h2>
+<h2 id="33-run-the-following-command-to-verify-whether-the-catalog-source-is-created">3.3 Run the following command to verify whether the catalog source is created.<a class="headerlink" href="#33-run-the-following-command-to-verify-whether-the-catalog-source-is-created" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
@@ -626,7 +628,7 @@ with
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">oc</span> <span class="n">get</span> <span class="n">po</span> <span class="o">-</span><span class="n">n</span> <span class="n">ibm</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="n">manager</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">oc</span> <span class="n">get</span> <span class="n">po</span> <span class="o">-</span><span class="n">n</span> <span class="n">ibm</span><span class="o">-</span><span class="n">licensing</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="41-verify-the-cr-status-run-the-following-command">4.1 Verify the CR status. Run the following command:<a class="headerlink" href="#41-verify-the-cr-status-run-the-following-command" title="Permanent link">&para;</a></h3>
+<h3 id="331-verify-the-cr-status-run-the-following-command">3.3.1 Verify the CR status. Run the following command:<a class="headerlink" href="#331-verify-the-cr-status-run-the-following-command" title="Permanent link">&para;</a></h3>
 <p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">get</span><span class="o">-</span><span class="n">cr</span><span class="o">-</span><span class="n">status</span>
 </span></code></pre></div></td></tr></table></div>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
@@ -648,7 +650,7 @@ with
 <span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">VERSION</span>   <span class="n">STATUS</span>      <span class="n">BUILD</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="mf">1.0.1</span>     <span class="n">Completed</span>   <span class="n">IBM</span> <span class="n">watsonx</span><span class="o">.</span><span class="n">data</span> <span class="n">operator</span> <span class="mf">1.0.1</span> <span class="n">build</span> <span class="n">number</span> <span class="n">v1</span><span class="mf">.0.1</span><span class="o">-</span><span class="mi">1054</span><span class="o">-</span><span class="mi">20230721</span><span class="o">-</span><span class="mi">214944</span><span class="o">-</span><span class="n">onprem</span><span class="o">-</span><span class="n">v1</span><span class="mf">.0.1</span>
 </span></code></pre></div></td></tr></table></div></p>
-<h3 id="42-get-the-login-credentials-to-access-ibm-cockpit-url-zen">4.2 Get the Login credentials to access IBM Cockpit URL (ZEN)<a class="headerlink" href="#42-get-the-login-credentials-to-access-ibm-cockpit-url-zen" title="Permanent link">&para;</a></h3>
+<h3 id="332-get-the-login-credentials-to-access-ibm-cockpit-url-zen">3.3.2 Get the Login credentials to access IBM Cockpit URL (ZEN)<a class="headerlink" href="#332-get-the-login-credentials-to-access-ibm-cockpit-url-zen" title="Permanent link">&para;</a></h3>
 <p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">manage</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">manage</span> <span class="n">get</span><span class="o">-</span><span class="n">cpd</span><span class="o">-</span><span class="n">instance</span><span class="o">-</span><span class="n">details</span>
 </span></code></pre></div></td></tr></table></div>
 <strong>Example</strong>
@@ -658,10 +660,10 @@ with
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">CPD</span> <span class="n">Username</span><span class="p">:</span> <span class="n">admin</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">CPD</span> <span class="n">Password</span><span class="p">:</span> <span class="mi">5</span><span class="n">SieL9rI6NFS</span>
 </span></code></pre></div></td></tr></table></div></p>
-<h3 id="421-get-the-watsonxdata-external-url">4.2.1 Get the watsonx.data external URL<a class="headerlink" href="#421-get-the-watsonxdata-external-url" title="Permanent link">&para;</a></h3>
+<h3 id="34-get-the-watsonxdata-external-url">3.4 Get the watsonx.data external URL<a class="headerlink" href="#34-get-the-watsonxdata-external-url" title="Permanent link">&para;</a></h3>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">oc</span> <span class="n">get</span> <span class="n">routes</span> <span class="o">-</span><span class="n">A</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">cpd</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print &quot;https://&quot; $3}&#39;</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="5-validate-memory">5. Validate Memory<a class="headerlink" href="#5-validate-memory" title="Permanent link">&para;</a></h3>
+<h3 id="35-validate-memory">3.5 Validate Memory<a class="headerlink" href="#35-validate-memory" title="Permanent link">&para;</a></h3>
 <p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">oc</span> <span class="n">adm</span> <span class="n">top</span> <span class="n">node</span>
 </span></code></pre></div></td></tr></table></div>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
