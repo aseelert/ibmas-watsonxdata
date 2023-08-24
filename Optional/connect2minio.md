@@ -25,8 +25,10 @@ kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --a
 If you are connected via a Mac Client, you need to **tunnel the port 9001** for the console. You can do this directly with the SSH terminal session.
 ```py linenums="1"
 ssh -L 9001:localhost:9001 admin@api.64e30977c503c400176b4b03.cloud.techzone.ibm.com -p 40222
+sudo su - 
 kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --address 0.0.0.0 9001:9001
 ```
+[http://localhost:9001](http://localhost:9001) via Firefox
 
 
 
