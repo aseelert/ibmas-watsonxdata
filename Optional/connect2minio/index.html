@@ -397,6 +397,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#114-if-you-are-connected-via-a-localhost-mac-to-bastion-node" class="md-nav__link">
+    1.1.4 If you are connected via a localhost (Mac) to Bastion Node
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -476,6 +483,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#114-if-you-are-connected-via-a-localhost-mac-to-bastion-node" class="md-nav__link">
+    1.1.4 If you are connected via a localhost (Mac) to Bastion Node
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -529,27 +543,34 @@
 <p>Currently <strong>only Firefox</strong> can handle the console via <strong>http</strong> as Chrome and Safari will switch to <strong>https</strong> which is currently not working.
 http://ibm-lh-lakehouse-minio-svc-watsonxdata1-instance.apps.64e30977c502c400176b4b03.cloud.techzone.ibm.com</p>
 <h4 id="113-alternative-without-create-a-route">1.1.3 Alternative without create a route<a class="headerlink" href="#113-alternative-without-create-a-route" title="Permanent link">&para;</a></h4>
-<p>use portforward to the service, so the console is available at(http://localhost:9001) via Firefox 
+<p>use portforward to the service, so the console is available at http://localhost:9001 via Firefox 
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">svc</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">minio</span><span class="o">-</span><span class="n">svc</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">PROJECT_CPD_INSTANCE</span> <span class="o">--</span><span class="n">address</span> <span class="mf">0.0.0.0</span> <span class="mi">9001</span><span class="p">:</span><span class="mi">9001</span>
 </span></code></pre></div></td></tr></table></div></p>
+<h4 id="114-if-you-are-connected-via-a-localhost-mac-to-bastion-node">1.1.4 If you are connected via a localhost (Mac) to Bastion Node<a class="headerlink" href="#114-if-you-are-connected-via-a-localhost-mac-to-bastion-node" title="Permanent link">&para;</a></h4>
+<p>If you are connected via a Mac Client, you need to <strong>tunnel the port 9001</strong> for the console. You can do this directly with the SSH terminal session.
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">ssh</span> <span class="o">-</span><span class="n">L</span> <span class="mi">9001</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span> <span class="n">admin</span><span class="nd">@api</span><span class="mf">.64e30977</span><span class="n">c503c400176b4b03</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">techzone</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span> <span class="o">-</span><span class="n">p</span> <span class="mi">40222</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">svc</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">lakehouse</span><span class="o">-</span><span class="n">minio</span><span class="o">-</span><span class="n">svc</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">PROJECT_CPD_INSTANCE</span> <span class="o">--</span><span class="n">address</span> <span class="mf">0.0.0.0</span> <span class="mi">9001</span><span class="p">:</span><span class="mi">9001</span>
+</span></code></pre></div></td></tr></table></div>
+<a href="http://localhost:9001">http://localhost:9001</a> via Firefox</p>
 <h3 id="12-get-the-internal-ibm-lakehouse-minio-information">1.2 get the internal IBM Lakehouse MinIO information<a class="headerlink" href="#12-get-the-internal-ibm-lakehouse-minio-information" title="Permanent link">&para;</a></h3>
 <p>Get the S3 secrets to connect to the MinIO console:
 <strong>LH_S3_ACCESS_KEY and LH_S3_SECRET_KEY</strong>
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span>
-<span class="normal"><a href="#__codelineno-3-7">7</a></span>
-<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Fetch the secret data using kubectl and store it in a variable</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">SECRET_DATA</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">secret</span> <span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">secret</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">PROJECT_CPD_INSTANCE</span> <span class="o">-</span><span class="n">o</span> <span class="n">json</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Extract the data fields and decode them from base64</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">ENV_PROPERTIES</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.&quot;env.properties&quot;&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Print the formatted data</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">echo</span> <span class="s2">&quot;env.properties: $ENV_PROPERTIES&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;LH_S3_&quot;</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Fetch the secret data using kubectl and store it in a variable</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">SECRET_DATA</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">secret</span> <span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">secret</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">PROJECT_CPD_INSTANCE</span> <span class="o">-</span><span class="n">o</span> <span class="n">json</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Extract the data fields and decode them from base64</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">ENV_PROPERTIES</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.&quot;env.properties&quot;&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Print the formatted data</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">echo</span> <span class="s2">&quot;env.properties: $ENV_PROPERTIES&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;LH_S3_&quot;</span>
 </span></code></pre></div></td></tr></table></div></p>
 
 
