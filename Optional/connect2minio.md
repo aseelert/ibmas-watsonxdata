@@ -21,6 +21,14 @@ use portforward to the service, so the console is available at http://localhost:
 kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --address 0.0.0.0 9001:9001
 ```
 
+#### 1.1.4 If you are connected via a localhost (Mac) to Bastion Node
+If you are connected via a Mac Client, you need to **tunnel the port 9001** for the console. You can do this directly with the SSH terminal session.
+```py linenums="1"
+ssh -L 9001:localhost:9001 admin@api.64e30977c503c400176b4b03.cloud.techzone.ibm.com -p 40222
+kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --address 0.0.0.0 9001:9001
+```
+
+
 
 ### 1.2 get the internal IBM Lakehouse MinIO information
 Get the S3 secrets to connect to the MinIO console:
