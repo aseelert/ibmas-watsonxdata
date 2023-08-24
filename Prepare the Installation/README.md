@@ -70,7 +70,7 @@ systemctl restart nfs-server
 systemctl status nfs-server
 ```
 
-## 2.4. Install the Cloudpak Installer CLI package
+## 2.4 Install the Cloudpak Installer CLI package
 Stay up to date with the latest version of the IBM Installer by visiting the official GitHub repository at https://github.com/IBM/cpd-cli/releases. This ensures that you have access to the most current features and enhancements for a seamless installation experience.
 ```py linenums="1"
 wget https://github.com/IBM/cpd-cli/releases/download/v13.0.1/cpd-cli-linux-EE-13.0.1.tgz
@@ -82,7 +82,7 @@ rm -f cpd-cli-linux-EE-13.0.1.tgz
 
 ## 2.5  Retrieve the API connection string for accessing OpenShift by obtaining the Red Hat HTTPS API URL.
 
-#### 2.5.1 How to Get the OpenShift API URL
+### 2.5.1 How to Get the OpenShift API URL
 To obtain the API URL of an OpenShift cluster, follow these steps:
 
 1. **Access OpenShift Web Console:** Open a web browser (Chrome is recommended) and navigate to the OpenShift Web Console. This typically involves entering the URL provided by your cluster administrator.
