@@ -534,39 +534,22 @@ http://ibm-lh-lakehouse-minio-svc-watsonxdata1-instance.apps.64e30977c502c400176
 </span></code></pre></div></td></tr></table></div></p>
 <h3 id="12-get-the-internal-ibm-lakehouse-minio-information">1.2 get the internal IBM Lakehouse MinIO information<a class="headerlink" href="#12-get-the-internal-ibm-lakehouse-minio-information" title="Permanent link">&para;</a></h3>
 <p>Get the S3 secrets to connect to the MinIO console:
-<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span>
-<span class="normal"><a href="#__codelineno-3-12">12</a></span>
-<span class="normal"><a href="#__codelineno-3-13">13</a></span>
-<span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span>
-<span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">SECRET_NAME</span><span class="o">=</span><span class="s2">&quot;ibm-lh-config-secret&quot;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;watsonxdata1-instance&quot;</span>
+<strong>LH_S3_ACCESS_KEY and LH_S3_SECRET_KEY</strong>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Fetch the secret data using kubectl and store it in a variable</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">SECRET_DATA</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">secret</span> <span class="n">ibm</span><span class="o">-</span><span class="n">lh</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">secret</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">PROJECT_CPD_INSTANCE</span> <span class="o">-</span><span class="n">o</span> <span class="n">json</span><span class="p">)</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Fetch the secret data using kubectl and store it in a variable</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">SECRET_DATA</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">kubectl</span> <span class="n">get</span> <span class="n">secret</span> <span class="err">$</span><span class="n">SECRET_NAME</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="n">NAMESPACE</span> <span class="o">-</span><span class="n">o</span> <span class="n">json</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Extract the data fields and decode them from base64</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">ENV_PROPERTIES</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.&quot;env.properties&quot;&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Extract the data fields and decode them from base64</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">LH_INSTANCE_SECRET</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.LH_INSTANCE_SECRET&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">LH_KEYSTORE_PASSWORD</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.LH_KEYSTORE_PASSWORD&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.POSTGRES_PASSWORD&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">ENV_PROPERTIES</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="n">echo</span> <span class="err">$</span><span class="n">SECRET_DATA</span> <span class="o">|</span> <span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="s1">&#39;.data.&quot;env.properties&quot;&#39;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># Print the formatted data</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">echo</span> <span class="s2">&quot;LH_INSTANCE_SECRET: $LH_INSTANCE_SECRET&quot;</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">echo</span> <span class="s2">&quot;LH_KEYSTORE_PASSWORD: $LH_KEYSTORE_PASSWORD&quot;</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="n">echo</span> <span class="s2">&quot;POSTGRES_PASSWORD: $POSTGRES_PASSWORD&quot;</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="n">echo</span> <span class="s2">&quot;env.properties: $ENV_PROPERTIES&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Print the formatted data</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">echo</span> <span class="s2">&quot;env.properties: $ENV_PROPERTIES&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&quot;LH_S3_&quot;</span>
 </span></code></pre></div></td></tr></table></div></p>
 
 
