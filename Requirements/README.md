@@ -60,7 +60,7 @@ Access the original documentation about a Single Node Openshift Cluster for a Cl
 - request a 32Core x 128GB Memory
 - do not select FIPS (must be disabled)
 
-### 1.5 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
+## 1.5 To start with the Installation you need to request a Single Node Cluster Instance at IBM Techzone:
 
 - **Go to** [Single Node OpenShift (VMware on IBM Cloud)](https://techzone.ibm.com/my/reservations/create/6495f9f85c870e00179901fa)
 - Click Reserve now
