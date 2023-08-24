@@ -24,22 +24,14 @@ kubectl port-forward svc/ibm-lh-lakehouse-minio-svc -n $PROJECT_CPD_INSTANCE --a
 
 ### 1.2 get the internal IBM Lakehouse MinIO information
 Get the S3 secrets to connect to the MinIO console:
+**LH_S3_ACCESS_KEY and LH_S3_SECRET_KEY**
 ```py linenums="1"
-SECRET_NAME="ibm-lh-config-secret"
-NAMESPACE="watsonxdata1-instance"
-
 # Fetch the secret data using kubectl and store it in a variable
-SECRET_DATA=$(kubectl get secret $SECRET_NAME -n $NAMESPACE -o json)
+SECRET_DATA=$(kubectl get secret ibm-lh-config-secret -n $PROJECT_CPD_INSTANCE -o json)
 
 # Extract the data fields and decode them from base64
-LH_INSTANCE_SECRET=$(echo $SECRET_DATA | jq -r '.data.LH_INSTANCE_SECRET' | base64 -d)
-LH_KEYSTORE_PASSWORD=$(echo $SECRET_DATA | jq -r '.data.LH_KEYSTORE_PASSWORD' | base64 -d)
-POSTGRES_PASSWORD=$(echo $SECRET_DATA | jq -r '.data.POSTGRES_PASSWORD' | base64 -d)
 ENV_PROPERTIES=$(echo $SECRET_DATA | jq -r '.data."env.properties"' | base64 -d)
 
 # Print the formatted data
-echo "LH_INSTANCE_SECRET: $LH_INSTANCE_SECRET"
-echo "LH_KEYSTORE_PASSWORD: $LH_KEYSTORE_PASSWORD"
-echo "POSTGRES_PASSWORD: $POSTGRES_PASSWORD"
-echo "env.properties: $ENV_PROPERTIES"
+echo "env.properties: $ENV_PROPERTIES" | grep "LH_S3_"
 ```
