@@ -10,7 +10,6 @@ nav:
   - Part 2 - Preparation: 'Prepare the Installation/README.md'
   - Part 3 - Installation: 'Execute the Installation of watsonx.data/README.md'
   - Troubleshoot: 'Optional/README.md'
-  - Test data: 'Optional/Demo_Connection_Details.md'
   - Optional - Connect to MiniO: 'Optional/connect2minio.md'
   
 # Repository Information
